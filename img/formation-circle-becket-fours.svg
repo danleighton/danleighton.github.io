@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="340" viewBox="0 0 340 340">
+  <style>
+    .outer { fill:#f9f9f9; stroke:#555; stroke-width:2; }
+    .person { fill:#ffffff; stroke:#000000; stroke-width:1.5; }
+    .label { font-family: -apple-system, system-ui, sans-serif; font-size:11px; text-anchor:middle; dominant-baseline:middle; }
+    .title { font-family: -apple-system, system-ui, sans-serif; font-size:14px; text-anchor:middle; }
+    .arrow { stroke:#000; stroke-width:1.5; marker-end:url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="#000" />
+    </marker>
+  </defs>
+
+  <!-- Big circle -->
+  <circle class="outer" cx="170" cy="170" r="130" fill="none"/>
+
+  <!-- Title -->
+  <text class="title" x="170" y="24">Circle Becket (in fours)</text>
+
+  <!-- Inner couple (facing out) -->
+  <circle class="person" cx="150" cy="130" r="12"/>
+  <text class="label" x="150" y="130">P1</text>
+
+  <circle class="person" cx="190" cy="130" r="12"/>
+  <text class="label" x="190" y="130">P2</text>
+
+  <!-- Arrow showing they face outwards -->
+  <line class="arrow" x1="170" y1="130" x2="170" y2="80"/>
+
+  <text class="label" x="170" y="66">Facing out</text>
+
+  <!-- Outer couple (facing in) -->
+  <circle class="person" cx="150" cy="230" r="12"/>
+  <text class="label" x="150" y="230">P1</text>
+
+  <circle class="person" cx="190" cy="230" r="12"/>
+  <text class="label" x="190" y="230">P2</text>
+
+  <!-- Arrow showing they face inwards -->
+  <line class="arrow" x1="170" y1="230" x2="170" y2="280"/>
+
+  <text class="label" x="170" y="294">Facing in</text>
+
+  <!-- Direction of travel around the circle -->
+  <path d="M 250 170 A 80 80 0 0 1 170 250" fill="none" class="arrow"/>
+  <text class="label" x="243" y="210">Around the set</text>
+</svg>
