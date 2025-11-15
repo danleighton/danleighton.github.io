@@ -38,31 +38,6 @@ main {
   min-height: calc(100vh - 100px);
 }
 
-#dance-list {
-  flex: 0 0 200px;
-  border-right: 1px solid #ddd;
-  padding: 0.5rem;
-  overflow-y: auto;
-  background: #fafafa;
-}
-
-.dance-list-item {
-  display: block;
-  width: 100%;
-  text-align: left;
-  margin-bottom: 0.25rem;
-  padding: 0.35rem 0.5rem;
-  border: 1px solid #ddd;
-  background: #fff;
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
-.dance-list-item.active {
-  background: #003b6f;
-  color: #fff;
-}
-
 #dance-view {
   flex: 1 1 auto;
   padding: 0.75rem 1rem;
@@ -71,6 +46,7 @@ main {
 
 #view-toggles {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -80,8 +56,8 @@ main {
   padding: 0.25rem 0.5rem;
 }
 
-#dance-details h2 {
-  margin-top: 0;
+#dance-title h2 {
+  margin: 0 0 0.3rem 0;
 }
 
 .meta p {
@@ -114,14 +90,13 @@ main {
   font-size: 0.9rem;
 }
 
-#diagrams-wrapper {
+#formation-diagram-wrapper,
+#dance-diagram-wrapper {
   margin-top: 0.75rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
 }
 
-#diagrams-wrapper h3 {
+#formation-diagram h3,
+#dance-diagram h3 {
   margin-top: 0;
   font-size: 0.9rem;
 }
@@ -154,17 +129,5 @@ main {
 @media (max-width: 700px) {
   main {
     flex-direction: column;
-  }
-  #dance-list {
-    flex: 0 0 auto;
-    display: flex;
-    overflow-x: auto;
-    overflow-y: visible;
-    border-right: none;
-    border-bottom: 1px solid #ddd;
-  }
-  .dance-list-item {
-    width: auto;
-    white-space: nowrap;
   }
 }
