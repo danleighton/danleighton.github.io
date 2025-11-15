@@ -109,7 +109,7 @@ function getFormationForDance(d) {
   let match = formations.find(f => normaliseFormationString(f.name) === target);
   if (match) return match;
 
-  // 2) loose substring match (helps with slightly different wording)
+  // 2) loose substring match (helps while dances.json is dirty)
   match = formations.find(f => {
     const fName = normaliseFormationString(f.name);
     return fName.includes(target) || target.includes(fName);
@@ -433,22 +433,51 @@ function populateFilterOptions() {
   const barsSelect = document.getElementById('filter-bars');
   const musicTypeSelect = document.getElementById('filter-music-type');
 
+  // Formation filter: driven from formations.json
   if (formationSelect) {
-    const seen = new Set();
-    dances.forEach(d => {
-      const f = d.formationName || '';
-      if (!f) return;
-      if (seen.has(f)) return;
-      seen.add(f);
+    const currentValue = formationSelect.value;
+    // assume first option is the blank "Any formation"
+    const first = formationSelect.querySelector('option:first-child');
+    formationSelect.innerHTML = '';
+    if (first) {
+      formationSelect.appendChild(first);
+    } else {
+      const anyOpt = document.createElement('option');
+      anyOpt.value = '';
+      anyOpt.textContent = 'Any formation';
+      formationSelect.appendChild(anyOpt);
+    }
+
+    formations.forEach(f => {
+      if (!f || !f.id) return;
       const opt = document.createElement('option');
-      opt.value = f;
-      opt.textContent = f;
+      opt.value = f.id;          // key is the formation id
+      opt.textContent = f.name;  // label is the canonical name
       formationSelect.appendChild(opt);
     });
+
+    // try to preserve selection if still valid
+    if (currentValue && formations.some(f => f.id === currentValue)) {
+      formationSelect.value = currentValue;
+    } else {
+      formationSelect.value = '';
+    }
   }
 
+  // Bars filter still inferred from dances for now
   if (barsSelect) {
     const seen = new Set();
+    // preserve first option
+    const first = barsSelect.querySelector('option:first-child');
+    barsSelect.innerHTML = '';
+    if (first) {
+      barsSelect.appendChild(first);
+    } else {
+      const anyOpt = document.createElement('option');
+      anyOpt.value = '';
+      anyOpt.textContent = 'Any bars';
+      barsSelect.appendChild(anyOpt);
+    }
     dances.forEach(d => {
       const bars = d.structure && typeof d.structure.barsPerPart === 'number'
         ? d.structure.barsPerPart
@@ -463,8 +492,19 @@ function populateFilterOptions() {
     });
   }
 
+  // Music type filter still inferred from dances
   if (musicTypeSelect) {
     const seen = new Set();
+    const first = musicTypeSelect.querySelector('option:first-child');
+    musicTypeSelect.innerHTML = '';
+    if (first) {
+      musicTypeSelect.appendChild(first);
+    } else {
+      const anyOpt = document.createElement('option');
+      anyOpt.value = '';
+      anyOpt.textContent = 'Any music type';
+      musicTypeSelect.appendChild(anyOpt);
+    }
     dances.forEach(d => {
       const m = d.musicType || '';
       if (!m) return;
@@ -493,7 +533,12 @@ function applyFilters() {
   const baseDances = dances.slice();
 
   filteredDances = baseDances.filter(d => {
-    if (formationFilter && d.formationName !== formationFilter) return false;
+    // Formation filter using formations.json (by formation id)
+    if (formationFilter) {
+      const f = getFormationForDance(d);
+      if (!f || f.id !== formationFilter) return false;
+    }
+
     if (barsFilter) {
       const bars = d.structure && typeof d.structure.barsPerPart === 'number'
         ? d.structure.barsPerPart
@@ -584,9 +629,13 @@ function renderCurrentDance() {
     return;
   }
 
+  const formation = getFormationForDance(d);
+
   if (titleEl) titleEl.textContent = d.title || d.id;
   if (formationEl) {
-    const label = d.formationName ? `Formation: ${d.formationName}` : '';
+    const label = formation
+      ? `Formation: ${formation.name}`
+      : (d.formationName ? `Formation: ${d.formationName}` : '');
     formationEl.textContent = label;
   }
 
@@ -611,7 +660,7 @@ function renderCurrentDance() {
     difficultyEl.textContent = diffLabel;
   }
 
-  // Calls / info / figure
+  // Calls
   if (callsContainer) {
     callsContainer.innerHTML = '';
 
@@ -659,15 +708,13 @@ function renderCurrentDance() {
     }
   }
 
-  // Formation panel (used to be "Info")
+  // Formation panel (was "Info")
   if (infoContainer) {
     infoContainer.innerHTML = '';
 
     const heading = document.createElement('h3');
     heading.textContent = 'Formation';
     infoContainer.appendChild(heading);
-
-    const formation = getFormationForDance(d);
 
     if (formation) {
       if (formation.description) {
