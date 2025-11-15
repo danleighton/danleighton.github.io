@@ -1,0 +1,20 @@
+[
+  {
+    "id": "circle-becket-fours",
+    "name": "Circle Becket",
+    "description": "Couples in fours around a big circle; in each four, one couple faces into the centre and the other faces out. [P1] is conventionally on the left of the pair when facing along the direction of travel.",
+    "diagramImage": "img/formation-circle-becket-fours.svg"
+  },
+  {
+    "id": "longways-7-8c",
+    "name": "Longways set (7–8 couples)",
+    "description": "7–8-couple longways set, couples facing the band, [P1] on the left and [P2] on the right of each pair.",
+    "diagramImage": "img/formation-longways-7-8c.svg"
+  },
+  {
+    "id": "longways-4-6c",
+    "name": "Longways set (4–6 couples)",
+    "description": "4–6-couple longways set, partners facing, [P1] on the left and [P2] on the right when facing the band.",
+    "diagramImage": "img/formation-longways-4-6c.svg"
+  }
+]
