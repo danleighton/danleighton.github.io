@@ -151,5 +151,23 @@
     "name": "Four couples in circle plus one",
     "type": "Mixer",
     "description": "Circle of four couples (eight dancers) with one extra person in the middle. The central dancer repeatedly changes partners through the figures, so the dance works as a mixer."
-  }
+  },
+  {
+  "id": "AMc-L",
+  "name": "Longways set (as many as will)",
+  "type": "As Many As Will",
+  "description": "Longways set for as many couples as will. Two lines of partners face each other; [P1] on the left and [P2] on the right when facing the band."
+},
+{
+  "id": "6-7c-L",
+  "name": "Longways set (6–7 couples)",
+  "type": "Set",
+  "description": "Longways set for six or seven couples. Partners face each other in two lines, [P1] on the left and [P2] on the right when facing the band."
+},
+{
+  "id": "6-8c-L",
+  "name": "Longways set (6–8 couples)",
+  "type": "Set",
+  "description": "Longways set for six to eight couples. Partners face each other in two lines, [P1] on the left and [P2] on the right when facing the band."
+}
 ]
