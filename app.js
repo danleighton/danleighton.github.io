@@ -10,6 +10,7 @@ let currentDanceId = null;
 let infoVisible = true;
 let formationVisible = false;
 let danceFigureVisible = false;
+let callingMode = false;
 
 const roleSets = {
   'person1-person2': {
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupFilters();
   setupRoleSetSelect();
   setupViewToggles();
+  setupCallingModeToggle();
   loadData();
 });
 
@@ -105,6 +107,16 @@ function setupViewToggles() {
     });
 }
 
+function setupCallingModeToggle() {
+  const btn = document.getElementById('toggle-calling-mode');
+  btn.addEventListener('click', () => {
+    callingMode = !callingMode;
+    updateCallingModeUI();
+    updateVisibility();
+  });
+  updateCallingModeUI();
+}
+
 /* Visibility */
 
 function updateVisibility() {
@@ -139,6 +151,17 @@ function updateVisibility() {
   } else {
     danceDiagramWrapper.classList.add('hidden');
     toggleDanceFigure.textContent = 'Show dance figure';
+  }
+}
+
+function updateCallingModeUI() {
+  const btn = document.getElementById('toggle-calling-mode');
+  if (callingMode) {
+    document.body.classList.add('calling-mode');
+    btn.textContent = 'Calling mode: on';
+  } else {
+    document.body.classList.remove('calling-mode');
+    btn.textContent = 'Calling mode: off';
   }
 }
 
@@ -270,7 +293,6 @@ function renderDanceSelect() {
   const select = document.getElementById('dance-select');
   const previous = currentDanceId;
 
-  // Clear all except the first placeholder option
   while (select.options.length > 1) {
     select.remove(1);
   }
@@ -395,6 +417,7 @@ function showDance(id) {
   renderDanceDiagram(dance);
   renderTunes(dance);
   updateVisibility();
+  updateCallingModeUI(); // ensure class + text are in sync
 }
 
 function renderFormationDiagram(dance, formation) {
