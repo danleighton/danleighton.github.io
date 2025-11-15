@@ -482,10 +482,10 @@ body.calling-mode .calling-toggle span {
 }
 
 /* position of X button: desktop vs mobile */
-/* @media (min-width: 801px) {
+@media (min-width: 801px) {
   body.calling-mode .calling-toggle {
     top: auto !important;
-    bottom: 1rem !important;
+    bottom: -40rem !important;
     right: 1rem !important;
     left: auto !important;
   }
@@ -493,10 +493,10 @@ body.calling-mode .calling-toggle span {
 
 @media (max-width: 800px) {
   body.calling-mode .calling-toggle {
-    bottom: 0.9rem;
+    bottom: -40rem;
     left: 0.9rem;
   }
-} */
+}
 
 /* Hidden utility */
 
