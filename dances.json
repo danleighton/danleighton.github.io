@@ -3,7 +3,6 @@
     "id": "alderley-edge",
     "title": "Alderley Edge",
     "number": null,
-    "formationName": "Longways 6 couples",
     "speed": null,
     "musicType": "Jigs",
     "structure": {
@@ -41,13 +40,14 @@
         "call": "<strong>Top gallop down</strong>. All <strong>swing</strong>."
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "6c-L",
+    "notes": "Longways 6 couples"
   },
   {
     "id": "an-rince-mor",
     "title": "An Rince Mor",
     "number": null,
-    "formationName": "Big Circle with partners",
     "speed": "Play a 32 with 3 B parts if needed.",
     "musicType": "Reels",
     "structure": {
@@ -91,13 +91,14 @@
         "call": "<strong>Promenade</strong>"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "Cc",
+    "notes": "Big Circle with partners"
   },
   {
     "id": "boston-tea-party",
     "title": "Boston Tea party",
     "number": null,
-    "formationName": "Ring the changes on the tune type",
     "speed": "Brisk",
     "musicType": "Brisk marches or Medium Polkas for a change (or Gallopy Jigs)",
     "structure": {
@@ -135,13 +136,14 @@
         "call": "<strong>Casting</strong> couples <strong>through arch Larkgle turn</strong> ( hold hands, twist out still holding hands) <strong>Swing</strong>"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "6c-L",
+    "notes": "Ring the changes on the tune type"
   },
   {
     "id": "bridge-of-athlone",
     "title": "Bridge of Athlone",
     "number": null,
-    "formationName": "Longways 5 couples",
     "speed": null,
     "musicType": "Jigs",
     "structure": {
@@ -191,13 +193,14 @@
         "call": "<strong>Swing</strong>"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "5c-L",
+    "notes": "Longways 5 couples"
   },
   {
     "id": "cambridge-circle-dance",
     "title": "Cambridge Circle Dance",
     "number": null,
-    "formationName": "Beckets Circle 2 couple pairs",
     "speed": "Start reasonable may speed up a little",
     "musicType": "Slip Jigs",
     "structure": {
@@ -259,13 +262,14 @@
         "call": "<strong>Circle Right</strong> (12)  <strong>in new fours</strong>"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "2c-DbC",
+    "notes": "Beckets Circle 2 couple pairs"
   },
   {
     "id": "chaos-square",
     "title": "Chaos Square",
     "number": null,
-    "formationName": "Square all around the room",
     "speed": "Energetically",
     "musicType": "Jigs",
     "structure": {
@@ -303,13 +307,14 @@
         "call": "<strong>[P1s] make an inner circle facing out</strong> and <strong>moving to their left</strong> (clockwise), <strong>[P2s] make an outer circle moving to their left</strong> (anticlockwise)"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "AMc-Sq",
+    "notes": "Square all around the room"
   },
   {
     "id": "circassian-circle",
     "title": "Circassian Circle",
     "number": null,
-    "formationName": "Circle any",
     "speed": null,
     "musicType": "Whatever",
     "structure": {
@@ -347,13 +352,14 @@
         "call": "<strong>Promenade</strong> ACW"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "Cc",
+    "notes": "Circle any"
   },
   {
     "id": "cumberland-reel",
     "title": "Cumberland Reel",
     "number": null,
-    "formationName": "Longways 4, 5, or 6",
     "speed": "Brisk",
     "musicType": "32 Reels",
     "structure": {
@@ -392,13 +398,14 @@
       }
     ],
     "tunes": [],
-  "figureImage": "img/dance-cumberland-reel.svg"
+    "figureImage": "img/dance-cumberland-reel.svg",
+    "formationId": "4-6c-L",
+    "notes": "Longways 4, 5, or 6"
   },
   {
     "id": "cumberland-square-eight",
     "title": "Cumberland Square Eight",
     "number": null,
-    "formationName": "4c Square Set",
     "speed": "Moderate to med fast",
     "musicType": "2 * 32 * 2 Reels followed by Atthol Highlanders",
     "structure": {
@@ -460,13 +467,14 @@
         "call": "<strong>All:</strong> <strong>Promenade</strong> home, [P1s] on inside"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "4c-Sq",
+    "notes": "4c Square Set"
   },
   {
     "id": "dashing-white-sergeant",
     "title": "Dashing White Sergeant",
     "number": null,
-    "formationName": "Sicilian Circle",
     "speed": "Not too fast (unless more than 50% Scots!)",
     "musicType": "Own Tune / Reels",
     "structure": {
@@ -504,13 +512,14 @@
         "call": "<strong>Lines of three</strong>, <strong>advance</strong>  (two skip steps) and <strong>retire</strong>."
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "3f3-SC",
+    "notes": "Sicilian Circle"
   },
   {
     "id": "debbies-jig",
     "title": "Debbie’s Jig",
     "number": null,
-    "formationName": "Square",
     "speed": "Gallopy",
     "musicType": "Jigs",
     "structure": {
@@ -548,13 +557,14 @@
         "call": "<strong>All</strong> <strong>circle</strong> <strong>left</strong> for 7 and <strong>right</strong> for 7\\.  <strong>OR</strong> if whole set knows how to Ballroom Hold and Polka around!"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "4c-Sq",
+    "notes": "Square"
   },
   {
     "id": "falling-masonry",
     "title": "Falling Masonry",
     "number": null,
-    "formationName": "Longways 4 couples",
     "speed": null,
     "musicType": "Jigs",
     "structure": {
@@ -592,13 +602,14 @@
         "call": "Finally, <strong>top couple gallop down</strong> and <strong>all swing</strong>"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "4c-L",
+    "notes": "Longways 4 couples"
   },
   {
     "id": "farmers-jig",
     "title": "Farmers Jig",
     "number": null,
-    "formationName": "Longways 4 couples",
     "speed": "Med Fast Walky",
     "musicType": "Jigs",
     "structure": {
@@ -636,13 +647,14 @@
         "call": "1st couple do single <strong>cast</strong>, <strong>two-handed arch</strong> at the bottom,  others follow and keep walking up the set"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "4c-L",
+    "notes": "Longways 4 couples"
   },
   {
     "id": "four-around-four",
     "title": "Four around four",
     "number": null,
-    "formationName": "Longways 4 couples",
     "speed": null,
     "musicType": "Jigs",
     "structure": {
@@ -680,13 +692,14 @@
         "call": "<strong>Top</strong> couple <strong>cast out, arch</strong> at bottom All under - <strong>swing</strong> if time"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "4c-L",
+    "notes": "Longways 4 couples"
   },
   {
     "id": "gay-gordons",
     "title": "Gay Gordons",
     "number": null,
-    "formationName": "Couples",
     "speed": "Med Fast Walky",
     "musicType": "All the tunes...",
     "structure": {
@@ -724,13 +737,14 @@
         "call": "Joining hands in ballroom hold, <strong>polka</strong> round the room. (Like skipping, but turning.)"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "AMc",
+    "notes": "Couples"
   },
   {
     "id": "goathland-square-eight",
     "title": "Goathland Square Eight",
     "number": null,
-    "formationName": "4c Square Set",
     "speed": "Not too fast",
     "musicType": "Reels",
     "structure": {
@@ -768,13 +782,14 @@
         "call": "<strong>Swing</strong> partner when met."
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "4c-Sq",
+    "notes": "4c Square Set"
   },
   {
     "id": "lucky-seven",
     "title": "Lucky Seven",
     "number": null,
-    "formationName": "Circle",
     "speed": "Not too fast",
     "musicType": "Jigs",
     "structure": {
@@ -812,13 +827,14 @@
         "call": "<strong>Spin</strong> the seventh"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "Cc",
+    "notes": "Circle"
   },
   {
     "id": "monkey-in-the-middle",
     "title": "Monkey In The Middle",
     "number": null,
-    "formationName": "4c Square Set + 1 extra",
     "speed": null,
     "musicType": "Reels",
     "structure": {
@@ -856,13 +872,14 @@
         "call": "Then those <strong>4 let go</strong> and <strong>choose one each from outside to swing</strong> Left-over person becomes monkey <strong>Join hands and start again</strong>"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "4c-C+1",
+    "notes": "4c Square Set + 1 extra"
   },
   {
     "id": "moving-along",
     "title": "Moving Along",
     "number": null,
-    "formationName": "Circle",
     "speed": null,
     "musicType": "Jigs",
     "structure": {
@@ -900,13 +917,14 @@
         "call": "<strong>Swing</strong> the next."
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "Cc",
+    "notes": "Circle"
   },
   {
     "id": "muffin-man",
     "title": "Muffin Man",
     "number": null,
-    "formationName": "Concentric Circles, Man on inside",
     "speed": "Start slow, be able to play really fast...",
     "musicType": "Polkas",
     "structure": {
@@ -944,13 +962,14 @@
         "call": "<strong>Swing</strong> the person to your <strong>right</strong>.  (Look to right grab that person)."
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "DbC",
+    "notes": "Concentric Circles, Man on inside"
   },
   {
     "id": "orcadian-strip-the-willow",
     "title": "Orcadian Strip The Willow",
     "number": null,
-    "formationName": "Lines facing any length",
     "speed": "Decent lick",
     "musicType": "Slip Jigs",
     "structure": {
@@ -970,13 +989,14 @@
         "call": "1s spin <strong>RH 1.5 TIMES the first time</strong> When facing opposite line <strong>PUT OUT LEFT ELBOW</strong> and <strong>spin</strong> your opposite. When once round, meet your partner and spin them by <strong>Right elbow</strong>. Do this all the way down the line. If you run out of partners, swing till the end of the phrase and stand. <strong>Shuffle up as you go!</strong> Rule is: <strong>Right</strong> to partner, <strong>Left</strong> to opposite. Flow is the key. Wait till there are at least two couples between you before going. A new couple starts every 16 bars."
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "AMc-L",
+    "notes": "Lines facing any length"
   },
   {
     "id": "pieces-of-eight",
     "title": "Pieces of Eight",
     "number": null,
-    "formationName": "Circle",
     "speed": null,
     "musicType": "Reels",
     "structure": {
@@ -1014,13 +1034,14 @@
         "call": "<strong>Change places. pass by</strong> partner with <strong>LH</strong> to meet <strong>new partner RH turn</strong> new partner <strong>All face in</strong>"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "Cc",
+    "notes": "Circle"
   },
   {
     "id": "sweets-of-may",
     "title": "Sweets of May",
     "number": null,
-    "formationName": "Longways 4 couples",
     "speed": "Own Tune",
     "musicType": "Own Tune",
     "structure": {
@@ -1070,13 +1091,14 @@
         "call": "<strong>Swing</strong>"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "4c-L",
+    "notes": "Longways 4 couples"
   },
   {
     "id": "virginia-reel",
     "title": "Virginia Reel",
     "number": null,
-    "formationName": "Longways 6-7 couples",
     "speed": "Moderate",
     "musicType": "Jigs",
     "structure": {
@@ -1114,13 +1136,14 @@
         "call": "<strong>Tops (8)</strong> Two Hands <strong>gallop</strong> down the middle and <strong>STAY (8) Clap</strong> (opt. close-clench swing) as Tops pass and <strong>Shuffle up</strong>"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "6-7c-L",
+    "notes": "Longways 6-7 couples"
   },
   {
     "id": "witches-reel",
     "title": "Witches Reel",
     "number": null,
-    "formationName": "Longways 4 couples",
     "speed": "Brisk",
     "musicType": "Jigs",
     "structure": {
@@ -1158,13 +1181,14 @@
         "call": "<strong>[P1s]</strong> - <strong>Thread the Needle</strong>"
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "4c-L",
+    "notes": "Longways 4 couples"
   },
   {
     "id": "yarmouth-long-dance",
     "title": "Yarmouth Long Dance",
     "number": null,
-    "formationName": "Longways 6-8 couples",
     "speed": "Moderate",
     "musicType": "Jigs",
     "structure": {
@@ -1202,6 +1226,8 @@
         "call": "Top two couples <strong>spinning cross</strong> to the bottom of the set. Each couple holds right hands, grabs wrist of person next to them with left hand."
       }
     ],
-    "tunes": []
+    "tunes": [],
+    "formationId": "6-8c-L",
+    "notes": "Longways 6-8 couples"
   }
 ]

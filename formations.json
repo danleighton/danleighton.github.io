@@ -3,67 +3,78 @@
     "id": "2c-L",
     "name": "Longways set (2 couples)",
     "type": "Set",
-    "description": "Two-couple longways set. Two couples form two lines of partners facing each other; [P1] on the left and [P2] on the right when facing the band."
+    "description": "Two-couple longways set. Two couples form two lines of partners facing each other; [P1] on the left and [P2] on the right when facing the band.",
+    "diagramImage": "img/formation-2c-L.svg"
   },
   {
     "id": "3c-L",
     "name": "Longways set (3 couples)",
     "type": "Set",
-    "description": "Three-couple longways set. Partners face each other in two lines, [P1] on the left and [P2] on the right when facing the band."
+    "description": "Three-couple longways set. Partners face each other in two lines, [P1] on the left and [P2] on the right when facing the band.",
+    "diagramImage": "img/formation-3c-L.svg"
   },
   {
     "id": "4c-L",
     "name": "Longways set (4 couples)",
     "type": "Set",
-    "description": "Four-couple longways set. Two lines of partners face each other, [P1] on the left and [P2] on the right when facing the band."
+    "description": "Four-couple longways set. Two lines of partners face each other, [P1] on the left and [P2] on the right when facing the band.",
+    "diagramImage": "img/formation-4c-L.svg"
   },
   {
     "id": "5c-L",
     "name": "Longways set (5 couples)",
     "type": "Set",
-    "description": "Five-couple longways set. Partners face each other in two lines, [P1] on the left and [P2] on the right when facing the band."
+    "description": "Five-couple longways set. Partners face each other in two lines, [P1] on the left and [P2] on the right when facing the band.",
+    "diagramImage": "img/formation-5c-L.svg"
   },
   {
     "id": "6c-L",
     "name": "Longways set (6 couples)",
     "type": "Set",
-    "description": "Six-couple longways set. Two lines of three couples face each other, [P1] on the left and [P2] on the right when facing the band."
+    "description": "Six-couple longways set. Two lines of three couples face each other, [P1] on the left and [P2] on the right when facing the band.",
+    "diagramImage": "img/formation-6c-L.svg"
   },
   {
     "id": "7c-L",
     "name": "Longways set (7 couples)",
     "type": "Set",
-    "description": "Seven-couple longways set. Partners face each other in two lines, [P1] on the left and [P2] on the right when facing the band."
+    "description": "Seven-couple longways set. Partners face each other in two lines, [P1] on the left and [P2] on the right when facing the band.",
+    "diagramImage": "img/formation-7c-L.svg"
   },
   {
     "id": "8c-L",
     "name": "Longways set (8 couples)",
     "type": "Set",
-    "description": "Eight-couple longways set. Two lines of four couples face each other, [P1] on the left and [P2] on the right when facing the band."
+    "description": "Eight-couple longways set. Two lines of four couples face each other, [P1] on the left and [P2] on the right when facing the band.",
+    "diagramImage": "img/formation-8c-L.svg"
   },
   {
     "id": "2-3c-L",
     "name": "Longways set (2–3 couples)",
     "type": "Set",
-    "description": "Longways set for two or three couples. Partners face each other in two lines, [P1] on the left and [P2] on the right when facing the band."
+    "description": "Longways set for two or three couples. Partners face each other in two lines, [P1] on the left and [P2] on the right when facing the band.",
+    "diagramImage": "img/formation-2-3c-L.svg"
   },
   {
     "id": "3-4c-L",
     "name": "Longways set (3–4 couples)",
     "type": "Set",
-    "description": "Longways set for three or four couples. Partners face in two lines, [P1] on the left and [P2] on the right when facing the band."
+    "description": "Longways set for three or four couples. Partners face in two lines, [P1] on the left and [P2] on the right when facing the band.",
+    "diagramImage": "img/formation-3-4c-L.svg"
   },
   {
     "id": "4-5c-L",
     "name": "Longways set (4–5 couples)",
     "type": "Set",
-    "description": "Longways set for four or five couples. Partners face in two lines, [P1] on the left and [P2] on the right when facing the band."
+    "description": "Longways set for four or five couples. Partners face in two lines, [P1] on the left and [P2] on the right when facing the band.",
+    "diagramImage": "img/formation-4-5c-L.svg"
   },
   {
     "id": "5-6c-L",
     "name": "Longways set (5–6 couples)",
     "type": "Set",
-    "description": "Longways set for five or six couples. Partners face in two lines, [P1] on the left and [P2] on the right when facing the band."
+    "description": "Longways set for five or six couples. Partners face in two lines, [P1] on the left and [P2] on the right when facing the band.",
+    "diagramImage": "img/formation-5-6c-L.svg"
   },
   {
     "id": "4-6c-L",
@@ -83,19 +94,22 @@
     "id": "SC",
     "name": "Sicilian circle",
     "type": "Progressive",
-    "description": "Groups of two couples face each other, one couple facing clockwise around the room and the other facing anti-clockwise, forming a large circle of these fours which progress to meet new couples."
+    "description": "Groups of two couples face each other, one couple facing clockwise around the room and the other facing anti-clockwise, forming a large circle of these fours which progress to meet new couples.",
+    "diagramImage": "img/formation-SC.svg"
   },
   {
     "id": "Cc",
     "name": "Big Circle of couples",
     "type": "As Many As Will",
-    "description": "Big circle of as many couples as will around the room. Couples face into the middle with [P2] on [P1]’s right."
+    "description": "Big circle of as many couples as will around the room. Couples face into the middle with [P2] on [P1]’s right.",
+    "diagramImage": "img/formation-Cc.svg"
   },
   {
     "id": "DbC",
     "name": "Double circle",
     "type": "As Many As Will",
-    "description": "Dancers form two concentric circles around the room. Usually [P1s] are in the outer circle facing inward and [P2s] are in the inner circle facing outward, with each dancer facing their partner."
+    "description": "Dancers form two concentric circles around the room. Usually [P1s] are in the outer circle facing inward and [P2s] are in the inner circle facing outward, with each dancer facing their partner.",
+    "diagramImage": "img/formation-DbC.svg"
   },
   {
     "id": "2c-DbC",
@@ -108,66 +122,74 @@
     "id": "AMc",
     "name": "Couples as many as will",
     "type": "As Many As Will",
-    "description": "Any number of couples as many as will, arranged according to the dance, often repeating the same figures all around the room with no fixed set size or fixed set shape."
+    "description": "Any number of couples as many as will, arranged according to the dance, often repeating the same figures all around the room with no fixed set size or fixed set shape.",
+    "diagramImage": "img/formation-AMc.svg"
   },
   {
     "id": "3c-C",
     "name": "Three-couple circle",
     "type": "Set",
-    "description": "Three couples in a small circle of six dancers. Several such small circles may be arranged round the room."
+    "description": "Three couples in a small circle of six dancers. Several such small circles may be arranged round the room.",
+    "diagramImage": "img/formation-3c-C.svg"
   },
   {
     "id": "4c-Sq",
     "name": "Four-couple square",
     "type": "Set",
-    "description": "Four couples on the four sides of a square, all facing the centre; [P1] on the left and [P2] on the right of each pair when facing in."
+    "description": "Four couples on the four sides of a square, all facing the centre; [P1] on the left and [P2] on the right of each pair when facing in.",
+    "diagramImage": "img/formation-4c-Sq.svg"
   },
   {
     "id": "AMc-Sq",
     "name": "Square set (as many as will)",
     "type": "As Many As Will",
-    "description": "Big square-style set on the four walls of the room, with couples roughly equally spaced along each side and all facing towards the centre. Used when many couples dance square-style figures together."
+    "description": "Big square-style set on the four walls of the room, with couples roughly equally spaced along each side and all facing towards the centre. Used when many couples dance square-style figures together.",
+    "diagramImage": "img/formation-AMc-Sq.svg"
   },
   {
     "id": "3f3",
     "name": "Three facing three",
     "type": "Set",
-    "description": "Lines of three dancers facing three, arranged round the room. The centre dancer in each line partners the two on either side for figures such as reels of three or similar patterns."
+    "description": "Lines of three dancers facing three, arranged round the room. The centre dancer in each line partners the two on either side for figures such as reels of three or similar patterns.",
+    "diagramImage": "img/formation-3f3.svg"
   },
   {
     "id": "3f3-SC",
     "name": "Three facing three (Sicilian circle)",
     "type": "Progressive",
-    "description": "Lines of three dancers facing three, arranged as groups around the room in a Sicilian-circle style. Each group of six forms a mini-set and progresses to meet new groups."
+    "description": "Lines of three dancers facing three, arranged as groups around the room in a Sicilian-circle style. Each group of six forms a mini-set and progresses to meet new groups.",
+    "diagramImage": "img/formation-3f3-SC.svg"
   },
   {
     "id": "6-8c-L-B",
     "name": "Becket longways set (6–8 couples)",
     "type": "Progressive",
-    "description": "Becket-style longways set for six to eight couples. Couples stand side by side facing another couple across the set, forming two long lines along the hall; the progression moves couples up and down the set."
+    "description": "Becket-style longways set for six to eight couples. Couples stand side by side facing another couple across the set, forming two long lines along the hall; the progression moves couples up and down the set.",
+    "diagramImage": "img/formation-6-8c-L-B.svg"
   },
   {
     "id": "4c-C+1",
     "name": "Four couples in circle plus one",
     "type": "Mixer",
-    "description": "Circle of four couples (eight dancers) with one extra person in the middle. The central dancer repeatedly changes partners through the figures, so the dance works as a mixer."
+    "description": "Circle of four couples (eight dancers) with one extra person in the middle. The central dancer repeatedly changes partners through the figures, so the dance works as a mixer.",
+    "diagramImage": "img/formation-4c-C+1.svg"
   },
   {
-  "id": "AMc-L",
-  "name": "Longways set (as many as will)",
-  "type": "As Many As Will",
-  "description": "Longways set for as many couples as will. Two lines of partners face each other; [P1] on the left and [P2] on the right when facing the band."
-},
-{
-  "id": "6-7c-L",
-  "name": "Longways set (6–7 couples)",
-  "type": "Set",
-  "description": "Longways set for six or seven couples. Partners face each other in two lines, [P1] on the left and [P2] on the right when facing the band."
-},
-{
-  "id": "6-8c-L",
-  "name": "Longways set (6–8 couples)",
-  "type": "Set",
-  "description": "Longways set for six to eight couples. Partners face each other in two lines, [P1] on the left and [P2] on the right when facing the band."
-}
+    "id": "AMc-L",
+    "name": "Longways set (as many as will)",
+    "type": "As Many As Will",
+    "description": "Longways set for as many couples as will. Partners face each other in two lines, [P1] on the left and [P2] on the right when facing the band."
+  },
+  {
+    "id": "6-7c-L",
+    "name": "Longways set (6–7 couples)",
+    "type": "Set",
+    "description": "Longways set for six or seven couples. Partners face each other in two lines, [P1] on the left and [P2] on the right when facing the band."
+  },
+  {
+    "id": "6-8c-L",
+    "name": "Longways set (6–8 couples)",
+    "type": "Set",
+    "description": "Longways set for six to eight couples. Partners face in two lines, [P1] on the left and [P2] on the right when facing the band."
+  }
 ]
