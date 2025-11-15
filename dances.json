@@ -1,58 +1,150 @@
 [
   {
-    "id": "cambridge-circle-dance",
-    "number": 30,
-    "title": "Cambridge Circle Dance",
-    "form": "Circle Becket (couples in fours, 1 pair face in, other out)",
-    "speed": "Medium",
-    "musicType": "64-bar slip jigs",
-    "difficulty": 2,
-    "step": "Single/Skip except where indicated",
-    "author": "Dan Leighton",
+    "id": "virginia-reel-32",
+    "number": 1,
+    "title": "Virginia Reel (32-bar version)",
+    "formationId": "longways-7-8c",
+    "speed": "Moderate jig",
+    "musicType": "32-bar jigs or reels",
+    "musicExamples": [
+      "Haste to the Wedding",
+      "My Darling Asleep",
+      "Camptown Races",
+      "Galopede",
+      "Constant Billy",
+      "News of the Victory",
+      "Wedding March"
+    ],
+    "difficulty": 1,
+    "step": "",
+    "author": "Trad. / caller: Dan Leighton",
     "structure": {
       "barsPerPart": 8,
-      "parts": ["A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"]
+      "sequence": ["A1", "A2", "B1", "B2"]
     },
     "calls": [
       {
         "part": "A1",
         "bars": 8,
-        "call": "Hands around. Circle left (12) – slip."
+        "callHtml": "All forward and back in lines (4).<br>Repeat."
       },
       {
         "part": "A2",
         "bars": 8,
-        "call": "Circle right (12) – slip."
+        "callHtml": "Right-arm turn partner (8).<br>Left-arm turn partner (8)."
       },
       {
         "part": "B1",
         "bars": 8,
-        "call": "Gents right hand turn opposite corner. Robins right hand turn opposite corner."
+        "callHtml": "Both-hands turn partner (8).<br>Do-si-do partner (8)."
       },
       {
         "part": "B2",
         "bars": 8,
-        "call": "Face-to-face turn with partner – giving LEFT shoulder or palm-to-palm (can walk instead of skip)."
+        "callHtml": "<strong>Top couple</strong> two-hands gallop down the middle and <strong>stay</strong> (8).<br>Clap (or close-clench swing) as tops pass and shuffle up."
+      }
+    ],
+    "tunes": [],
+    "danceDiagramImage": null
+  },
+  {
+    "id": "cumberland-reel",
+    "number": 6,
+    "title": "Cumberland Reel",
+    "formationId": "longways-4-6c",
+    "speed": "Brisk",
+    "musicType": "32-bar jigs or reels",
+    "musicExamples": [],
+    "difficulty": 1,
+    "step": "",
+    "author": "Trad. / caller: Dan Leighton",
+    "structure": {
+      "barsPerPart": 8,
+      "sequence": ["A1", "A2", "B1", "B2"]
+    },
+    "calls": [
+      {
+        "part": "A1",
+        "bars": 8,
+        "callHtml": "Top two couples right-hand star (7) then left-hand star (7)."
+      },
+      {
+        "part": "A2",
+        "bars": 16,
+        "callHtml": "Two-hands to partner and <strong>1s</strong> gallop down the middle (8) and gallop back (8)."
+      },
+      {
+        "part": "B1",
+        "bars": 8,
+        "callHtml": "<strong>1s</strong> lead a single cast to the bottom."
+      },
+      {
+        "part": "B2",
+        "bars": 8,
+        "callHtml": "No arch. <strong>1s</strong> join and lead up to the top; others make arches behind them. When at the top, 1s promenade to the bottom under arches."
+      }
+    ],
+    "tunes": [],
+    "danceDiagramImage": "img/dance-cumberland-reel.svg"
+  },
+  {
+    "id": "cambridge-circle-dance",
+    "number": 30,
+    "title": "Cambridge Circle Dance",
+    "formationId": "circle-becket-fours",
+    "speed": "Medium",
+    "musicType": "64-bar slip jigs",
+    "musicExamples": [
+      "Fox Hunters",
+      "Sir Roger De Coverly (4-part version)"
+    ],
+    "difficulty": 2,
+    "step": "Single/Skip except where indicated",
+    "author": "Dan Leighton",
+    "structure": {
+      "barsPerPart": 8,
+      "sequence": ["A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"]
+    },
+    "calls": [
+      {
+        "part": "A1",
+        "bars": 8,
+        "callHtml": "<strong>Hands around.</strong><br><strong>Circle left (12)</strong> – slip."
+      },
+      {
+        "part": "A2",
+        "bars": 8,
+        "callHtml": "<strong>Circle right (12)</strong> – slip."
+      },
+      {
+        "part": "B1",
+        "bars": 8,
+        "callHtml": "<strong>[P1S] right-hand turn opposite corner.</strong><br><strong>[P2S] right-hand turn opposite corner.</strong>"
+      },
+      {
+        "part": "B2",
+        "bars": 8,
+        "callHtml": "<strong>Face-to-face turn with partner</strong> – giving LEFT shoulder or palm-to-palm (can walk instead of skip)."
       },
       {
         "part": "C1",
         "bars": 8,
-        "call": "Grand chain with right hand to next person in circle, count 4 people."
+        "callHtml": "Grand chain with right hand to next person in circle; count 4 people."
       },
       {
         "part": "C2",
         "bars": 8,
-        "call": "Swing the 5th (12)."
+        "callHtml": "<strong>Swing the 5th (12).</strong>"
       },
       {
         "part": "D1",
         "bars": 8,
-        "call": "Circle left in fours (12)."
+        "callHtml": "<strong>Circle left in fours (12).</strong>"
       },
       {
         "part": "D2",
         "bars": 8,
-        "call": "Circle right (12) in new fours."
+        "callHtml": "<strong>Circle right (12) in new fours.</strong>"
       }
     ],
     "tunes": [
@@ -78,6 +170,7 @@
         "abc": "X:1\nT:Sir Roger de Coverley (placeholder)\nM:9/8\nK:D\n",
         "notes": ""
       }
-    ]
+    ],
+    "danceDiagramImage": null
   }
 ]
