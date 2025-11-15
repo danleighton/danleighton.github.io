@@ -8,7 +8,8 @@ let filteredDances = [];
 let currentDanceId = null;
 
 let infoVisible = true;
-let diagramsVisible = false;
+let formationVisible = false;
+let danceFigureVisible = false;
 
 const roleSets = {
   'person1-person2': {
@@ -50,10 +51,18 @@ document.addEventListener('DOMContentLoaded', () => {
   loadData();
 });
 
+/* Setup */
+
 function setupFilters() {
   ['formation', 'difficulty', 'tunetype', 'bars'].forEach(id => {
     const el = document.getElementById(`filter-${id}`);
     el.addEventListener('change', applyFilters);
+  });
+
+  const danceSelect = document.getElementById('dance-select');
+  danceSelect.addEventListener('change', () => {
+    const id = danceSelect.value;
+    if (id) showDance(id);
   });
 }
 
@@ -81,40 +90,67 @@ function setupViewToggles() {
     updateVisibility();
   });
 
-  document.getElementById('toggle-diagrams').addEventListener('click', () => {
-    diagramsVisible = !diagramsVisible;
-    updateVisibility();
-  });
+  document
+    .getElementById('toggle-formation')
+    .addEventListener('click', () => {
+      formationVisible = !formationVisible;
+      updateVisibility();
+    });
+
+  document
+    .getElementById('toggle-dance-figure')
+    .addEventListener('click', () => {
+      danceFigureVisible = !danceFigureVisible;
+      updateVisibility();
+    });
 }
 
+/* Visibility */
+
 function updateVisibility() {
-  const details = document.getElementById('dance-details');
-  const diagramsWrapper = document.getElementById('diagrams-wrapper');
+  const meta = document.getElementById('dance-meta');
   const toggleInfo = document.getElementById('toggle-info');
-  const toggleDiagrams = document.getElementById('toggle-diagrams');
+
+  const formationWrapper = document.getElementById('formation-diagram-wrapper');
+  const toggleFormation = document.getElementById('toggle-formation');
+
+  const danceDiagramWrapper = document.getElementById('dance-diagram-wrapper');
+  const toggleDanceFigure = document.getElementById('toggle-dance-figure');
 
   if (infoVisible) {
-    details.classList.remove('hidden');
+    meta.classList.remove('hidden');
     toggleInfo.textContent = 'Hide info';
   } else {
-    details.classList.add('hidden');
+    meta.classList.add('hidden');
     toggleInfo.textContent = 'Show info';
   }
 
-  if (diagramsVisible) {
-    diagramsWrapper.classList.remove('hidden');
-    toggleDiagrams.textContent = 'Hide diagrams';
+  if (formationVisible) {
+    formationWrapper.classList.remove('hidden');
+    toggleFormation.textContent = 'Hide formation';
   } else {
-    diagramsWrapper.classList.add('hidden');
-    toggleDiagrams.textContent = 'Show diagrams';
+    formationWrapper.classList.add('hidden');
+    toggleFormation.textContent = 'Show formation';
+  }
+
+  if (danceFigureVisible) {
+    danceDiagramWrapper.classList.remove('hidden');
+    toggleDanceFigure.textContent = 'Hide dance figure';
+  } else {
+    danceDiagramWrapper.classList.add('hidden');
+    toggleDanceFigure.textContent = 'Show dance figure';
   }
 }
+
+/* Roles */
 
 function applyRoleSet(html) {
   if (!html) return '';
   const map = roleSets[currentRoleSetKey] || roleSets['person1-person2'];
   return html.replace(/\[(P1S?|P2S?)\]/g, (match, key) => map[key] || match);
 }
+
+/* Data loading */
 
 function loadData() {
   const local = localStorage.getItem(STORAGE_KEY);
@@ -151,11 +187,13 @@ function loadData() {
     .catch(err => {
       console.warn('Could not fetch data files', err);
       if (!local) {
-        document.getElementById('dance-details').textContent =
+        document.getElementById('dance-title').textContent =
           'No data available.';
       }
     });
 }
+
+/* Rendering */
 
 function renderAll() {
   populateFilterOptions();
@@ -216,46 +254,57 @@ function applyFilters() {
     }
     if (difficulty && String(d.difficulty) !== difficulty) return false;
     if (tuneType && d.musicType !== tuneType) return false;
-    if (bars && (!d.structure || String(d.structure.barsPerPart) !== bars)) {
+    if (
+      bars &&
+      (!d.structure || String(d.structure.barsPerPart) !== bars)
+    ) {
       return false;
     }
     return true;
   });
 
-  renderDanceList();
+  renderDanceSelect();
 }
 
-function renderDanceList() {
-  const listEl = document.getElementById('dance-list');
-  listEl.innerHTML = '';
+function renderDanceSelect() {
+  const select = document.getElementById('dance-select');
+  const previous = currentDanceId;
+
+  // Clear all except the first placeholder option
+  while (select.options.length > 1) {
+    select.remove(1);
+  }
 
   if (!filteredDances.length) {
-    listEl.textContent = 'No dances match these filters.';
-    document.getElementById('dance-details').innerHTML = '';
-    document.getElementById('tune-controls').innerHTML = '';
-    document.getElementById('tune-notation').innerHTML = '';
+    select.disabled = true;
+    document.getElementById('dance-title').textContent =
+      'No dances match these filters.';
+    document.getElementById('dance-meta').innerHTML = '';
+    document.getElementById('calls-container').innerHTML = '';
     document.getElementById('formation-diagram').innerHTML = '';
     document.getElementById('dance-diagram').innerHTML = '';
+    document.getElementById('tune-controls').innerHTML = '';
+    document.getElementById('tune-notation').innerHTML = '';
     return;
   }
 
+  select.disabled = false;
+
   filteredDances.forEach(d => {
-    const item = document.createElement('button');
-    item.className = 'dance-list-item';
+    const opt = document.createElement('option');
+    opt.value = d.id;
     const label = d.number ? `${d.number}. ${d.title}` : (d.title || d.id);
-    item.textContent = label;
-    item.addEventListener('click', () => showDance(d.id));
-    if (d.id === currentDanceId) {
-      item.classList.add('active');
-    }
-    listEl.appendChild(item);
+    opt.textContent = label;
+    select.appendChild(opt);
   });
 
-  if (!currentDanceId) {
-    showDance(filteredDances[0].id);
-  } else if (!filteredDances.some(d => d.id === currentDanceId)) {
-    showDance(filteredDances[0].id);
+  let toShowId = previous;
+  if (!toShowId || !filteredDances.some(d => d.id === toShowId)) {
+    toShowId = filteredDances[0].id;
   }
+
+  select.value = toShowId;
+  showDance(toShowId);
 }
 
 function showDance(id) {
@@ -263,24 +312,29 @@ function showDance(id) {
   if (!dance) return;
   currentDanceId = id;
 
-  document
-    .querySelectorAll('.dance-list-item')
-    .forEach(btn => {
-      const label = btn.textContent;
-      const expected = dance.number ? `${dance.number}. ${dance.title}` : (dance.title || dance.id);
-      btn.classList.toggle('active', label === expected);
-    });
+  const danceSelect = document.getElementById('dance-select');
+  if (danceSelect.value !== id) {
+    danceSelect.value = id;
+  }
 
-  const details = document.getElementById('dance-details');
-  details.innerHTML = '';
+  const titleEl = document.getElementById('dance-title');
+  const metaEl = document.getElementById('dance-meta');
+  const callsEl = document.getElementById('calls-container');
+
+  titleEl.innerHTML = '';
+  metaEl.innerHTML = '';
+  callsEl.innerHTML = '';
 
   const h2 = document.createElement('h2');
-  h2.textContent = dance.number ? `${dance.number}. ${dance.title}` : (dance.title || dance.id);
-  details.appendChild(h2);
+  h2.textContent = dance.number
+    ? `${dance.number}. ${dance.title}`
+    : (dance.title || dance.id);
+  titleEl.appendChild(h2);
 
   const formation = formations.find(f => f.id === dance.formationId);
   const formationName = formation ? formation.name : (dance.formationName || '');
-  const formationDescSource = dance.formationDescriptionOverride || (formation ? formation.description : '');
+  const formationDescSource =
+    dance.formationDescriptionOverride || (formation ? formation.description : '');
   const formationDesc = applyRoleSet(formationDescSource || '');
 
   const meta = document.createElement('div');
@@ -290,15 +344,16 @@ function showDance(id) {
     ${formationDesc ? `<p class="formation-description">${formationDesc}</p>` : ''}
     <p><strong>Speed:</strong> ${dance.speed || ''}</p>
     <p><strong>Music:</strong> ${dance.musicType || ''}</p>
-    ${dance.musicExamples && dance.musicExamples.length
-      ? `<p><strong>Suggested tunes:</strong> ${dance.musicExamples.join(', ')}</p>`
-      : ''
+    ${
+      dance.musicExamples && dance.musicExamples.length
+        ? `<p><strong>Suggested tunes:</strong> ${dance.musicExamples.join(', ')}</p>`
+        : ''
     }
     <p><strong>Difficulty:</strong> ${dance.difficulty ?? ''}</p>
     <p><strong>Step:</strong> ${dance.step || ''}</p>
     <p><strong>Author:</strong> ${dance.author || ''}</p>
   `;
-  details.appendChild(meta);
+  metaEl.appendChild(meta);
 
   if (dance.calls && dance.calls.length) {
     const table = document.createElement('table');
@@ -328,12 +383,12 @@ function showDance(id) {
       tbody.appendChild(tr);
     });
     table.appendChild(tbody);
-    details.appendChild(table);
+    callsEl.appendChild(table);
   } else if (dance.instructionsHtml) {
     const block = document.createElement('div');
     block.className = 'instructions-block';
     block.innerHTML = applyRoleSet(dance.instructionsHtml);
-    details.appendChild(block);
+    callsEl.appendChild(block);
   }
 
   renderFormationDiagram(dance, formation);
