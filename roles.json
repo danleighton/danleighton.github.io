@@ -1,0 +1,42 @@
+[
+  {
+    "id": "person1-person2",
+    "label": "Person 1 / Person 2",
+    "mapping": {
+      "P1": "Person 1",
+      "P1S": "People 1",
+      "P2": "Person 2",
+      "P2S": "People 2"
+    }
+  },
+  {
+    "id": "larks-robins",
+    "label": "Larks / Robins",
+    "mapping": {
+      "P1": "Lark",
+      "P1S": "Larks",
+      "P2": "Robin",
+      "P2S": "Robins"
+    }
+  },
+  {
+    "id": "gents-ladies",
+    "label": "Gents / Ladies",
+    "mapping": {
+      "P1": "Gent",
+      "P1S": "Gents",
+      "P2": "Lady",
+      "P2S": "Ladies"
+    }
+  },
+  {
+    "id": "men-women",
+    "label": "Men / Women",
+    "mapping": {
+      "P1": "Man",
+      "P1S": "Men",
+      "P2": "Woman",
+      "P2S": "Women"
+    }
+  }
+]
