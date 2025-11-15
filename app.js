@@ -1,6 +1,7 @@
+// State
+
 let dances = [];
 let formations = [];
-let formationById = {};
 let rolesRaw = [];
 let setlists = [];
 let workingSetlists = [];
@@ -19,6 +20,9 @@ let setlistEditorOpen = false;
 let showFormationDiagram = true;
 let showDanceFigure = true;
 
+let touchStartX = null;
+let touchStartY = null;
+
 const STORAGE_KEY_DANCES = 'ceilidh-dances-v1';
 const STORAGE_KEY_SETLISTS = 'ceilidh-setlists-v1';
 const DATA_URL = 'dances.json';
@@ -32,12 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
   setupNextPrevButtons();
   setupSetlistStaticHandlers();
   setupSetlistEditorToggle();
-  setupFigureToggles();
+  setupDiagramToggles();
+  setupSwipeNavigation();
   loadData();
   registerServiceWorker();
 });
 
-/** Data loading **/
+// Data loading
 
 async function loadData() {
   try {
@@ -63,8 +68,6 @@ async function loadData() {
     }
 
     formations = Array.isArray(formationData) ? formationData : [];
-    rebuildFormationIndex();
-
     rolesRaw = Array.isArray(rolesData) ? rolesData : [];
     setlists = Array.isArray(setlistsData) ? setlistsData : [];
 
@@ -74,7 +77,6 @@ async function loadData() {
 
     populateFilterOptions();
     applyFilters();
-
   } catch (err) {
     console.error('Error loading data', err);
   }
@@ -95,16 +97,7 @@ function rebuildDanceIndex() {
   });
 }
 
-function rebuildFormationIndex() {
-  formationById = {};
-  formations.forEach(f => {
-    if (f && f.id) {
-      formationById[f.id] = f;
-    }
-  });
-}
-
-/** Roles / terminology **/
+// Roles / terminology
 
 function initialiseRoleSets() {
   roleSets = {};
@@ -126,7 +119,7 @@ function initialiseRoleSets() {
   Object.values(roleSets).forEach(rs => {
     const opt = document.createElement('option');
     opt.value = rs.id;
-    opt.textContent = rs.label || rs.name || rs.id;
+    opt.textContent = rs.label || rs.id;
     select.appendChild(opt);
   });
 
@@ -136,7 +129,7 @@ function initialiseRoleSets() {
   });
 }
 
-/** Setlists **/
+// Setlists
 
 function initialiseSetlists() {
   const stored = localStorage.getItem(STORAGE_KEY_SETLISTS);
@@ -357,11 +350,6 @@ function addCurrentDanceToSetlist() {
     ? (active.items[active.items.length - 1].roughOrder || active.items.length) + 1
     : 1;
 
-  const bars =
-    d.structure && typeof d.structure.barsPerPart === 'number'
-      ? d.structure.barsPerPart
-      : null;
-
   active.items.push({
     roughOrder: nextOrder,
     doing: null,
@@ -369,7 +357,9 @@ function addCurrentDanceToSetlist() {
     name: d.title || currentDanceId,
     speed: d.speed || null,
     form: d.formationId || null,
-    bars,
+    bars: d.structure && typeof d.structure.barsPerPart === 'number'
+      ? d.structure.barsPerPart
+      : null,
     musicType: d.musicType || null
   });
 
@@ -378,7 +368,7 @@ function addCurrentDanceToSetlist() {
   applyFilters();
 }
 
-/** Filters and controls **/
+// Filters and controls
 
 function setupFilterHandlers() {
   const formationSelect = document.getElementById('filter-formation');
@@ -419,24 +409,32 @@ function populateFilterOptions() {
   const musicTypeSelect = document.getElementById('filter-music-type');
 
   if (formationSelect) {
-    const seen = new Set();
+    formationSelect.innerHTML = '';
+    const any = document.createElement('option');
+    any.value = '';
+    any.textContent = 'Any';
+    formationSelect.appendChild(any);
+
     formations.forEach(f => {
-      if (!f || !f.id || seen.has(f.id)) return;
-      seen.add(f.id);
       const opt = document.createElement('option');
       opt.value = f.id;
-      opt.textContent = f.name || f.id;
+      opt.textContent = f.name;
       formationSelect.appendChild(opt);
     });
   }
 
   if (barsSelect) {
+    barsSelect.innerHTML = '';
+    const any = document.createElement('option');
+    any.value = '';
+    any.textContent = 'Any';
+    barsSelect.appendChild(any);
+
     const seen = new Set();
     dances.forEach(d => {
-      const bars =
-        d.structure && typeof d.structure.barsPerPart === 'number'
-          ? d.structure.barsPerPart
-          : null;
+      const bars = d.structure && typeof d.structure.barsPerPart === 'number'
+        ? d.structure.barsPerPart
+        : null;
       if (!bars) return;
       if (seen.has(bars)) return;
       seen.add(bars);
@@ -448,6 +446,12 @@ function populateFilterOptions() {
   }
 
   if (musicTypeSelect) {
+    musicTypeSelect.innerHTML = '';
+    const any = document.createElement('option');
+    any.value = '';
+    any.textContent = 'Any';
+    musicTypeSelect.appendChild(any);
+
     const seen = new Set();
     dances.forEach(d => {
       const m = d.musicType || '';
@@ -473,15 +477,19 @@ function applyFilters() {
   const musicTypeFilter = musicTypeSelect ? musicTypeSelect.value : '';
   const difficultyFilter = difficultySelect ? difficultySelect.value : '';
 
-  const baseDances = dances.slice();
+  const activeSetlist = getActiveSetlist();
+  const baseDances = activeSetlist && Array.isArray(activeSetlist.items) && activeSetlist.items.length
+    ? activeSetlist.items
+        .map(item => danceById[item.danceId])
+        .filter(Boolean)
+    : dances.slice();
 
   filteredDances = baseDances.filter(d => {
     if (formationFilter && d.formationId !== formationFilter) return false;
     if (barsFilter) {
-      const bars =
-        d.structure && typeof d.structure.barsPerPart === 'number'
-          ? d.structure.barsPerPart
-          : null;
+      const bars = d.structure && typeof d.structure.barsPerPart === 'number'
+        ? d.structure.barsPerPart
+        : null;
       if (!bars || String(bars) !== barsFilter) return false;
     }
     if (musicTypeFilter && d.musicType !== musicTypeFilter) return false;
@@ -492,7 +500,6 @@ function applyFilters() {
     return true;
   });
 
-  const activeSetlist = getActiveSetlist();
   if (!activeSetlist) {
     filteredDances.sort((a, b) => {
       const ta = (a.title || '').toLowerCase();
@@ -506,7 +513,7 @@ function applyFilters() {
   renderDanceSelect();
 }
 
-/** Dance selection **/
+// Dance selection
 
 function renderDanceSelect() {
   const select = document.getElementById('dance-select');
@@ -549,15 +556,12 @@ function renderCurrentDance() {
   const speedEl = document.getElementById('dance-speed');
   const musicTypeEl = document.getElementById('dance-music-type');
   const difficultyEl = document.getElementById('dance-difficulty');
-
-  const callsContainer = document.getElementById('calls-container');
-  const infoContainer = document.getElementById('info-container');
   const formationDescEl = document.getElementById('formation-description');
   const notesEl = document.getElementById('dance-notes');
-  const formationFigureContainer = document.getElementById('formation-figure-container');
-  const danceFigureContainer = document.getElementById('dance-figure-container');
 
-  updateFigureToggleButtons();
+  const callsContainer = document.getElementById('calls-container');
+  const formationDiagramContainer = document.getElementById('formation-diagram-container');
+  const figureContainer = document.getElementById('figure-container');
 
   if (!d) {
     if (titleEl) titleEl.textContent = '';
@@ -566,59 +570,61 @@ function renderCurrentDance() {
     if (speedEl) speedEl.textContent = '';
     if (musicTypeEl) musicTypeEl.textContent = '';
     if (difficultyEl) difficultyEl.textContent = '';
-    if (callsContainer) callsContainer.innerHTML = '';
-    if (infoContainer) infoContainer.innerHTML = '';
     if (formationDescEl) formationDescEl.textContent = '';
     if (notesEl) notesEl.textContent = '';
-    if (formationFigureContainer) {
-      formationFigureContainer.innerHTML = '';
-      formationFigureContainer.classList.remove('hidden');
-    }
-    if (danceFigureContainer) {
-      danceFigureContainer.innerHTML = '';
-      danceFigureContainer.classList.remove('hidden');
-    }
+    if (callsContainer) callsContainer.innerHTML = '';
+    if (formationDiagramContainer) formationDiagramContainer.innerHTML = '';
+    if (figureContainer) figureContainer.innerHTML = '';
     return;
   }
 
-  const formation = d.formationId ? formationById[d.formationId] : null;
-
   if (titleEl) titleEl.textContent = d.title || d.id;
+
+  const formationMeta = d.formationId
+    ? formations.find(f => f.id === d.formationId)
+    : null;
+
   if (formationEl) {
-    formationEl.textContent = formation ? formation.name : '';
+    const label = formationMeta
+      ? `Formation: ${formationMeta.name}`
+      : d.formationName
+      ? `Formation: ${d.formationName}`
+      : '';
+    formationEl.textContent = label;
   }
 
   if (structureEl) {
-    const bars =
-      d.structure && typeof d.structure.barsPerPart === 'number'
-        ? d.structure.barsPerPart
-        : null;
+    const bars = d.structure && typeof d.structure.barsPerPart === 'number'
+      ? d.structure.barsPerPart
+      : null;
     structureEl.textContent = bars ? `Bars: ${bars}` : '';
   }
 
-  if (speedEl) speedEl.textContent = d.speed || '';
-  if (musicTypeEl) musicTypeEl.textContent = d.musicType || '';
+  if (speedEl) speedEl.textContent = d.speed ? `Speed: ${d.speed}` : '';
+  if (musicTypeEl) musicTypeEl.textContent = d.musicType ? `Music: ${d.musicType}` : '';
 
   if (difficultyEl) {
-    const diffLabel =
-      d.difficulty === 1
-        ? 'Easy'
-        : d.difficulty === 2
-        ? 'Medium'
-        : d.difficulty === 3
-        ? 'Hard'
-        : '';
+    const diffLabel = d.difficulty === 1
+      ? 'Difficulty: Easy'
+      : d.difficulty === 2
+      ? 'Difficulty: Medium'
+      : d.difficulty === 3
+      ? 'Difficulty: Hard'
+      : '';
     difficultyEl.textContent = diffLabel;
   }
 
   if (formationDescEl) {
-    formationDescEl.textContent = formation && formation.description ? applyRoleSetToText(formation.description) : '';
+    formationDescEl.textContent = formationMeta && formationMeta.description
+      ? applyRoleSetToText(formationMeta.description)
+      : '';
   }
 
   if (notesEl) {
     notesEl.textContent = d.notes || '';
   }
 
+  // Calls
   if (callsContainer) {
     callsContainer.innerHTML = '';
 
@@ -629,7 +635,7 @@ function renderCurrentDance() {
       const thead = document.createElement('thead');
       const headRow = document.createElement('tr');
       const thBars = document.createElement('th');
-      thBars.textContent = 'PART';
+      thBars.textContent = 'BARS';
       const thCalls = document.createElement('th');
       thCalls.textContent = 'CALLS';
       headRow.appendChild(thBars);
@@ -666,55 +672,55 @@ function renderCurrentDance() {
     }
   }
 
-  if (infoContainer) {
-    infoContainer.innerHTML = '';
-    if (d.infoHtml) {
-      const div = document.createElement('div');
-      div.innerHTML = applyRoleSetToHtml(d.infoHtml);
-      infoContainer.appendChild(div);
-    }
-  }
-
-  if (formationFigureContainer) {
-    formationFigureContainer.innerHTML = '';
-    if (!showFormationDiagram) {
-      formationFigureContainer.classList.add('hidden');
-    } else {
-      formationFigureContainer.classList.remove('hidden');
-      if (formation && formation.diagramImage) {
+  // Formation diagram
+  if (formationDiagramContainer) {
+    formationDiagramContainer.innerHTML = '';
+    const formation = formationMeta;
+    if (formation && formation.diagramImage) {
+      if (showFormationDiagram) {
         const img = document.createElement('img');
         img.src = formation.diagramImage;
         img.alt = formation.name || 'Formation diagram';
-        formationFigureContainer.appendChild(img);
+        formationDiagramContainer.appendChild(img);
       } else {
-        formationFigureContainer.textContent = 'No formation diagram added yet';
+        const span = document.createElement('div');
+        span.className = 'placeholder';
+        span.textContent = 'Formation diagram hidden.';
+        formationDiagramContainer.appendChild(span);
       }
+    } else {
+      const span = document.createElement('div');
+      span.className = 'placeholder';
+      span.textContent = 'No formation illustration added yet.';
+      formationDiagramContainer.appendChild(span);
     }
   }
 
-  if (danceFigureContainer) {
-    danceFigureContainer.innerHTML = '';
-    if (!showDanceFigure) {
-      danceFigureContainer.classList.add('hidden');
-    } else {
-      danceFigureContainer.classList.remove('hidden');
-      if (d.figureHtml) {
-        const div = document.createElement('div');
-        div.innerHTML = d.figureHtml;
-        danceFigureContainer.appendChild(div);
-      } else if (d.figureImage) {
+  // Dance illustration
+  if (figureContainer) {
+    figureContainer.innerHTML = '';
+    if (d.figureImage) {
+      if (showDanceFigure) {
         const img = document.createElement('img');
         img.src = d.figureImage;
         img.alt = `${d.title} illustration`;
-        danceFigureContainer.appendChild(img);
+        figureContainer.appendChild(img);
       } else {
-        danceFigureContainer.textContent = 'No dance illustration added yet';
+        const span = document.createElement('div');
+        span.className = 'placeholder';
+        span.textContent = 'Dance illustration hidden.';
+        figureContainer.appendChild(span);
       }
+    } else {
+      const span = document.createElement('div');
+      span.className = 'placeholder';
+      span.textContent = 'No dance illustration added yet.';
+      figureContainer.appendChild(span);
     }
   }
 }
 
-/** Role text substitution **/
+// Role text substitution
 
 function callText(call) {
   if (typeof call === 'string') return call;
@@ -742,8 +748,8 @@ function applyRoleSetToText(text) {
 
   const p1 = map.P1 || 'Person 1';
   const p2 = map.P2 || 'Person 2';
-  const p1s = map.P1S || (p1.endsWith('s') ? p1 : `${p1}s`);
-  const p2s = map.P2S || (p2.endsWith('s') ? p2 : `${p2}s`);
+  const p1s = map.P1S || p1;
+  const p2s = map.P2S || p2;
 
   result = result
     .replace(/\bPerson 1s\b/g, p1s)
@@ -772,7 +778,7 @@ function walkTextNodes(root, fn) {
   }
 }
 
-/** Calling mode **/
+// Calling mode
 
 function setupCallingModeToggle() {
   const btn = document.getElementById('toggle-calling-mode');
@@ -785,19 +791,24 @@ function setupCallingModeToggle() {
 
 function updateCallingModeUI() {
   const body = document.body;
+  const btn = document.getElementById('toggle-calling-mode');
+
   if (callingMode) {
     body.classList.add('calling-mode');
+    if (btn) {
+      btn.setAttribute('aria-pressed', 'true');
+      btn.textContent = 'Exit calling mode';
+    }
   } else {
     body.classList.remove('calling-mode');
-  }
-
-  const btn = document.getElementById('toggle-calling-mode');
-  if (btn) {
-    btn.textContent = callingMode ? 'Exit calling mode' : 'Calling mode';
+    if (btn) {
+      btn.setAttribute('aria-pressed', 'false');
+      btn.textContent = 'Calling mode';
+    }
   }
 }
 
-/** Next / previous **/
+// Next / previous
 
 function setupNextPrevButtons() {
   const prevBtn = document.getElementById('prev-dance');
@@ -844,40 +855,66 @@ function stepDance(delta) {
   renderCurrentDance();
 }
 
-/** Figure toggles **/
+// Diagram toggles
 
-function setupFigureToggles() {
-  const toggleFormationBtn = document.getElementById('toggle-formation-diagram');
-  const toggleDanceBtn = document.getElementById('toggle-dance-figure');
+function setupDiagramToggles() {
+  const formationBtn = document.getElementById('toggle-formation-diagram');
+  const figureBtn = document.getElementById('toggle-dance-figure');
 
-  if (toggleFormationBtn) {
-    toggleFormationBtn.addEventListener('click', () => {
+  if (formationBtn) {
+    formationBtn.addEventListener('click', () => {
       showFormationDiagram = !showFormationDiagram;
+      formationBtn.textContent = showFormationDiagram ? 'Hide' : 'Show';
       renderCurrentDance();
     });
   }
 
-  if (toggleDanceBtn) {
-    toggleDanceBtn.addEventListener('click', () => {
+  if (figureBtn) {
+    figureBtn.addEventListener('click', () => {
       showDanceFigure = !showDanceFigure;
+      figureBtn.textContent = showDanceFigure ? 'Hide' : 'Show';
       renderCurrentDance();
     });
   }
 }
 
-function updateFigureToggleButtons() {
-  const toggleFormationBtn = document.getElementById('toggle-formation-diagram');
-  const toggleDanceBtn = document.getElementById('toggle-dance-figure');
+// Swipe navigation (mobile)
 
-  if (toggleFormationBtn) {
-    toggleFormationBtn.textContent = showFormationDiagram ? 'Hide' : 'Show';
-  }
-  if (toggleDanceBtn) {
-    toggleDanceBtn.textContent = showDanceFigure ? 'Hide' : 'Show';
-  }
+function setupSwipeNavigation() {
+  document.addEventListener('touchstart', (e) => {
+    if (!callingMode) return;
+    if (!e.changedTouches || !e.changedTouches.length) return;
+    const t = e.changedTouches[0];
+    touchStartX = t.clientX;
+    touchStartY = t.clientY;
+  }, { passive: true });
+
+  document.addEventListener('touchend', (e) => {
+    if (!callingMode) return;
+    if (touchStartX == null || touchStartY == null) return;
+    if (!e.changedTouches || !e.changedTouches.length) return;
+
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStartX;
+    const dy = t.clientY - touchStartY;
+
+    const absDx = Math.abs(dx);
+    const absDy = Math.abs(dy);
+
+    if (absDx > 50 && absDy < 40) {
+      if (dx < 0) {
+        stepDance(1);
+      } else {
+        stepDance(-1);
+      }
+    }
+
+    touchStartX = null;
+    touchStartY = null;
+  }, { passive: true });
 }
 
-/** Service worker **/
+// Service worker
 
 function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
