@@ -1,0 +1,586 @@
+[
+  {
+    "id": "normal",
+    "name": "Normal",
+    "items": [
+      {
+        "roughOrder": 1,
+        "doing": "Definitely",
+        "danceId": "virginia-reel",
+        "name": "Virginia Reel",
+        "speed": "Moderate",
+        "form": "Longways 6-7 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 2,
+        "doing": "Definitely",
+        "danceId": "debbies-jig",
+        "name": "Debbie’s Jig",
+        "speed": "Gallopy",
+        "form": "Square",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 3,
+        "doing": "Definitely",
+        "danceId": "farmers-jig",
+        "name": "Farmers Jig",
+        "speed": "Med Fast Walky",
+        "form": "Longways 4 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 4,
+        "doing": "Definitely",
+        "danceId": "sweets-of-may",
+        "name": "Sweets of May",
+        "speed": "Own Tune",
+        "form": "Longways 4 couples",
+        "bars": 48,
+        "musicType": "Own Tune"
+      },
+      {
+        "roughOrder": 5,
+        "doing": "Definitely",
+        "danceId": "lucky-seven",
+        "name": "Lucky Seven",
+        "speed": "Not too fast",
+        "form": "Circle",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 6,
+        "doing": "Probably",
+        "danceId": "goathland-square-eight",
+        "name": "Goathland Square Eight",
+        "speed": "Not too fast",
+        "form": "4c Square Set",
+        "bars": 32,
+        "musicType": "Reels"
+      },
+      {
+        "roughOrder": 7,
+        "doing": "Maybe",
+        "danceId": "witches-reel",
+        "name": "Witches Reel",
+        "speed": "Brisk",
+        "form": "Longways 4 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 8,
+        "doing": "Maybe",
+        "danceId": "monkey-in-the-middle",
+        "name": "Monkey In The Middle",
+        "speed": null,
+        "form": "4c Square Set + 1 extra",
+        "bars": 32,
+        "musicType": "Reels"
+      },
+      {
+        "roughOrder": 9,
+        "doing": "Definitely",
+        "danceId": "yarmouth-long-dance",
+        "name": "Yarmouth Long Dance",
+        "speed": "Moderate",
+        "form": "Longways 6-8 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 10,
+        "doing": "Maybe",
+        "danceId": "falling-masonry",
+        "name": "Falling Masonry",
+        "speed": null,
+        "form": "Longways 4 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 11,
+        "doing": "Probably",
+        "danceId": "alderley-edge",
+        "name": "Alderley Edge",
+        "speed": null,
+        "form": "Longways 6 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 12,
+        "doing": "Maybe",
+        "danceId": "bridge-of-athlone",
+        "name": "Bridge of Athlone",
+        "speed": null,
+        "form": "Longways 5 couples",
+        "bars": 48,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 13,
+        "doing": "I suppose we better",
+        "danceId": "circassian-circle",
+        "name": "Circassian Circle",
+        "speed": null,
+        "form": "Circle any",
+        "bars": null,
+        "musicType": "Whatever"
+      }
+    ]
+  },
+  {
+    "id": "simple",
+    "name": "Simple",
+    "items": [
+      {
+        "roughOrder": 1,
+        "doing": "Definitely",
+        "danceId": "virginia-reel",
+        "name": "Virginia Reel",
+        "speed": "Moderate",
+        "form": "Longways 6-7 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 2,
+        "doing": "Definitely",
+        "danceId": "debbies-jig",
+        "name": "Debbie’s Jig",
+        "speed": "Gallopy",
+        "form": "Square",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 3,
+        "doing": "Definitely",
+        "danceId": "farmers-jig",
+        "name": "Farmers Jig",
+        "speed": "Med Fast Walky",
+        "form": "Longways 4 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 4,
+        "doing": "Definitely",
+        "danceId": "lucky-seven",
+        "name": "Lucky Seven",
+        "speed": "Not too fast",
+        "form": "Circle",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 5,
+        "doing": "Definitely",
+        "danceId": "sweets-of-may",
+        "name": "Sweets of May",
+        "speed": "Own Tune",
+        "form": "Longways 4 couples",
+        "bars": 48,
+        "musicType": "Own Tune"
+      },
+      {
+        "roughOrder": 6,
+        "doing": "Probably",
+        "danceId": "four-around-four",
+        "name": "Four around four",
+        "speed": null,
+        "form": "Longways 4 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 7,
+        "doing": "Maybe",
+        "danceId": "monkey-in-the-middle",
+        "name": "Monkey In The Middle",
+        "speed": null,
+        "form": "4c Square Set + 1 extra",
+        "bars": 32,
+        "musicType": "Reels"
+      },
+      {
+        "roughOrder": 8,
+        "doing": "Maybe",
+        "danceId": "pieces-of-eight",
+        "name": "Pieces of Eight",
+        "speed": null,
+        "form": "Circle",
+        "bars": 32,
+        "musicType": "Reels"
+      },
+      {
+        "roughOrder": 9,
+        "doing": "Probably",
+        "danceId": "alderley-edge",
+        "name": "Alderley Edge",
+        "speed": null,
+        "form": "Longways 6 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 10,
+        "doing": "Definitely",
+        "danceId": "moving-along",
+        "name": "Moving Along",
+        "speed": null,
+        "form": "Circle",
+        "bars": 32,
+        "musicType": "Jigs"
+      }
+    ]
+  },
+  {
+    "id": "experienced",
+    "name": "Experienced",
+    "items": [
+      {
+        "roughOrder": 1,
+        "doing": "Definitely",
+        "danceId": "virginia-reel",
+        "name": "Virginia Reel",
+        "speed": "Moderate",
+        "form": "Longways 6-7 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 2,
+        "doing": "Maybe",
+        "danceId": "debbies-jig",
+        "name": "Debbie’s Jig",
+        "speed": "Gallopy",
+        "form": "Square",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 3,
+        "doing": "Definitely",
+        "danceId": "chaos-square",
+        "name": "Chaos Square",
+        "speed": "Energetically",
+        "form": "Square all around the room",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 4,
+        "doing": "Only if dancers are less experienced than anticipated",
+        "danceId": "farmers-jig",
+        "name": "Farmers Jig",
+        "speed": "Med Fast Walky",
+        "form": "Longways 4 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 5,
+        "doing": "Definitely",
+        "danceId": "sweets-of-may",
+        "name": "Sweets of May",
+        "speed": "Own Tune",
+        "form": "Longways 4 couples",
+        "bars": 48,
+        "musicType": "Own Tune"
+      },
+      {
+        "roughOrder": 6,
+        "doing": "Maybe",
+        "danceId": "cumberland-reel",
+        "name": "Cumberland Reel",
+        "speed": "Brisk",
+        "form": "Longways 4, 5, or 6",
+        "bars": 32,
+        "musicType": "32 Reels"
+      },
+      {
+        "roughOrder": 7,
+        "doing": "Definitely",
+        "danceId": "lucky-seven",
+        "name": "Lucky Seven",
+        "speed": "Not too fast",
+        "form": "Circle",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 8,
+        "doing": "Probably",
+        "danceId": "goathland-square-eight",
+        "name": "Goathland Square Eight",
+        "speed": "Not too fast",
+        "form": "4c Square Set",
+        "bars": 32,
+        "musicType": "Reels"
+      },
+      {
+        "roughOrder": 9,
+        "doing": "Maybe",
+        "danceId": "witches-reel",
+        "name": "Witches Reel",
+        "speed": "Brisk",
+        "form": "Longways 4 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 10,
+        "doing": "Probably",
+        "danceId": "muffin-man",
+        "name": "Muffin Man",
+        "speed": "Start slow, be able to play really fast...",
+        "form": "Concentric Circles, Man on inside",
+        "bars": 32,
+        "musicType": "Polkas"
+      },
+      {
+        "roughOrder": 11,
+        "doing": "Probably",
+        "danceId": "monkey-in-the-middle",
+        "name": "Monkey In The Middle",
+        "speed": null,
+        "form": "4c Square Set + 1 extra",
+        "bars": 32,
+        "musicType": "Reels"
+      },
+      {
+        "roughOrder": 12,
+        "doing": "Maybe",
+        "danceId": "yarmouth-long-dance",
+        "name": "Yarmouth Long Dance",
+        "speed": "Moderate",
+        "form": "Longways 6-8 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 13,
+        "doing": "Only if they really already know it...and reeeeeally want it",
+        "danceId": "dashing-white-sergeant",
+        "name": "Dashing White Sergeant",
+        "speed": "Not too fast (unless more than 50% Scots!)",
+        "form": "Sicilian Circle",
+        "bars": 32,
+        "musicType": "Own Tune / Reels"
+      },
+      {
+        "roughOrder": 14,
+        "doing": "Probably",
+        "danceId": "falling-masonry",
+        "name": "Falling Masonry",
+        "speed": null,
+        "form": "Longways 4 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 15,
+        "doing": "Probably",
+        "danceId": "alderley-edge",
+        "name": "Alderley Edge",
+        "speed": null,
+        "form": "Longways 6 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 16,
+        "doing": "Almost Certainly",
+        "danceId": "an-rince-mor",
+        "name": "An Rince Mor",
+        "speed": "Play a 32 with 3 B parts if needed.",
+        "form": "Big Circle with partners",
+        "bars": 40,
+        "musicType": "Reels"
+      },
+      {
+        "roughOrder": 17,
+        "doing": "Maybe",
+        "danceId": "bridge-of-athlone",
+        "name": "Bridge of Athlone",
+        "speed": null,
+        "form": "Longways 5 couples",
+        "bars": 48,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 18,
+        "doing": "Maybe",
+        "danceId": "boston-tea-party",
+        "name": "Boston Tea party",
+        "speed": "Brisk",
+        "form": "Ring the changes on the tune type",
+        "bars": 32,
+        "musicType": "Brisk marches or Medium Polkas for a change (or Gallopy Jigs)"
+      },
+      {
+        "roughOrder": 19,
+        "doing": "Definitely",
+        "danceId": "cambridge-circle-dance",
+        "name": "Cambridge Circle Dance",
+        "speed": "Start reasonable may speed up a little",
+        "form": "Beckets Circle 2 couple pairs",
+        "bars": 64,
+        "musicType": "Slip Jigs"
+      },
+      {
+        "roughOrder": 20,
+        "doing": "Definitely",
+        "danceId": "cumberland-square-eight",
+        "name": "Cumberland Square Eight",
+        "speed": "Moderate to med fast",
+        "form": "4c Square Set",
+        "bars": 48,
+        "musicType": "2 * 32 * 2 Reels followed by Atthol Highlanders"
+      },
+      {
+        "roughOrder": 21,
+        "doing": "Definitely",
+        "danceId": "orcadian-strip-the-willow",
+        "name": "Orcadian Strip The Willow",
+        "speed": "Decent lick",
+        "form": "Lines facing any length",
+        "bars": null,
+        "musicType": "Slip Jigs"
+      }
+    ]
+  },
+  {
+    "id": "scottish",
+    "name": "Scottish",
+    "items": [
+      {
+        "roughOrder": 1,
+        "doing": "Definitely",
+        "danceId": "virginia-reel",
+        "name": "Virginia Reel",
+        "speed": "Moderate",
+        "form": "Longways 6-7 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 2,
+        "doing": "Definitely",
+        "danceId": "debbies-jig",
+        "name": "Debbie’s Jig",
+        "speed": "Gallopy",
+        "form": "Square",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 3,
+        "doing": "Definitely",
+        "danceId": "farmers-jig",
+        "name": "Farmers Jig",
+        "speed": "Med Fast Walky",
+        "form": "Longways 4 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 4,
+        "doing": "Definitely",
+        "danceId": "sweets-of-may",
+        "name": "Sweets of May",
+        "speed": "Own Tune",
+        "form": "Longways 4 couples",
+        "bars": 48,
+        "musicType": "Own Tune"
+      },
+      {
+        "roughOrder": 5,
+        "doing": "Maybe",
+        "danceId": "lucky-seven",
+        "name": "Lucky Seven",
+        "speed": "Not too fast",
+        "form": "Circle",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 6,
+        "doing": "Definitely",
+        "danceId": "dashing-white-sergeant",
+        "name": "Dashing White Sergeant",
+        "speed": "Not too fast (unless more than 50% Scots!)",
+        "form": "Sicilian Circle",
+        "bars": 32,
+        "musicType": "Own Tune / Reels"
+      },
+      {
+        "roughOrder": 7,
+        "doing": "Probably",
+        "danceId": "goathland-square-eight",
+        "name": "Goathland Square Eight",
+        "speed": "Not too fast",
+        "form": "4c Square Set",
+        "bars": 32,
+        "musicType": "Reels"
+      },
+      {
+        "roughOrder": 8,
+        "doing": "If asked for...",
+        "danceId": "gay-gordons",
+        "name": "Gay Gordons",
+        "speed": "Med Fast Walky",
+        "form": "Couples",
+        "bars": 32,
+        "musicType": "All the tunes..."
+      },
+      {
+        "roughOrder": 9,
+        "doing": "Maybe",
+        "danceId": "bridge-of-athlone",
+        "name": "Bridge of Athlone",
+        "speed": null,
+        "form": "Longways 5 couples",
+        "bars": 48,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 10,
+        "doing": "Definitely",
+        "danceId": "yarmouth-long-dance",
+        "name": "Yarmouth Long Dance",
+        "speed": "Moderate",
+        "form": "Longways 6-8 couples",
+        "bars": 32,
+        "musicType": "Jigs"
+      },
+      {
+        "roughOrder": 11,
+        "doing": "Definitely",
+        "danceId": "cumberland-square-eight",
+        "name": "Cumberland Square Eight",
+        "speed": "Moderate to med fast",
+        "form": "4c Square Set",
+        "bars": 48,
+        "musicType": "2 * 32 * 2 Reels followed by Atthol Highlanders"
+      },
+      {
+        "roughOrder": 12,
+        "doing": "Definitely",
+        "danceId": "orcadian-strip-the-willow",
+        "name": "Orcadian Strip The Willow",
+        "speed": "Decent lick",
+        "form": "Lines facing any length",
+        "bars": null,
+        "musicType": "Slip Jigs"
+      }
+    ]
+  }
+]
