@@ -29,46 +29,50 @@
       </select>
     </label>
 
-    <label>
+    <label class="filter-control">
       Formation
       <select id="filter-formation">
         <option value="">All</option>
       </select>
     </label>
 
-    <label>
+    <label class="filter-control">
       Difficulty
       <select id="filter-difficulty">
         <option value="">All</option>
       </select>
     </label>
 
-    <label>
+    <label class="filter-control">
       Tune type
       <select id="filter-tunetype">
         <option value="">All</option>
       </select>
     </label>
 
-    <label>
+    <label class="filter-control">
       Bars per part
       <select id="filter-bars">
         <option value="">All</option>
       </select>
     </label>
 
-    <label>
+    <label class="role-control">
       Roles
       <select id="role-set"></select>
     </label>
+
+    <button id="toggle-calling-mode" type="button">
+      Calling mode: off
+    </button>
   </section>
 
   <main>
     <section id="dance-view">
       <div id="view-toggles">
-        <button id="toggle-info">Hide info</button>
-        <button id="toggle-formation">Show formation</button>
-        <button id="toggle-dance-figure">Show dance figure</button>
+        <button id="toggle-info" type="button">Hide info</button>
+        <button id="toggle-formation" type="button">Show formation</button>
+        <button id="toggle-dance-figure" type="button">Show dance figure</button>
       </div>
 
       <div id="dance-title"></div>
