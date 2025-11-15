@@ -32,7 +32,7 @@ const SETLISTS_URL = 'setlists.json';
 
 document.addEventListener('DOMContentLoaded', () => {
   setupFilterHandlers();
-  setupingModeToggle();
+  setupCallingModeToggle();
   setupNextPrevButtons();
   setupSetlistStaticHandlers();
   setupSetlistEditorToggle();
