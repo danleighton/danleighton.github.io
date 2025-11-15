@@ -15,6 +15,12 @@ let currentRoleSetId = null;
 let callingMode = false;
 let setlistEditorOpen = false;
 
+const STORAGE_KEY_DANCES = 'ceilidh-dances-v1';
+const DATA_URL = 'dances.json';
+const FORMATIONS_URL = 'formations.json';
+const ROLES_URL = 'roles.json';
+const SETLISTS_URL = 'setlists.json';
+
 document.addEventListener('DOMContentLoaded', () => {
   setupFilterHandlers();
   setupCallingModeToggle();
