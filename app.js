@@ -32,7 +32,7 @@ const SETLISTS_URL = 'setlists.json';
 
 document.addEventListener('DOMContentLoaded', () => {
   setupFilterHandlers();
-  setupCallingModeToggle();
+  setupingModeToggle();
   setupNextPrevButtons();
   setupSetlistStaticHandlers();
   setupSetlistEditorToggle();
@@ -803,7 +803,7 @@ function updateCallingModeUI() {
     body.classList.remove('calling-mode');
     if (btn) {
       btn.setAttribute('aria-pressed', 'false');
-      btn.textContent = 'Call';
+      btn.textContent = '';
     }
   }
 }
