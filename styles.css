@@ -486,7 +486,7 @@ body.calling-mode .calling-toggle span {
   body.calling-mode .calling-toggle {
     top: auto !important;
     bottom: -40rem !important;
-    right: 1rem !important;
+    left: 1rem !important;
     left: auto !important;
   }
 }
