@@ -1,5 +1,6 @@
 let dances = [];
 let formations = [];
+let formationById = {};
 let rolesRaw = [];
 let setlists = [];
 let workingSetlists = [];
@@ -62,6 +63,7 @@ async function loadData() {
     setlists = Array.isArray(setlistsData) ? setlistsData : [];
 
     rebuildDanceIndex();
+    rebuildFormationIndex();
     initialiseRoleSets();
     initialiseSetlists();
 
@@ -88,34 +90,13 @@ function rebuildDanceIndex() {
   });
 }
 
-/** Formation resolution helpers **/
-
-function normaliseFormationString(str) {
-  if (!str) return '';
-  return str
-    .toLowerCase()
-    .replace(/[\u2013\u2014]/g, '-')   // en/em dash → hyphen
-    .replace(/[^a-z0-9]+/g, ' ')      // strip punctuation
-    .replace(/\s+/g, ' ')             // collapse spaces
-    .trim();
-}
-
-function getFormationForDance(d) {
-  if (!d || !d.formationName) return null;
-  const target = normaliseFormationString(d.formationName);
-  if (!target) return null;
-
-  // 1) exact normalised name match
-  let match = formations.find(f => normaliseFormationString(f.name) === target);
-  if (match) return match;
-
-  // 2) loose substring match (helps while dances.json is dirty)
-  match = formations.find(f => {
-    const fName = normaliseFormationString(f.name);
-    return fName.includes(target) || target.includes(fName);
+function rebuildFormationIndex() {
+  formationById = {};
+  formations.forEach(f => {
+    if (f && f.id) {
+      formationById[f.id] = f;
+    }
   });
-
-  return match || null;
 }
 
 /** Roles / terminology **/
@@ -240,6 +221,7 @@ function setupSetlistStaticHandlers() {
   }
 }
 
+
 function resetActiveSetlistToOriginal() {
   if (!currentSetlistId) return;
   const original = setlists.find(s => s.id === currentSetlistId);
@@ -252,6 +234,7 @@ function resetActiveSetlistToOriginal() {
   saveWorkingSetlists();
   renderSetlistEditor();
 }
+
 
 function getActiveSetlist() {
   if (!currentSetlistId) return null;
@@ -315,6 +298,8 @@ function renderSetlistEditor() {
   });
 }
 
+
+
 function setupSetlistEditorToggle() {
   const btn = document.getElementById('toggle-setlist-editor');
   if (!btn) return;
@@ -329,6 +314,7 @@ function setupSetlistEditorToggle() {
     renderSetlistEditor();
   });
 }
+
 
 function saveWorkingSetlists() {
   try {
@@ -381,7 +367,7 @@ function addCurrentDanceToSetlist() {
     danceId: currentDanceId,
     name: d.title || currentDanceId,
     speed: d.speed || null,
-    form: d.formationName || null,
+    form: d.formationId || null,
     bars: d.structure && typeof d.structure.barsPerPart === 'number'
       ? d.structure.barsPerPart
       : null,
@@ -433,51 +419,29 @@ function populateFilterOptions() {
   const barsSelect = document.getElementById('filter-bars');
   const musicTypeSelect = document.getElementById('filter-music-type');
 
-  // Formation filter: driven from formations.json
   if (formationSelect) {
-    const currentValue = formationSelect.value;
-    // assume first option is the blank "Any formation"
-    const first = formationSelect.querySelector('option:first-child');
     formationSelect.innerHTML = '';
-    if (first) {
-      formationSelect.appendChild(first);
-    } else {
-      const anyOpt = document.createElement('option');
-      anyOpt.value = '';
-      anyOpt.textContent = 'Any formation';
-      formationSelect.appendChild(anyOpt);
-    }
+    const anyOpt = document.createElement('option');
+    anyOpt.value = '';
+    anyOpt.textContent = 'Any formation';
+    formationSelect.appendChild(anyOpt);
 
     formations.forEach(f => {
-      if (!f || !f.id) return;
       const opt = document.createElement('option');
-      opt.value = f.id;          // key is the formation id
-      opt.textContent = f.name;  // label is the canonical name
+      opt.value = f.id;
+      opt.textContent = f.name;
       formationSelect.appendChild(opt);
     });
-
-    // try to preserve selection if still valid
-    if (currentValue && formations.some(f => f.id === currentValue)) {
-      formationSelect.value = currentValue;
-    } else {
-      formationSelect.value = '';
-    }
   }
 
-  // Bars filter still inferred from dances for now
   if (barsSelect) {
     const seen = new Set();
-    // preserve first option
-    const first = barsSelect.querySelector('option:first-child');
     barsSelect.innerHTML = '';
-    if (first) {
-      barsSelect.appendChild(first);
-    } else {
-      const anyOpt = document.createElement('option');
-      anyOpt.value = '';
-      anyOpt.textContent = 'Any bars';
-      barsSelect.appendChild(anyOpt);
-    }
+    const anyOpt = document.createElement('option');
+    anyOpt.value = '';
+    anyOpt.textContent = 'Any bars/part';
+    barsSelect.appendChild(anyOpt);
+
     dances.forEach(d => {
       const bars = d.structure && typeof d.structure.barsPerPart === 'number'
         ? d.structure.barsPerPart
@@ -492,19 +456,14 @@ function populateFilterOptions() {
     });
   }
 
-  // Music type filter still inferred from dances
   if (musicTypeSelect) {
     const seen = new Set();
-    const first = musicTypeSelect.querySelector('option:first-child');
     musicTypeSelect.innerHTML = '';
-    if (first) {
-      musicTypeSelect.appendChild(first);
-    } else {
-      const anyOpt = document.createElement('option');
-      anyOpt.value = '';
-      anyOpt.textContent = 'Any music type';
-      musicTypeSelect.appendChild(anyOpt);
-    }
+    const anyOpt = document.createElement('option');
+    anyOpt.value = '';
+    anyOpt.textContent = 'Any music';
+    musicTypeSelect.appendChild(anyOpt);
+
     dances.forEach(d => {
       const m = d.musicType || '';
       if (!m) return;
@@ -529,16 +488,10 @@ function applyFilters() {
   const musicTypeFilter = musicTypeSelect ? musicTypeSelect.value : '';
   const difficultyFilter = difficultySelect ? difficultySelect.value : '';
 
-  // Always filter from the full dance list; setlists control ordering and calling, not visibility
   const baseDances = dances.slice();
 
   filteredDances = baseDances.filter(d => {
-    // Formation filter using formations.json (by formation id)
-    if (formationFilter) {
-      const f = getFormationForDance(d);
-      if (!f || f.id !== formationFilter) return false;
-    }
-
+    if (formationFilter && d.formationId !== formationFilter) return false;
     if (barsFilter) {
       const bars = d.structure && typeof d.structure.barsPerPart === 'number'
         ? d.structure.barsPerPart
@@ -553,7 +506,6 @@ function applyFilters() {
     return true;
   });
 
-  // When not using a setlist, keep alphabetical order
   const activeSetlist = getActiveSetlist();
   if (!activeSetlist) {
     filteredDances.sort((a, b) => {
@@ -629,21 +581,20 @@ function renderCurrentDance() {
     return;
   }
 
-  const formation = getFormationForDance(d);
+  const formation = d.formationId ? formationById[d.formationId] : null;
 
   if (titleEl) titleEl.textContent = d.title || d.id;
   if (formationEl) {
-    const label = formation
+    formationEl.textContent = formation
       ? `Formation: ${formation.name}`
-      : (d.formationName ? `Formation: ${d.formationName}` : '');
-    formationEl.textContent = label;
+      : '';
   }
 
   if (structureEl) {
     const bars = d.structure && typeof d.structure.barsPerPart === 'number'
       ? d.structure.barsPerPart
       : null;
-    structureEl.textContent = bars ? `Bars: ${bars}` : '';
+    structureEl.textContent = bars ? `Bars/part: ${bars}` : '';
   }
 
   if (speedEl) speedEl.textContent = d.speed ? `Speed: ${d.speed}` : '';
@@ -708,59 +659,46 @@ function renderCurrentDance() {
     }
   }
 
-  // Formation panel (was "Info")
+  // Formation description + dance notes
   if (infoContainer) {
     infoContainer.innerHTML = '';
 
-    const heading = document.createElement('h3');
-    heading.textContent = 'Formation';
-    infoContainer.appendChild(heading);
-
-    if (formation) {
-      if (formation.description) {
-        const descP = document.createElement('p');
-        descP.textContent = applyRoleSetToText(formation.description);
-        infoContainer.appendChild(descP);
-      }
-
-      if (formation.diagramImage) {
-        const img = document.createElement('img');
-        img.src = formation.diagramImage;
-        img.alt = formation.name || 'Formation diagram';
-        infoContainer.appendChild(img);
-      } else {
-        const p = document.createElement('p');
-        p.textContent = 'No formation image added yet';
-        infoContainer.appendChild(p);
-      }
-    } else {
+    if (formation && formation.description) {
       const p = document.createElement('p');
-      p.textContent = 'No formation details added yet';
+      p.className = 'formation-description';
+      p.textContent = formation.description;
+      infoContainer.appendChild(p);
+    }
+
+    if (d.notes) {
+      const p = document.createElement('p');
+      p.className = 'dance-notes';
+      p.textContent = d.notes;
       infoContainer.appendChild(p);
     }
   }
 
+  // Figure: prefer dance-specific illustration, fall back to formation diagram
   if (figureContainer) {
     figureContainer.innerHTML = '';
-
-    let hasFigure = false;
 
     if (d.figureHtml) {
       const div = document.createElement('div');
       div.innerHTML = d.figureHtml;
       figureContainer.appendChild(div);
-      hasFigure = true;
     } else if (d.figureImage) {
       const img = document.createElement('img');
       img.src = d.figureImage;
-      img.alt = `${d.title} figure`;
+      img.alt = `${d.title} illustration`;
       figureContainer.appendChild(img);
-      hasFigure = true;
-    }
-
-    if (!hasFigure) {
+    } else if (formation && formation.diagramImage) {
+      const img = document.createElement('img');
+      img.src = formation.diagramImage;
+      img.alt = `${formation.name} formation diagram`;
+      figureContainer.appendChild(img);
+    } else {
       const p = document.createElement('p');
-      p.textContent = 'No dance illustration added yet';
+      p.textContent = 'No dance illustration added yet. No formation image.';
       figureContainer.appendChild(p);
     }
   }

@@ -1,125 +1,116 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ceilidh Dances</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+  <title>Ceilidh Dance Caller</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Ceilidh Dances</h1>
+  <header class="app-header">
+    <h1>Ceilidh Dance Caller</h1>
+    <div class="header-controls">
+      <button id="toggle-calling-mode" type="button">Calling mode</button>
+      <div class="role-select-wrapper">
+        <label for="role-set-select">Roles:</label>
+        <select id="role-set-select"></select>
+      </div>
+    </div>
   </header>
 
-  <section id="controls">
-    <label>
-      Dance
-      <select id="dance-select"></select>
-    </label>
+  <main class="app-main">
+    <section class="filters-panel">
+      <h2>Filters</h2>
+      <div class="filter-row">
+        <label for="setlist-select">Setlist:</label>
+        <select id="setlist-select">
+          <option value="">All dances</option>
+        </select>
+      </div>
 
-    <div id="nav-buttons">
-      <button id="prev-dance" type="button">Previous</button>
-      <button id="next-dance" type="button">Next</button>
-    </div>
-
-    <label class="setlist-control">
-      Setlist
-      <select id="setlist-select">
-        <option value="">All dances</option>
-      </select>
-    </label>
-    <button id="toggle-setlist-editor" type="button">Edit setlist</button>
-    <button id="reset-setlist" type="button">Reset setlist</button>
-
-
-    <div id="filters">
-      <label class="filter-control">
-        Formation
+      <div class="filter-row">
+        <label for="filter-formation">Formation:</label>
         <select id="filter-formation">
-          <option value="">Any</option>
+          <option value="">Any formation</option>
         </select>
-      </label>
+      </div>
 
-      <label class="filter-control">
-        Bars
+      <div class="filter-row">
+        <label for="filter-bars">Bars/part:</label>
         <select id="filter-bars">
-          <option value="">Any</option>
+          <option value="">Any bars/part</option>
         </select>
-      </label>
+      </div>
 
-      <label class="filter-control">
-        Music type
+      <div class="filter-row">
+        <label for="filter-music-type">Music:</label>
         <select id="filter-music-type">
-          <option value="">Any</option>
+          <option value="">Any music</option>
         </select>
-      </label>
+      </div>
 
-      <label class="filter-control">
-        Difficulty
+      <div class="filter-row">
+        <label for="filter-difficulty">Difficulty:</label>
         <select id="filter-difficulty">
-          <option value="">Any</option>
+          <option value="">Any difficulty</option>
           <option value="1">Easy</option>
           <option value="2">Medium</option>
           <option value="3">Hard</option>
         </select>
-      </label>
-
-      <button id="clear-filters" type="button" class="filter-control">
-        Clear filters
-      </button>
-
-      <label class="role-control">
-        Role terms
-        <select id="role-set-select">
-          <!-- from roles.json -->
-        </select>
-      </label>
-
-      <button id="toggle-calling-mode" type="button">
-        Calling mode
-      </button>
-    </div>
-  </section>
-
-  <main>
-    <section id="setlist-editor-wrapper" class="hidden">
-      <h2>Setlist order</h2>
-      <p class="hint">
-        Drag, or use ↑/↓, to reorder. Tap × to remove. Use “Add current dance” to insert from the main list.
-      </p>
-      <ul id="setlist-editor"></ul>
-      <button id="add-current-to-setlist" type="button">
-        Add current dance
-      </button>
-    </section>
-
-    <section id="dance-view">
-      <div id="dance-meta">
-        <h2 id="dance-title"></h2>
-        <p id="dance-formation"></p>
-        <p id="dance-structure"></p>
-        <p id="dance-speed"></p>
-        <p id="dance-music-type"></p>
-        <p id="dance-difficulty"></p>
       </div>
 
-      <div id="calling-and-info">
-        <section id="calling-section">
-          <h3 id="calling-heading">Calls</h3>
-          <div id="calls-container"></div>
-        </section>
+      <div class="filter-row">
+        <button id="clear-filters" type="button">Clear filters</button>
+      </div>
 
-        <section id="info-section">
-          <h3>Info</h3>
+      <section class="setlist-controls">
+        <h3>Setlist tools</h3>
+        <button id="toggle-setlist-editor" type="button">Edit current setlist</button>
+        <button id="add-current-to-setlist" type="button">Add current dance</button>
+        <button id="reset-setlist" type="button">Reset setlist</button>
+        <div id="setlist-editor-wrapper" class="hidden">
+          <h4>Setlist order</h4>
+          <ul id="setlist-editor" class="setlist-editor-list"></ul>
+        </div>
+      </section>
+    </section>
+
+    <section class="dance-panel">
+      <div class="dance-select-row">
+        <label for="dance-select">Dance:</label>
+        <select id="dance-select"></select>
+        <button id="prev-dance" type="button" aria-label="Previous dance">◀</button>
+        <button id="next-dance" type="button" aria-label="Next dance">▶</button>
+      </div>
+
+      <article class="dance-detail">
+        <header class="dance-header">
+          <h2 id="dance-title"></h2>
+          <div id="dance-formation" class="dance-formation"></div>
+        </header>
+
+        <div class="dance-meta">
+          <div id="dance-structure" class="dance-meta-item"></div>
+          <div id="dance-speed" class="dance-meta-item"></div>
+          <div id="dance-music-type" class="dance-meta-item"></div>
+          <div id="dance-difficulty" class="dance-meta-item"></div>
+        </div>
+
+        <section class="dance-info">
+          <h3>Formation</h3>
           <div id="info-container"></div>
         </section>
 
-        <section id="figure-section">
+        <section class="dance-calls">
+          <h3>Calls</h3>
+          <div id="calls-container"></div>
+        </section>
+
+        <section class="dance-figure">
           <h3>Figure / diagram</h3>
           <div id="figure-container"></div>
         </section>
-      </div>
+      </article>
     </section>
   </main>
 
