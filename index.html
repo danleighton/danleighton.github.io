@@ -2,152 +2,125 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ceilidh Caller</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="app-header">
-    <h1 class="app-title">Ceilidh Caller</h1>
+  <header class="top-bar">
+    <div class="top-bar-main">
+      <div class="app-title-wrap">
+        <h1 class="app-title">Ceilidh Caller</h1>
+        <button id="toggle-calling-mode" type="button" class="btn small">Calling mode</button>
+      </div>
+      <div class="top-controls">
+        <label class="compact-field">
+          Role terms
+          <select id="role-set-select"></select>
+        </label>
+        <label class="compact-field">
+          Setlist
+          <select id="setlist-select">
+            <option value="">All dances</option>
+          </select>
+        </label>
+        <button id="toggle-setlist-editor" type="button" class="btn small secondary">Edit setlist</button>
+      </div>
+    </div>
+    <div class="nav-row">
+      <button id="prev-dance" type="button" class="btn nav-btn">&larr;</button>
+      <select id="dance-select" class="dance-select"></select>
+      <button id="next-dance" type="button" class="btn nav-btn">&rarr;</button>
+    </div>
   </header>
 
-  <main class="app-main">
-    <!-- Top controls: dance selection, role-set, setlist -->
-    <section class="card top-controls" id="top-controls">
-      <div class="top-row">
-        <div class="field">
-          <label for="dance-select">Dance</label>
-          <select id="dance-select"></select>
-        </div>
-
-        <div class="field">
-          <label for="role-set-select">Roles</label>
-          <select id="role-set-select"></select>
-        </div>
-
-        <div class="field">
-          <label for="setlist-select">Set list</label>
-          <select id="setlist-select"></select>
-        </div>
-      </div>
-
-      <div class="top-row buttons-row">
-        <div class="button-group">
-          <button id="prev-dance" class="btn secondary">&larr; Previous</button>
-          <button id="next-dance" class="btn secondary">Next &rarr;</button>
-        </div>
-        <div class="button-group">
-          <button id="toggle-calling-mode" class="btn primary">Calling mode</button>
-        </div>
-        <div class="button-group">
-          <button id="add-current-to-setlist" class="btn secondary">Add to set list</button>
-          <button id="reset-setlist" class="btn secondary">Reset set list</button>
-          <button id="toggle-setlist-editor" class="btn subtle">Edit raw set list</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Filters -->
-    <section class="card" id="filters-panel">
-      <h2 class="card-title">Filters</h2>
-      <div class="filters-grid">
-        <div class="field">
-          <label for="filter-formation">Formation</label>
+  <main class="layout">
+    <section class="left-column">
+      <section class="filters-strip">
+        <label>
+          Formation
           <select id="filter-formation">
-            <option value="">Any formation</option>
+            <option value="">Any</option>
           </select>
-        </div>
-        <div class="field">
-          <label for="filter-bars">Bars / structure</label>
+        </label>
+        <label>
+          Bars
           <select id="filter-bars">
             <option value="">Any</option>
           </select>
-        </div>
-        <div class="field">
-          <label for="filter-music-type">Music type</label>
+        </label>
+        <label>
+          Music
           <select id="filter-music-type">
             <option value="">Any</option>
           </select>
-        </div>
-        <div class="field">
-          <label for="filter-difficulty">Difficulty</label>
+        </label>
+        <label>
+          Difficulty
           <select id="filter-difficulty">
             <option value="">Any</option>
+            <option value="1">Easy</option>
+            <option value="2">Medium</option>
+            <option value="3">Hard</option>
           </select>
+        </label>
+        <button id="clear-filters" type="button" class="btn ghost small">Clear</button>
+      </section>
+
+      <section class="panel calls-panel">
+        <div class="panel-header">
+          <div>
+            <h2 id="dance-title" class="dance-title"></h2>
+            <div class="meta-line">
+              <span id="dance-formation" class="meta-pill"></span>
+              <span id="dance-structure" class="meta-pill"></span>
+            </div>
+          </div>
+          <div class="meta-right">
+            <span id="dance-speed" class="meta-text"></span>
+            <span id="dance-music-type" class="meta-text"></span>
+            <span id="dance-difficulty" class="meta-text"></span>
+          </div>
         </div>
-      </div>
-      <button id="clear-filters" class="btn subtle small">Clear filters</button>
+        <div id="calls-container" class="calls-container"></div>
+      </section>
     </section>
 
-    <!-- Dance details -->
-    <section class="card" id="meta-panel">
-      <h2 id="dance-title" class="dance-title">Select a dance</h2>
-      <div id="dance-formation" class="meta-line"></div>
+    <section class="right-column">
+      <section class="panel info-panel">
+        <h3 class="panel-title">Formation &amp; notes</h3>
+        <div id="formation-description" class="body-text"></div>
+        <div id="dance-notes" class="body-text subtle"></div>
 
-      <div class="meta-grid">
-        <div class="meta-item">
-          <span class="meta-label">Structure</span>
-          <span id="dance-structure" class="meta-value"></span>
+        <div class="figure-section">
+          <div class="figure-header">
+            <span class="figure-title">Formation diagram</span>
+            <button id="toggle-formation-diagram" type="button" class="btn tiny ghost">Hide</button>
+          </div>
+          <div id="formation-figure-container" class="figure-box small-square"></div>
         </div>
-        <div class="meta-item">
-          <span class="meta-label">Speed</span>
-          <span id="dance-speed" class="meta-value"></span>
+
+        <div class="figure-section">
+          <div class="figure-header">
+            <span class="figure-title">Dance illustration</span>
+            <button id="toggle-dance-figure" type="button" class="btn tiny ghost">Hide</button>
+          </div>
+          <div id="dance-figure-container" class="figure-box small-square"></div>
         </div>
-        <div class="meta-item">
-          <span class="meta-label">Music type</span>
-          <span id="dance-music-type" class="meta-value"></span>
+
+        <div id="info-container" class="body-text extra-info"></div>
+      </section>
+
+      <section id="setlist-editor-wrapper" class="panel setlist-panel hidden">
+        <div class="setlist-header">
+          <h3 class="panel-title">Setlist order</h3>
+          <div class="setlist-actions">
+            <button id="add-current-to-setlist" type="button" class="btn tiny">Add current</button>
+            <button id="reset-setlist" type="button" class="btn tiny secondary">Reset to original</button>
+          </div>
         </div>
-        <div class="meta-item">
-          <span class="meta-label">Difficulty</span>
-          <span id="dance-difficulty" class="meta-value"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Formation section (description + diagram + notes) -->
-    <section class="card" id="formation-section">
-      <div class="section-header">
-        <h2>Formation</h2>
-        <button id="toggle-formation-diagram" class="btn subtle small">Hide diagram</button>
-      </div>
-      <p id="dance-formation-description" class="body-text"></p>
-      <div id="formation-diagram-container" class="diagram-container"></div>
-      <p id="dance-notes" class="body-text notes-text"></p>
-    </section>
-
-    <!-- Extra info (if any infoHtml or similar is ever added) -->
-    <section class="card" id="info-section">
-      <div class="section-header">
-        <h2>Extra info</h2>
-      </div>
-      <div id="info-container" class="body-text"></div>
-    </section>
-
-    <!-- Dance illustration -->
-    <section class="card" id="figure-section">
-      <div class="section-header">
-        <h2>Dance illustration</h2>
-        <button id="toggle-dance-figure" class="btn subtle small">Hide illustration</button>
-      </div>
-      <div id="figure-container" class="diagram-container"></div>
-    </section>
-
-    <!-- Calls -->
-    <section class="card calls-card" id="calls-section">
-      <div class="section-header">
-        <h2>Calls</h2>
-      </div>
-      <div id="calls-container" class="calls-container"></div>
-    </section>
-
-    <!-- Set list editor -->
-    <section class="card" id="setlist-section">
-      <div class="section-header">
-        <h2>Set list editor</h2>
-      </div>
-      <div id="setlist-editor-wrapper" class="setlist-editor-wrapper">
-        <textarea id="setlist-editor"></textarea>
-      </div>
+        <ul id="setlist-editor" class="setlist-list"></ul>
+      </section>
     </section>
   </main>
 
