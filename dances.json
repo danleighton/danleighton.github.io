@@ -1,176 +1,440 @@
 [
   {
-    "id": "virginia-reel-32",
-    "number": 1,
-    "title": "Virginia Reel (32-bar version)",
-    "formationId": "longways-7-8c",
-    "speed": "Moderate jig",
-    "musicType": "32-bar jigs or reels",
-    "musicExamples": [
-      "Haste to the Wedding",
-      "My Darling Asleep",
-      "Camptown Races",
-      "Galopede",
-      "Constant Billy",
-      "News of the Victory",
-      "Wedding March"
-    ],
-    "difficulty": 1,
-    "step": "",
-    "author": "Trad. / caller: Dan Leighton",
+    "id": "alderley-edge",
+    "title": "Alderley Edge",
+    "number": null,
+    "formationName": "Longways 6 couples",
+    "speed": null,
+    "musicType": "Jigs",
     "structure": {
-      "barsPerPart": 8,
-      "sequence": ["A1", "A2", "B1", "B2"]
+      "barsPerPart": 32
     },
-    "calls": [
-      {
-        "part": "A1",
-        "bars": 8,
-        "callHtml": "All forward and back in lines (4).<br>Repeat."
-      },
-      {
-        "part": "A2",
-        "bars": 8,
-        "callHtml": "Right-arm turn partner (8).<br>Left-arm turn partner (8)."
-      },
-      {
-        "part": "B1",
-        "bars": 8,
-        "callHtml": "Both-hands turn partner (8).<br>Do-si-do partner (8)."
-      },
-      {
-        "part": "B2",
-        "bars": 8,
-        "callHtml": "<strong>Top couple</strong> two-hands gallop down the middle and <strong>stay</strong> (8).<br>Clap (or close-clench swing) as tops pass and shuffle up."
-      }
-    ],
-    "tunes": [],
-    "danceDiagramImage": null
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
   },
   {
-    "id": "cumberland-reel",
-    "number": 6,
-    "title": "Cumberland Reel",
-    "formationId": "longways-4-6c",
-    "speed": "Brisk",
-    "musicType": "32-bar jigs or reels",
-    "musicExamples": [],
-    "difficulty": 1,
-    "step": "",
-    "author": "Trad. / caller: Dan Leighton",
+    "id": "an-rince-mor",
+    "title": "An Rince Mor",
+    "number": null,
+    "formationName": "Big Circle with partners",
+    "speed": "Play a 32 with 3 B parts if needed.",
+    "musicType": "Reels",
     "structure": {
-      "barsPerPart": 8,
-      "sequence": ["A1", "A2", "B1", "B2"]
+      "barsPerPart": 40
     },
-    "calls": [
-      {
-        "part": "A1",
-        "bars": 8,
-        "callHtml": "Top two couples right-hand star (7) then left-hand star (7)."
-      },
-      {
-        "part": "A2",
-        "bars": 16,
-        "callHtml": "Two-hands to partner and <strong>1s</strong> gallop down the middle (8) and gallop back (8)."
-      },
-      {
-        "part": "B1",
-        "bars": 8,
-        "callHtml": "<strong>1s</strong> lead a single cast to the bottom."
-      },
-      {
-        "part": "B2",
-        "bars": 8,
-        "callHtml": "No arch. <strong>1s</strong> join and lead up to the top; others make arches behind them. When at the top, 1s promenade to the bottom under arches."
-      }
-    ],
-    "tunes": [],
-    "danceDiagramImage": "img/dance-cumberland-reel.svg"
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "boston-tea-party",
+    "title": "Boston Tea party",
+    "number": null,
+    "formationName": "Ring the changes on the tune type",
+    "speed": "Brisk",
+    "musicType": "Brisk marches or Medium Polkas for a change (or Gallopy Jigs)",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "bridge-of-athlone",
+    "title": "Bridge of Athlone",
+    "number": null,
+    "formationName": "Longways 5 couples",
+    "speed": null,
+    "musicType": "Jigs",
+    "structure": {
+      "barsPerPart": 48
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
   },
   {
     "id": "cambridge-circle-dance",
-    "number": 30,
     "title": "Cambridge Circle Dance",
-    "formationId": "circle-becket-fours",
-    "speed": "Medium",
-    "musicType": "64-bar slip jigs",
-    "musicExamples": [
-      "Fox Hunters",
-      "Sir Roger De Coverly (4-part version)"
-    ],
-    "difficulty": 2,
-    "step": "Single/Skip except where indicated",
-    "author": "Dan Leighton",
+    "number": null,
+    "formationName": "Beckets Circle 2 couple pairs",
+    "speed": "Start reasonable may speed up a little",
+    "musicType": "Slip Jigs",
     "structure": {
-      "barsPerPart": 8,
-      "sequence": ["A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"]
+      "barsPerPart": 64
     },
-    "calls": [
-      {
-        "part": "A1",
-        "bars": 8,
-        "callHtml": "<strong>Hands around.</strong><br><strong>Circle left (12)</strong> – slip."
-      },
-      {
-        "part": "A2",
-        "bars": 8,
-        "callHtml": "<strong>Circle right (12)</strong> – slip."
-      },
-      {
-        "part": "B1",
-        "bars": 8,
-        "callHtml": "<strong>[P1S] right-hand turn opposite corner.</strong><br><strong>[P2S] right-hand turn opposite corner.</strong>"
-      },
-      {
-        "part": "B2",
-        "bars": 8,
-        "callHtml": "<strong>Face-to-face turn with partner</strong> – giving LEFT shoulder or palm-to-palm (can walk instead of skip)."
-      },
-      {
-        "part": "C1",
-        "bars": 8,
-        "callHtml": "Grand chain with right hand to next person in circle; count 4 people."
-      },
-      {
-        "part": "C2",
-        "bars": 8,
-        "callHtml": "<strong>Swing the 5th (12).</strong>"
-      },
-      {
-        "part": "D1",
-        "bars": 8,
-        "callHtml": "<strong>Circle left in fours (12).</strong>"
-      },
-      {
-        "part": "D2",
-        "bars": 8,
-        "callHtml": "<strong>Circle right (12) in new fours.</strong>"
-      }
-    ],
-    "tunes": [
-      {
-        "title": "Foxhunters (placeholder)",
-        "role": "primary",
-        "source": "thesession",
-        "sessionUrl": "",
-        "sessionId": null,
-        "defaultKey": "G",
-        "tuneType": "slip jig",
-        "abc": "X:1\nT:Foxhunters (placeholder)\nM:9/8\nK:G\n",
-        "notes": "Paste full ABC here and set sessionUrl to the tune page."
-      },
-      {
-        "title": "Sir Roger de Coverley (4-part, placeholder)",
-        "role": "alternative",
-        "source": "thesession",
-        "sessionUrl": "",
-        "sessionId": null,
-        "defaultKey": "D",
-        "tuneType": "slip jig",
-        "abc": "X:1\nT:Sir Roger de Coverley (placeholder)\nM:9/8\nK:D\n",
-        "notes": ""
-      }
-    ],
-    "danceDiagramImage": null
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "chaos-square",
+    "title": "Chaos Square",
+    "number": null,
+    "formationName": "Square all around the room",
+    "speed": "Energetically",
+    "musicType": "Jigs",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "circassian-circle",
+    "title": "Circassian Circle",
+    "number": null,
+    "formationName": "Circle any",
+    "speed": null,
+    "musicType": "Whatever",
+    "structure": {},
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "cumberland-reel",
+    "title": "Cumberland Reel",
+    "number": null,
+    "formationName": "Longways 4, 5, or 6",
+    "speed": "Brisk",
+    "musicType": "32 Reels",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "cumberland-square-eight",
+    "title": "Cumberland Square Eight",
+    "number": null,
+    "formationName": "4c Square Set",
+    "speed": "Moderate to med fast",
+    "musicType": "2 * 32 * 2 Reels followed by Atthol Highlanders",
+    "structure": {
+      "barsPerPart": 48
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "dashing-white-sergeant",
+    "title": "Dashing White Sergeant",
+    "number": null,
+    "formationName": "Sicilian Circle",
+    "speed": "Not too fast (unless more than 50% Scots!)",
+    "musicType": "Own Tune / Reels",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "debbies-jig",
+    "title": "Debbie’s Jig",
+    "number": null,
+    "formationName": "Square",
+    "speed": "Gallopy",
+    "musicType": "Jigs",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "falling-masonry",
+    "title": "Falling Masonry",
+    "number": null,
+    "formationName": "Longways 4 couples",
+    "speed": null,
+    "musicType": "Jigs",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "farmers-jig",
+    "title": "Farmers Jig",
+    "number": null,
+    "formationName": "Longways 4 couples",
+    "speed": "Med Fast Walky",
+    "musicType": "Jigs",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "four-around-four",
+    "title": "Four around four",
+    "number": null,
+    "formationName": "Longways 4 couples",
+    "speed": null,
+    "musicType": "Jigs",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "gay-gordons",
+    "title": "Gay Gordons",
+    "number": null,
+    "formationName": "Couples",
+    "speed": "Med Fast Walky",
+    "musicType": "All the tunes...",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "goathland-square-eight",
+    "title": "Goathland Square Eight",
+    "number": null,
+    "formationName": "4c Square Set",
+    "speed": "Not too fast",
+    "musicType": "Reels",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "lucky-seven",
+    "title": "Lucky Seven",
+    "number": null,
+    "formationName": "Circle",
+    "speed": "Not too fast",
+    "musicType": "Jigs",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "monkey-in-the-middle",
+    "title": "Monkey In The Middle",
+    "number": null,
+    "formationName": "4c Square Set + 1 extra",
+    "speed": null,
+    "musicType": "Reels",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "moving-along",
+    "title": "Moving Along",
+    "number": null,
+    "formationName": "Circle",
+    "speed": null,
+    "musicType": "Jigs",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "muffin-man",
+    "title": "Muffin Man",
+    "number": null,
+    "formationName": "Concentric Circles, Man on inside",
+    "speed": "Start slow, be able to play really fast...",
+    "musicType": "Polkas",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "orcadian-strip-the-willow",
+    "title": "Orcadian Strip The Willow",
+    "number": null,
+    "formationName": "Lines facing any length",
+    "speed": "Decent lick",
+    "musicType": "Slip Jigs",
+    "structure": {},
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "pieces-of-eight",
+    "title": "Pieces of Eight",
+    "number": null,
+    "formationName": "Circle",
+    "speed": null,
+    "musicType": "Reels",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "sweets-of-may",
+    "title": "Sweets of May",
+    "number": null,
+    "formationName": "Longways 4 couples",
+    "speed": "Own Tune",
+    "musicType": "Own Tune",
+    "structure": {
+      "barsPerPart": 48
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "virginia-reel",
+    "title": "Virginia Reel",
+    "number": null,
+    "formationName": "Longways 6-7 couples",
+    "speed": "Moderate",
+    "musicType": "Jigs",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "witches-reel",
+    "title": "Witches Reel",
+    "number": null,
+    "formationName": "Longways 4 couples",
+    "speed": "Brisk",
+    "musicType": "Jigs",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
+  },
+  {
+    "id": "yarmouth-long-dance",
+    "title": "Yarmouth Long Dance",
+    "number": null,
+    "formationName": "Longways 6-8 couples",
+    "speed": "Moderate",
+    "musicType": "Jigs",
+    "structure": {
+      "barsPerPart": 32
+    },
+    "difficulty": null,
+    "step": "",
+    "author": "",
+    "musicExamples": [],
+    "calls": [],
+    "tunes": []
   }
 ]
