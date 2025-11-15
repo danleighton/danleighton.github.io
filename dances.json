@@ -1,0 +1,83 @@
+[
+  {
+    "id": "cambridge-circle-dance",
+    "number": 30,
+    "title": "Cambridge Circle Dance",
+    "form": "Circle Becket (couples in fours, 1 pair face in, other out)",
+    "speed": "Medium",
+    "musicType": "64-bar slip jigs",
+    "difficulty": 2,
+    "step": "Single/Skip except where indicated",
+    "author": "Dan Leighton",
+    "structure": {
+      "barsPerPart": 8,
+      "parts": ["A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"]
+    },
+    "calls": [
+      {
+        "part": "A1",
+        "bars": 8,
+        "call": "Hands around. Circle left (12) – slip."
+      },
+      {
+        "part": "A2",
+        "bars": 8,
+        "call": "Circle right (12) – slip."
+      },
+      {
+        "part": "B1",
+        "bars": 8,
+        "call": "Gents right hand turn opposite corner. Robins right hand turn opposite corner."
+      },
+      {
+        "part": "B2",
+        "bars": 8,
+        "call": "Face-to-face turn with partner – giving LEFT shoulder or palm-to-palm (can walk instead of skip)."
+      },
+      {
+        "part": "C1",
+        "bars": 8,
+        "call": "Grand chain with right hand to next person in circle, count 4 people."
+      },
+      {
+        "part": "C2",
+        "bars": 8,
+        "call": "Swing the 5th (12)."
+      },
+      {
+        "part": "D1",
+        "bars": 8,
+        "call": "Circle left in fours (12)."
+      },
+      {
+        "part": "D2",
+        "bars": 8,
+        "call": "Circle right (12) in new fours."
+      }
+    ],
+    "tunes": [
+      {
+        "title": "Foxhunters (placeholder)",
+        "role": "primary",
+        "source": "thesession",
+        "sessionUrl": "",
+        "sessionId": null,
+        "defaultKey": "G",
+        "tuneType": "slip jig",
+        "abc": "X:1\nT:Foxhunters (placeholder)\nM:9/8\nK:G\n",
+        "notes": "Paste full ABC here and set sessionUrl to the tune page."
+      },
+      {
+        "title": "Sir Roger de Coverley (4-part, placeholder)",
+        "role": "alternative",
+        "source": "thesession",
+        "sessionUrl": "",
+        "sessionId": null,
+        "defaultKey": "D",
+        "tuneType": "slip jig",
+        "abc": "X:1\nT:Sir Roger de Coverley (placeholder)\nM:9/8\nK:D\n",
+        "notes": ""
+      }
+    ]
+  }
+]
