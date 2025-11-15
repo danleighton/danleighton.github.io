@@ -1,11 +1,3 @@
-const DATA_URL = 'dances.json';
-const FORMATIONS_URL = 'formations.json';
-const ROLES_URL = 'roles.json';
-const SETLISTS_URL = 'setlists.json';
-
-const STORAGE_KEY_DANCES = 'ceilidh-dances-v1';
-const STORAGE_KEY_SETLISTS = 'ceilidh-setlists-v1';
-
 let dances = [];
 let formations = [];
 let rolesRaw = [];
@@ -13,7 +5,8 @@ let setlists = [];
 let workingSetlists = [];
 let danceById = {};
 
-let filteredDances = []
+let filteredDances = [];
+let currentDanceId = null;
 let currentSetlistId = '';
 
 let roleSets = {};
