@@ -100,7 +100,7 @@
     "title": "Boston Tea party",
     "number": null,
     "speed": "Brisk",
-    "musicType": "Brisk marches or Medium Polkas for a change (or Gallopy Jigs)",
+    "musicType": "Marches or Polkas",
     "structure": {
       "barsPerPart": null,
       "parts": [
@@ -138,7 +138,7 @@
     ],
     "tunes": [],
     "formationId": "6c-L",
-    "notes": "Ring the changes on the tune type"
+    "notes": "Brisk marches or Medium Polkas for a change (or Gallopy Jigs)"
   },
   {
     "id": "bridge-of-athlone",
@@ -407,7 +407,7 @@
     "title": "Cumberland Square Eight",
     "number": null,
     "speed": "Moderate to med fast",
-    "musicType": "2 * 32 * 2 Reels followed by Atthol Highlanders",
+    "musicType": "Reels > Jigs",
     "structure": {
       "barsPerPart": null,
       "parts": [
@@ -469,7 +469,7 @@
     ],
     "tunes": [],
     "formationId": "4c-Sq",
-    "notes": "4c Square Set"
+    "notes": "2 * 32 * 2 Reels followed by Atthol Highlanders"
   },
   {
     "id": "dashing-white-sergeant",
