@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420">
+  <style>
+    .person { fill:#ffffff; stroke:#000000; stroke-width:1.5; }
+    .topcouple { fill:#ffe6b3; stroke:#000000; stroke-width:1.5; }
+    .label { font-family: -apple-system, system-ui, sans-serif; font-size:11px; text-anchor:middle; dominant-baseline:middle; }
+    .title { font-family: -apple-system, system-ui, sans-serif; font-size:14px; text-anchor:middle; }
+    .band { font-family: -apple-system, system-ui, sans-serif; font-size:12px; text-anchor:middle; }
+    .line { stroke:#999; stroke-width:1; stroke-dasharray: 4 3; }
+    .path { stroke:#d00; stroke-width:2; fill:none; stroke-dasharray:5 3; marker-end:url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="#d00" />
+    </marker>
+  </defs>
+
+  <text class="title" x="180" y="24">Cumberland Reel – top couple figure</text>
+  <text class="band" x="180" y="48">Band</text>
+  <line class="line" x1="40" y1="60" x2="320" y2="60"/>
+
+  <!-- Base longways set: 5 couples for illustration -->
+
+  <!-- Couple 1 (top couple, highlighted) -->
+  <circle class="topcouple" cx="120" cy="90" r="10"/>
+  <text class="label" x="120" y="90">P1</text>
+
+  <circle class="topcouple" cx="240" cy="90" r="10"/>
+  <text class="label" x="240" y="90">P2</text>
+
+  <!-- Couple 2 -->
+  <circle class="person" cx="120" cy="130" r="10"/>
+  <text class="label" x="120" y="130">P1</text>
+
+  <circle class="person" cx="240" cy="130" r="10"/>
+  <text class="label" x="240" y="130">P2</text>
+
+  <!-- Couple 3 -->
+  <circle class="person" cx="120" cy="170" r="10"/>
+  <text class="label" x="120" y="170">P1</text>
+
+  <circle class="person" cx="240" cy="170" r="10"/>
+  <text class="label" x="240" y="170">P2</text>
+
+  <!-- Couple 4 -->
+  <circle class="person" cx="120" cy="210" r="10"/>
+  <text class="label" x="120" y="210">P1</text>
+
+  <circle class="person" cx="240" cy="210" r="10"/>
+  <text class="label" x="240" y="210">P2</text>
+
+  <!-- Couple 5 -->
+  <circle class="person" cx="120" cy="250" r="10"/>
+  <text class="label" x="120" y="250">P1</text>
+
+  <circle class="person" cx="240" cy="250" r="10"/>
+  <text class="label" x="240" y="250">P2</text>
+
+  <!-- Path: gallop down and up the middle for the top couple -->
+  <!-- Left path (P1) -->
+  <path class="path" d="M 120 90 C 110 120 110 220 120 250" />
+  <!-- Right path (P2) -->
+  <path class="path" d="M 240 90 C 250 120 250 220 240 250" />
+
+  <!-- Label for figure -->
+  <text class="band" x="180" y="300">Top couple gallops down and returns up the set</text>
+</svg>
