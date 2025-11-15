@@ -1,12 +1,14 @@
-const CACHE_NAME = 'ceilidh-dances-cache-v4';
+const CACHE_NAME = 'ceilidh-dances-v6';
 const ASSETS = [
-  './',
-  'index.html',
-  'style.css',
-  'app.js',
-  'dances.json',
-  'formations.json',
-  'manifest.json'
+  '/',
+  '/index.html',
+  '/style.css',
+  '/app.js',
+  '/dances.json',
+  '/formations.json',
+  '/roles.json',
+  '/setlists.json',
+  '/manifest.json'
 ];
 
 self.addEventListener('install', event => {
@@ -28,11 +30,13 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  const req = event.request;
+  const { request } = event;
+  if (request.method !== 'GET') return;
+
   event.respondWith(
-    caches.match(req).then(cached => {
+    caches.match(request).then(cached => {
       if (cached) return cached;
-      return fetch(req);
+      return fetch(request);
     })
   );
 });
