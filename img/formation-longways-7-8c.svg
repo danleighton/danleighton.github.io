@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="420" viewBox="0 0 360 420">
+  <style>
+    .person { fill:#ffffff; stroke:#000000; stroke-width:1.5; }
+    .label { font-family: -apple-system, system-ui, sans-serif; font-size:11px; text-anchor:middle; dominant-baseline:middle; }
+    .title { font-family: -apple-system, system-ui, sans-serif; font-size:14px; text-anchor:middle; }
+    .band { font-family: -apple-system, system-ui, sans-serif; font-size:12px; text-anchor:middle; }
+    .line { stroke:#999; stroke-width:1; stroke-dasharray: 4 3; }
+  </style>
+
+  <text class="title" x="180" y="24">Longways set (7–8 couples)</text>
+  <text class="band" x="180" y="48">Band</text>
+  <line class="line" x1="40" y1="60" x2="320" y2="60"/>
+
+  <!-- Couples: P1 left column, P2 right column -->
+  <!-- Vertically spaced -->
+  <!-- We show 7; visually it's clear it's "7–8 couples" -->
+
+  <!-- Couple 1 (top) -->
+  <circle class="person" cx="120" cy="90" r="10"/>
+  <text class="label" x="120" y="90">P1</text>
+
+  <circle class="person" cx="240" cy="90" r="10"/>
+  <text class="label" x="240" y="90">P2</text>
+
+  <!-- Couple 2 -->
+  <circle class="person" cx="120" cy="130" r="10"/>
+  <text class="label" x="120" y="130">P1</text>
+
+  <circle class="person" cx="240" cy="130" r="10"/>
+  <text class="label" x="240" y="130">P2</text>
+
+  <!-- Couple 3 -->
+  <circle class="person" cx="120" cy="170" r="10"/>
+  <text class="label" x="120" y="170">P1</text>
+
+  <circle class="person" cx="240" cy="170" r="10"/>
+  <text class="label" x="240" y="170">P2</text>
+
+  <!-- Couple 4 -->
+  <circle class="person" cx="120" cy="210" r="10"/>
+  <text class="label" x="120" y="210">P1</text>
+
+  <circle class="person" cx="240" cy="210" r="10"/>
+  <text class="label" x="240" y="210">P2</text>
+
+  <!-- Couple 5 -->
+  <circle class="person" cx="120" cy="250" r="10"/>
+  <text class="label" x="120" y="250">P1</text>
+
+  <circle class="person" cx="240" cy="250" r="10"/>
+  <text class="label" x="240" y="250">P2</text>
+
+  <!-- Couple 6 -->
+  <circle class="person" cx="120" cy="290" r="10"/>
+  <text class="label" x="120" y="290">P1</text>
+
+  <circle class="person" cx="240" cy="290" r="10"/>
+  <text class="label" x="240" y="290">P2</text>
+
+  <!-- Couple 7 -->
+  <circle class="person" cx="120" cy="330" r="10"/>
+  <text class="label" x="120" y="330">P1</text>
+
+  <circle class="person" cx="240" cy="330" r="10"/>
+  <text class="label" x="240" y="330">P2</text>
+
+  <text class="band" x="180" y="380">Couples face the band, P1 on left, P2 on right.</text>
+</svg>
