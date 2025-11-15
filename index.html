@@ -1,20 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <title>Ceilidh Dances</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
-
-  <!-- ABCJS from CDN (for tune rendering) -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/abcjs@6.4.0/dist/abcjs-basic-min.js"
-    defer>
-  </script>
-
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -24,84 +15,111 @@
   <section id="controls">
     <label>
       Dance
-      <select id="dance-select">
-        <option value="">Select a dance…</option>
+      <select id="dance-select"></select>
+    </label>
+
+    <div id="nav-buttons">
+      <button id="prev-dance" type="button">Previous</button>
+      <button id="next-dance" type="button">Next</button>
+    </div>
+
+    <label class="setlist-control">
+      Setlist
+      <select id="setlist-select">
+        <option value="">All dances</option>
       </select>
     </label>
 
-    <label class="filter-control">
-      Formation
-      <select id="filter-formation">
-        <option value="">All</option>
-      </select>
-    </label>
+    <div id="filters">
+      <label class="filter-control">
+        Formation
+        <select id="filter-formation">
+          <option value="">Any</option>
+        </select>
+      </label>
 
-    <label class="filter-control">
-      Difficulty
-      <select id="filter-difficulty">
-        <option value="">All</option>
-      </select>
-    </label>
+      <label class="filter-control">
+        Bars
+        <select id="filter-bars">
+          <option value="">Any</option>
+        </select>
+      </label>
 
-    <label class="filter-control">
-      Tune type
-      <select id="filter-tunetype">
-        <option value="">All</option>
-      </select>
-    </label>
+      <label class="filter-control">
+        Music type
+        <select id="filter-music-type">
+          <option value="">Any</option>
+        </select>
+      </label>
 
-    <label class="filter-control">
-      Bars per part
-      <select id="filter-bars">
-        <option value="">All</option>
-      </select>
-    </label>
+      <label class="filter-control">
+        Difficulty
+        <select id="filter-difficulty">
+          <option value="">Any</option>
+          <option value="1">Easy</option>
+          <option value="2">Medium</option>
+          <option value="3">Hard</option>
+        </select>
+      </label>
 
-    <label class="role-control">
-      Roles
-      <select id="role-set"></select>
-    </label>
+      <button id="clear-filters" type="button" class="filter-control">
+        Clear filters
+      </button>
 
-    <button id="toggle-calling-mode" type="button">
-      Calling mode: off
-    </button>
+      <label class="role-control">
+        Role terms
+        <select id="role-set-select">
+          <!-- from roles.json -->
+        </select>
+      </label>
+
+      <button id="toggle-calling-mode" type="button">
+        Calling mode
+      </button>
+    </div>
   </section>
 
   <main>
+    <section id="setlist-editor-wrapper" class="hidden">
+      <h2>Setlist order</h2>
+      <p class="hint">
+        Drag, or use ↑/↓, to reorder. Tap × to remove. Use “Add current dance” to insert from the main list.
+      </p>
+      <ul id="setlist-editor"></ul>
+      <button id="add-current-to-setlist" type="button">
+        Add current dance
+      </button>
+    </section>
+
     <section id="dance-view">
-      <div id="view-toggles">
-        <button id="toggle-info" type="button">Hide info</button>
-        <button id="toggle-formation" type="button">Show formation</button>
-        <button id="toggle-dance-figure" type="button">Show dance figure</button>
+      <div id="dance-meta">
+        <h2 id="dance-title"></h2>
+        <p id="dance-formation"></p>
+        <p id="dance-structure"></p>
+        <p id="dance-speed"></p>
+        <p id="dance-music-type"></p>
+        <p id="dance-difficulty"></p>
       </div>
 
-      <div id="dance-title"></div>
+      <div id="calling-and-info">
+        <section id="calling-section">
+          <h3 id="calling-heading">Calls</h3>
+          <div id="calls-container"></div>
+        </section>
 
-      <div id="dance-meta"></div>
+        <section id="info-section">
+          <h3>Info</h3>
+          <div id="info-container"></div>
+        </section>
 
-      <div id="calls-container"></div>
-
-      <div id="formation-diagram-wrapper" class="hidden">
-        <div id="formation-diagram"></div>
-      </div>
-
-      <div id="dance-diagram-wrapper" class="hidden">
-        <div id="dance-diagram"></div>
-      </div>
-
-      <div id="tune-section">
-        <div id="tune-controls"></div>
-        <div id="tune-notation"></div>
+        <section id="figure-section">
+          <h3>Figure / diagram</h3>
+          <div id="figure-container"></div>
+        </section>
       </div>
     </section>
   </main>
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js').catch(() => {});
-      });
-    }
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
