@@ -466,7 +466,7 @@ body.calling-mode .left-panel > *:not(#calls-container) {
 
 body.calling-mode .calling-toggle {
   position: fixed !important;
-  bottom: 1rem !important;
+  bottom: -40rem !important;
   left: 1rem !important;
   top: auto !important;
   right: auto !important;
