@@ -12,6 +12,7 @@ let rolesRaw = [];
 let setlists = [];
 let workingSetlists = [];
 let danceById = {};
+let formationById = {};
 
 let filteredDances = [];
 let currentDanceId = null;
@@ -57,6 +58,11 @@ async function loadData() {
     }
 
     formations = Array.isArray(formationData) ? formationData : [];
+    formationById = {};
+    formations.forEach(f => {
+      if (!f || !f.id) return;
+      formationById[f.id] = f;
+    });
     rolesRaw = Array.isArray(rolesData) ? rolesData : [];
     setlists = Array.isArray(setlistsData) ? setlistsData : [];
 
@@ -85,6 +91,29 @@ function rebuildDanceIndex() {
       danceById[d.id] = d;
     }
   });
+}
+
+
+/** Formation helpers **/
+
+function getFormationForDance(d) {
+  if (!d) return null;
+  if (d.formationId && formationById[d.formationId]) {
+    return formationById[d.formationId];
+  }
+  return null;
+}
+
+function getFormationName(d) {
+  const f = getFormationForDance(d);
+  if (f && f.name) return f.name;
+  return d && d.formationName ? d.formationName : '';
+}
+
+function getBarsForDance(d) {
+  if (!d) return null;
+  if (typeof d.bars === 'number') return d.bars;
+  return null;
 }
 
 /** Roles / terminology **/
@@ -314,10 +343,8 @@ function addCurrentDanceToSetlist() {
     danceId: currentDanceId,
     name: d.title || currentDanceId,
     speed: d.speed || null,
-    form: d.formationName || null,
-    bars: d.structure && typeof d.structure.barsPerPart === 'number'
-      ? d.structure.barsPerPart
-      : null,
+    form: getFormationName(d) || null,
+    bars: getBarsForDance(d),
     musicType: d.musicType || null
   });
 
@@ -369,7 +396,7 @@ function populateFilterOptions() {
   if (formationSelect) {
     const seen = new Set();
     dances.forEach(d => {
-      const f = d.formationName || '';
+      const f = getFormationName(d) || '';
       if (!f) return;
       if (seen.has(f)) return;
       seen.add(f);
@@ -383,9 +410,7 @@ function populateFilterOptions() {
   if (barsSelect) {
     const seen = new Set();
     dances.forEach(d => {
-      const bars = d.structure && typeof d.structure.barsPerPart === 'number'
-        ? d.structure.barsPerPart
-        : null;
+      const bars = getBarsForDance(d);
       if (!bars) return;
       if (seen.has(bars)) return;
       seen.add(bars);
@@ -437,9 +462,7 @@ function applyFilters() {
   filteredDances = baseDances.filter(d => {
     if (formationFilter && d.formationName !== formationFilter) return false;
     if (barsFilter) {
-      const bars = d.structure && typeof d.structure.barsPerPart === 'number'
-        ? d.structure.barsPerPart
-        : null;
+      const bars = getBarsForDance(d);
       if (!bars || String(bars) !== barsFilter) return false;
     }
     if (musicTypeFilter && d.musicType !== musicTypeFilter) return false;
@@ -526,14 +549,13 @@ function renderCurrentDance() {
 
   if (titleEl) titleEl.textContent = d.title || d.id;
   if (formationEl) {
-    const label = d.formationName ? `Formation: ${d.formationName}` : '';
+    const fName = getFormationName(d);
+    const label = fName ? `Formation: ${fName}` : '';
     formationEl.textContent = label;
   }
 
   if (structureEl) {
-    const bars = d.structure && typeof d.structure.barsPerPart === 'number'
-      ? d.structure.barsPerPart
-      : null;
+    const bars = getBarsForDance(d);
     structureEl.textContent = bars ? `Bars: ${bars}` : '';
   }
 

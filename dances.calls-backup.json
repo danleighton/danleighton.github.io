@@ -2,10 +2,13 @@
   {
     "id": "alderley-edge",
     "title": "Alderley Edge",
-    "formationId": "6c-L",
+    "number": null,
+    "formationName": "Longways 6 couples",
     "speed": null,
     "musicType": "Jigs",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
@@ -17,6 +20,7 @@
       "**B2** **Top gallop down**. All **swing**."
     ],
     "tunes": [],
+    "formationId": "6c-L",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -25,10 +29,13 @@
   {
     "id": "an-rince-mor",
     "title": "An Rince Mor",
-    "formationId": "Cc",
+    "number": null,
+    "formationName": "Big Circle with partners",
     "speed": "Play a 32 with 3 B parts if needed.",
     "musicType": "Reels",
-    "bars": 40,
+    "structure": {
+      "barsPerPart": 40
+    },
     "difficulty": null,
     "step": "",
     "author": "",
@@ -41,6 +48,7 @@
       "**B3** **Promenade**"
     ],
     "tunes": [],
+    "formationId": "Cc",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -49,21 +57,25 @@
   {
     "id": "boston-tea-party",
     "title": "Boston Tea party",
-    "formationId": "6c-L",
+    "number": null,
+    "formationName": "Longways 6 couples",
     "speed": "Brisk",
     "musicType": "Brisk marches or Medium Polkas for a change (or Gallopy Jigs)",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
     "musicExamples": [],
     "calls": [
-      "**A1** **1s gallop** to bottom, wheel around, make **arch & up over** gents, [P2] **outside**",
-      "**A2** **1s wheel** and **arch down over [P2s]** **1s gallop back up to top**",
+      "**A1** **1s gallop** to bottom, wheel around, make **arch & up over** gents, Robin **outside**",
+      "**A2** **1s wheel** and **arch down over Robins** **1s gallop back up to top**",
       "**B1** **1s face down**, **others face up**, all holding hands. 1s **dip and dive** as others **move up** Others **cast out** when they get to the top. **1s make an arch at the bottom.**",
       "**B2** **Casting** couples **through arch Larkgle turn** ( hold hands, twist out still holding hands) **Swing**"
     ],
     "tunes": [],
+    "formationId": "6c-L",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -72,23 +84,27 @@
   {
     "id": "bridge-of-athlone",
     "title": "Bridge of Athlone",
-    "formationId": "5c-L",
+    "number": null,
+    "formationName": "Longways 5 couples",
     "speed": null,
     "musicType": "Jigs",
-    "bars": 48,
+    "structure": {
+      "barsPerPart": 48
+    },
     "difficulty": null,
     "step": "",
     "author": "",
     "musicExamples": [],
     "calls": [
-      "**A1** **Forwards** and **back. [P1s] arch,** lines **cross over.**",
-      "**A2** **Forwards** and **back. [P2s] arch,** lines **cross over.**",
+      "**A1** **Forwards** and **back. Larks arch,** lines **cross over.**",
+      "**A2** **Forwards** and **back. Robins arch,** lines **cross over.**",
       "**B1** **Top couple gallop** down to the **bottom** and **back**",
       "**B2** **Top couple cast out. Arch** at the bottom. **All pass under.**",
-      "**C1** **Arches. [P2] up. [P1] down. (All couples** make **two handed arches** (the Bridge) with partner. **Except top couple** (now at the bottom of the set). **Top [P2s] up under the arches, [P1] up** the **outside** to the top. **[P1]** down the middle **[P2] outside.)**",
+      "**C1** **Arches. Robin up. Lark down. (All couples** make **two handed arches** (the Bridge) with partner. **Except top couple** (now at the bottom of the set). **Top Robins up under the arches, Lark up** the **outside** to the top. **Lark** down the middle **Robin outside.)**",
       "**C2** **Swing**"
     ],
     "tunes": [],
+    "formationId": "5c-L",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -97,25 +113,29 @@
   {
     "id": "cambridge-circle-dance",
     "title": "Cambridge Circle Dance",
-    "formationId": "2c-DbC",
+    "number": null,
+    "formationName": "2 couples in double circle formation",
     "speed": "Start reasonable may speed up a little",
     "musicType": "Slip Jigs",
-    "bars": 64,
+    "structure": {
+      "barsPerPart": 64
+    },
     "difficulty": null,
     "step": "",
     "author": "",
     "musicExamples": [],
     "calls": [
-      "**A1** Hands around **Circle left** (12) - slip",
-      "**A2** **Circle right** (12) - slip",
-      "**B1** **[P1s] right hand turn opposite corner. [P2s] right hand turn opposite corner**",
-      "**B2** **Face-to-face Turn with partner** - giving LEFT shoulder or palm-to-palm (can walk instead of skip)",
+      "**A1** Hands around **Circle left** (12) \\- slip",
+      "**A2** **Circle right** (12) \\- slip",
+      "**B1** **Gents right hand turn opposite corner. Robins right hand turn opposite corner**",
+      "**B2** **Face-to-face Turn with partner** \\- giving LEFT shoulder or palm-to-palm (can walk instead of skip)",
       "**C1** **Grand chain** with **right hand** to next person in circle count **4** people",
       "**C2** **Swing** the 5th (12)",
       "**D1** **Circle left in Fours** (12)",
       "**D2** **Circle Right** (12) **in new fours**"
     ],
     "tunes": [],
+    "formationId": "2c-DbC",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -124,10 +144,13 @@
   {
     "id": "chaos-square",
     "title": "Chaos Square",
-    "formationId": "AMc-Sq",
+    "number": null,
+    "formationName": "Square all around the room",
     "speed": "Energetically",
     "musicType": "Jigs",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
@@ -136,9 +159,10 @@
       "**A1** **Heads** of the room take **ballroom hold** and **gallop** **8 steps forward**, **8 steps back back**, preferably right across the room.",
       "**A2** **Sides** ditto.",
       "**B1** **Balance and swing** partners.",
-      "**B2** **[P1s] make an inner circle facing out** and **moving to their left** (clockwise), **[P2s] make an outer circle moving to their left** (anticlockwise)"
+      "**B2** **Larks make an inner circle facing out** and **moving to their left** (clockwise), **Robins make an outer circle moving to their left** (anticlockwise)"
     ],
     "tunes": [],
+    "formationId": "AMc-Sq",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -147,21 +171,23 @@
   {
     "id": "circassian-circle",
     "title": "Circassian Circle",
-    "formationId": "Cc",
+    "number": null,
+    "formationName": "Circle any",
     "speed": null,
     "musicType": "Whatever",
-    "bars": 32,
+    "structure": {},
     "difficulty": null,
     "step": "",
     "author": "",
     "musicExamples": [],
     "calls": [
       "**A1** **Walk 4** steps and **back Repeat**",
-      "**A2** **[P2s]** advance and **clap [P1s]** advance and **clap**",
-      "**B1** **[P1s]** join [P2] formerly on their left **spin** new partners",
+      "**A2** **Robins** advance and **clap Larks** advance and **clap**",
+      "**B1** **Larks** join Robin formerly on their left **spin** new partners",
       "**B2** **Promenade** ACW"
     ],
     "tunes": [],
+    "formationId": "Cc",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -170,10 +196,13 @@
   {
     "id": "cumberland-reel",
     "title": "Cumberland Reel",
-    "formationId": "4-6c-L",
+    "number": null,
+    "formationName": "Longways 4, 5, or 6",
     "speed": "Brisk",
     "musicType": "32 Reels",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
@@ -185,6 +214,7 @@
       "**B2** **No arch! 1s** join & **lead** up to the top. Others make arches behind them. When at top. **1s Promenade** to bottom under arches. **No waiting!**"
     ],
     "tunes": [],
+    "formationId": "4-6c-L",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -193,25 +223,29 @@
   {
     "id": "cumberland-square-eight",
     "title": "Cumberland Square Eight",
-    "formationId": "4c-Sq",
+    "number": null,
+    "formationName": "4c Square Set",
     "speed": "Moderate to med fast",
     "musicType": "2 * 32 * 2 Reels followed by Atthol Highlanders",
-    "bars": 48,
+    "structure": {
+      "barsPerPart": 48
+    },
     "difficulty": null,
     "step": "",
     "author": "",
     "musicExamples": [],
     "calls": [
-      "**A1** **Heads**: **gallop** [P1s] back to back; **gallop** back, [P2s] back to back",
+      "**A1** **Heads**: **gallop** Larks back to back; **gallop** back, Robins back to back",
       "**A2** **Sides:** the same",
       "**B1** **Heads**: **RH star** & **LH star**",
       "**B2** **Sides:** the same",
-      "**A3** **Basket**: **Heads**, [P2s] arms on Larkss’ shoulders. [P1s] round waist.",
+      "**A3** **Basket**: **Heads**, Robins arms on Larkss’ shoulders. Larks round waist.",
       "**A4** **Sides:** the same",
       "**B3** **All: circle left**",
-      "**B4** **All:** **Promenade** home, [P1s] on inside"
+      "**B4** **All:** **Promenade** home, Larks on inside"
     ],
     "tunes": [],
+    "formationId": "4c-Sq",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -220,10 +254,13 @@
   {
     "id": "dashing-white-sergeant",
     "title": "Dashing White Sergeant",
-    "formationId": "3f3",
+    "number": null,
+    "formationName": "Three facing three",
     "speed": "Not too fast (unless more than 50% Scots!)",
     "musicType": "Own Tune / Reels",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
@@ -231,10 +268,11 @@
     "calls": [
       "**A1** All **circle left** for 7 steps. **Circle right.**",
       "**A2** **Middle person** turns to the person on their **right** and **sets** to them. **Turns** same person **once** round **right** **hand**. The other partner stands still. Face other partner and **repeat**.",
-      "**B1** Face first partner **elbow** grip for **reel** **of** **three** **Turn** **1st** partner, then **turn** **2nd**, then **turn 1st** partner, **then** **2nd** partner. (Variation - dance a reel of three, giving left shoulder to 1st partner to start).",
+      "**B1** Face first partner **elbow** grip for **reel** **of** **three** **Turn** **1st** partner, then **turn** **2nd**, then **turn 1st** partner, **then** **2nd** partner. (Variation \\- dance a reel of three, giving left shoulder to 1st partner to start).",
       "**B2** **Lines of three**, **advance** (two skip steps) and **retire**."
     ],
     "tunes": [],
+    "formationId": "3f3",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -243,21 +281,25 @@
   {
     "id": "debbies-jig",
     "title": "Debbie’s Jig",
-    "formationId": "4c-Sq",
+    "number": null,
+    "formationName": "Square",
     "speed": "Gallopy",
     "musicType": "Jigs",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
     "musicExamples": [],
     "calls": [
-      "**A1** **Heads** in **American hold** and **charge** [P2s] back to back **7 steps**. **Return**.",
+      "**A1** **Heads** in **American hold** and **charge** Robins back to back **7 steps**. **Return**.",
       "**A2** **Sides** the same.",
       "**B1** **RH Star** for 7. **LH Star** for 7.",
       "**B2** **All** **circle** **left** for 7 and **right** for 7. **OR** if whole set knows how to Ballroom Hold and Polka around!"
     ],
     "tunes": [],
+    "formationId": "4c-Sq",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -266,21 +308,25 @@
   {
     "id": "falling-masonry",
     "title": "Falling Masonry",
-    "formationId": "4c-L",
+    "number": null,
+    "formationName": "Longways 4 couples",
     "speed": null,
     "musicType": "Jigs",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
     "musicExamples": [],
     "calls": [
-      "**A1** **Forwards** and **back. [P1s] arch,** lines **cross over.**",
-      "**A2** **Forwards** and **back. [P2s] arch,** lines **cross over.**",
+      "**A1** **Forwards** and **back. Larks arch,** lines **cross over.**",
+      "**A2** **Forwards** and **back. Robins arch,** lines **cross over.**",
       "**B1** **Falling Masonry: Top couple gallop** down to the **bottom, other** **couples** then **gallop after them in turn** and **move up** the set as they can",
       "**B2** Finally, **top couple gallop down** and **all swing**"
     ],
     "tunes": [],
+    "formationId": "4c-L",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -289,10 +335,13 @@
   {
     "id": "farmers-jig",
     "title": "Farmers Jig",
-    "formationId": "4c-L",
+    "number": null,
+    "formationName": "Longways 4 couples",
     "speed": "Med Fast Walky",
     "musicType": "Jigs",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
@@ -304,6 +353,7 @@
       "**B2** 1st couple do single **cast**, **two-handed arch** at the bottom, others follow and keep walking up the set"
     ],
     "tunes": [],
+    "formationId": "4c-L",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -312,21 +362,25 @@
   {
     "id": "four-around-four",
     "title": "Four around four",
-    "formationId": "4c-L",
+    "number": null,
+    "formationName": "Longways 4 couples",
     "speed": null,
     "musicType": "Jigs",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
     "musicExamples": [],
     "calls": [
-      "**A1** **[P1s]** **around** the [P2s]",
-      "**A2** **[P2s]** **around** the [P1s]",
+      "**A1** **Larks** **around** the Robins",
+      "**A2** **Robins** **around** the Larks",
       "**B1** **Top** couple **gallop** to the **bottom** and **back**",
-      "**B2** **Top** couple **cast out, arch** at bottom All under - **swing** if time"
+      "**B2** **Top** couple **cast out, arch** at bottom All under \\- **swing** if time"
     ],
     "tunes": [],
+    "formationId": "4c-L",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -335,21 +389,25 @@
   {
     "id": "gay-gordons",
     "title": "Gay Gordons",
-    "formationId": "AMc",
+    "number": null,
+    "formationName": "Couples",
     "speed": "Med Fast Walky",
     "musicType": "All the tunes...",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
     "musicExamples": [],
     "calls": [
-      "**A1** Right hands joined over [P2]'s shoulder ([P1]'s arm behind her back) and left hands joined in front, **walk** forward for **4** steps **Still moving in the same direction**, and **without letting go**, **pivot** on the spot (so left hand is behind [P2] and right hand is in front) and take **four steps backwards**.",
+      "**A1** Right hands joined over Robin's shoulder (Lark's arm behind her back) and left hands joined in front, **walk** forward for **4** steps **Still moving in the same direction**, and **without letting go**, **pivot** on the spot (so left hand is behind Robin and right hand is in front) and take **four steps backwards**.",
       "**A2** **Repeat** in the opposite direction.",
-      "**B1** **Drop left** hands. **Raise right hands** above [P2]'s head. [P2] **pivots** on the spot. (The [P1] may set).",
+      "**B1** **Drop left** hands. **Raise right hands** above Robin's head. Robin **pivots** on the spot. (The Lark may set).",
       "**B2** Joining hands in ballroom hold, **polka** round the room. (Like skipping, but turning.)"
     ],
     "tunes": [],
+    "formationId": "AMc",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -358,10 +416,13 @@
   {
     "id": "goathland-square-eight",
     "title": "Goathland Square Eight",
-    "formationId": "4c-Sq",
+    "number": null,
+    "formationName": "4c Square Set",
     "speed": "Not too fast",
     "musicType": "Reels",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
@@ -373,6 +434,7 @@
       "**B2** **Swing** partner when met."
     ],
     "tunes": [],
+    "formationId": "4c-Sq",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -381,10 +443,13 @@
   {
     "id": "lucky-seven",
     "title": "Lucky Seven",
-    "formationId": "Cc",
+    "number": null,
+    "formationName": "Circle",
     "speed": "Not too fast",
     "musicType": "Jigs",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
@@ -396,6 +461,7 @@
       "**B2** **Spin** the seventh"
     ],
     "tunes": [],
+    "formationId": "Cc",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -404,10 +470,13 @@
   {
     "id": "monkey-in-the-middle",
     "title": "Monkey In The Middle",
-    "formationId": "4c-C+1",
+    "number": null,
+    "formationName": "Four couples in circle plus one",
     "speed": null,
     "musicType": "Reels",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
@@ -419,6 +488,7 @@
       "**B2** Then those **4 let go** and **choose one each from outside to swing** Left-over person becomes monkey **Join hands and start again**"
     ],
     "tunes": [],
+    "formationId": "4c-C+1",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -427,10 +497,13 @@
   {
     "id": "moving-along",
     "title": "Moving Along",
-    "formationId": "Cc",
+    "number": null,
+    "formationName": "Circle",
     "speed": null,
     "musicType": "Jigs",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
@@ -442,6 +515,7 @@
       "**B2** **Swing** the next."
     ],
     "tunes": [],
+    "formationId": "Cc",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -450,21 +524,25 @@
   {
     "id": "muffin-man",
     "title": "Muffin Man",
-    "formationId": "DbC",
+    "number": null,
+    "formationName": "Concentric Circles, Man on inside",
     "speed": "Start slow, be able to play really fast...",
     "musicType": "Polkas",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
     "musicExamples": [],
     "calls": [
-      "**A1** Hold hands in circle. [P1s] **gallop anti-clockwise** for **7**. **Back** for **7.** [P2s] go the opposite way for **7**.",
+      "**A1** Hold hands in circle. Larks **gallop anti-clockwise** for **7**. **Back** for **7.** Robins go the opposite way for **7**.",
       "**A2** Dosido your partner **RIGHT** shoulder first, then **left.**",
       "**B1** Clapping: **KKRR, KKLL, KRKL, FBF Cuddle/or both)**",
       "**B2** **Swing** the person to your **right**. (Look to right grab that person)."
     ],
     "tunes": [],
+    "formationId": "DbC",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -473,10 +551,11 @@
   {
     "id": "orcadian-strip-the-willow",
     "title": "Orcadian Strip The Willow",
-    "formationId": "7-8c-L",
+    "number": null,
+    "formationName": "Lines facing any length",
     "speed": "Decent lick",
     "musicType": "Slip Jigs",
-    "bars": 16,
+    "structure": {},
     "difficulty": null,
     "step": "",
     "author": "",
@@ -485,6 +564,7 @@
       "**All** 1s spin **RH 1.5 TIMES the first time** When facing opposite line **PUT OUT LEFT ELBOW** and **spin** your opposite. When once round, meet your partner and spin them by **Right elbow**. Do this all the way down the line. If you run out of partners, swing till the end of the phrase and stand. **Shuffle up as you go!** Rule is: **Right** to partner, **Left** to opposite. Flow is the key. Wait till there are at least two couples between you before going. A new couple starts every 16 bars."
     ],
     "tunes": [],
+    "formationId": "7-8c-L",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -493,21 +573,25 @@
   {
     "id": "pieces-of-eight",
     "title": "Pieces of Eight",
-    "formationId": "Cc",
+    "number": null,
+    "formationName": "Circle",
     "speed": null,
     "musicType": "Reels",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
     "musicExamples": [],
     "calls": [
       "**A1** **All into middle (4) and clap, retire RH Turn** partner",
-      "**A2** [P1s] dance **figure of 8, around partner, around next [P2], behind partner** and **back to place**",
-      "**B1** [P2s] dance **figure of 8, around partner, around next [P2], behind partner** and **back to place facing partner**",
+      "**A2** Larks dance **figure of 8, around partner, around next Robin, behind partner** and **back to place**",
+      "**B1** Robins dance **figure of 8, around partner, around next Robin, behind partner** and **back to place facing partner**",
       "**B2** **Change places. pass by** partner with **LH** to meet **new partner RH turn** new partner **All face in**"
     ],
     "tunes": [],
+    "formationId": "Cc",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -516,23 +600,27 @@
   {
     "id": "sweets-of-may",
     "title": "Sweets of May",
-    "formationId": "4c-L",
+    "number": null,
+    "formationName": "Longways 4 couples",
     "speed": "Own Tune",
     "musicType": "Own Tune",
-    "bars": 48,
+    "structure": {
+      "barsPerPart": 48
+    },
     "difficulty": null,
     "step": "",
     "author": "",
     "musicExamples": [],
     "calls": [
-      "**A1** [P1s] **lead line around** [P2s] (sing the tune to them).",
-      "**A2** [P2s] **lead line around** [P1s].",
+      "**A1** Gents **lead line around** Robins (sing the tune to them).",
+      "**A2** Robins **lead line around** Gents.",
       "**B1** Pairs **RH Star** for 7. **LH Star** for 7.",
       "**B2** **1s Gallop** to foot and **back**",
       "**C1** **Cast** off and follow in lines. **Arch** at the bottom. 2-4s **walk to place**.",
       "**C2** **Swing**"
     ],
     "tunes": [],
+    "formationId": "4c-L",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -541,10 +629,13 @@
   {
     "id": "virginia-reel",
     "title": "Virginia Reel",
-    "formationId": "7-8c-L",
+    "number": null,
+    "formationName": "Longways 6-7 couples",
     "speed": "Moderate",
     "musicType": "Jigs",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
@@ -556,6 +647,7 @@
       "**B2** **Tops (8)** Two Hands **gallop** down the middle and **STAY (8) Clap** (opt. close-clench swing) as Tops pass and **Shuffle up**"
     ],
     "tunes": [],
+    "formationId": "7-8c-L",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -565,10 +657,13 @@
   {
     "id": "witches-reel",
     "title": "Witches Reel",
-    "formationId": "4c-L",
+    "number": null,
+    "formationName": "Longways 4 couples",
     "speed": "Brisk",
     "musicType": "Jigs",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
@@ -576,10 +671,11 @@
     "calls": [
       "**A1** **Top** couple **gallop** down and **back**",
       "**A2** **Tops cast out** make an **arch** all **pass under**",
-      "**B1** **Bottom couple** hold hands. **[P2s]** - **Thread the Needle**",
-      "**B2** **[P1s]** - **Thread the Needle**"
+      "**B1** **Bottom couple** hold hands. **Robins** \\- **Thread the Needle**",
+      "**B2** **Larks** \\- **Thread the Needle**"
     ],
     "tunes": [],
+    "formationId": "4c-L",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",
@@ -588,276 +684,25 @@
   {
     "id": "yarmouth-long-dance",
     "title": "Yarmouth Long Dance",
-    "formationId": "6-8c-L-B",
+    "number": null,
+    "formationName": "Becket longways set (6–8 couples)",
     "speed": "Moderate",
     "musicType": "Jigs",
-    "bars": 32,
+    "structure": {
+      "barsPerPart": 32
+    },
     "difficulty": null,
     "step": "",
     "author": "",
     "musicExamples": [],
     "calls": [
-      "**A1** All couples ballroom hold **8 steps gallop across - past opposite couple** and **back**",
+      "**A1** All couples ballroom hold **8 steps gallop across \\- past opposite couple** and **back**",
       "**A2** With **opposites** **RH star** then **LH star**",
       "**B1** **Do-si-do** opposite then turn and **Do-si-do** your partner",
       "**B2** Top two couples **spinning cross** to the bottom of the set. Each couple holds right hands, grabs wrist of person next to them with left hand."
     ],
     "tunes": [],
-    "originalUrl": "",
-    "videoUrl": "",
-    "danceDiagram": "No diagram yet.",
-    "notes": ""
-  },
-  {
-    "id": "crumpet-circle-polka",
-    "title": "Crumpet Circle Polka",
-    "formationId": "Cc",
-    "speed": null,
-    "musicType": "Polkas",
-    "bars": 32,
-    "difficulty": null,
-    "step": "",
-    "author": "Dan Leighton",
-    "musicExamples": [],
-    "calls": [
-      "**A1** All to the **centre** and **back**. **Repeat**.",
-      "**A2** Both hands to partner: **four gallop steps** into the **centre** and **back**. **Repeat**.",
-      "**B1** **Promenade** (or Polka)",
-      "**B2** **Swing** (or Polka)"
-    ],
-    "tunes": [],
-    "originalUrl": "",
-    "videoUrl": "",
-    "danceDiagram": "No diagram yet.",
-    "notes": ""
-  },
-  {
-    "id": "patacake-polka",
-    "title": "Patacake Polka",
-    "formationId": "DbC",
-    "speed": null,
-    "musicType": "Polkas",
-    "bars": 32,
-    "difficulty": null,
-    "step": "",
-    "author": "",
-    "musicExamples": [],
-    "calls": [
-      "**A1** **Both** hands, (start [P1]’s left) **heel, toe, heel, toe**",
-      "**A2** 4 **sidestep left**. **Repeat** to **right**.",
-      "**B1** **Claps**: right x3, left x3, both x3, knees x3",
-      "**B2** **Swing** partner and gents **swap** to next partner on left"
-    ],
-    "tunes": [],
-    "originalUrl": "",
-    "videoUrl": "",
-    "danceDiagram": "No diagram yet.",
-    "notes": ""
-  },
-  {
-    "id": "oxo-reel",
-    "title": "Oxo Reel",
-    "formationId": "6c-L",
-    "speed": null,
-    "musicType": "Reels",
-    "bars": 32,
-    "difficulty": null,
-    "step": "",
-    "author": "",
-    "musicExamples": [],
-    "calls": [
-      "**A1** **Forward** and **back 4 steps**. **Forward** again [P1s] **arch**, [P2s] duck.",
-      "**A2** **Repeat**. [P2s] arch and [P1s] duck.",
-      "**B1** Top and bottom couples **circle left & right**. Middles **LH and RH star.**",
-      "**B2** Top couple only **gallop** to bottom and **stay**; all **swing** partners"
-    ],
-    "tunes": [],
-    "originalUrl": "",
-    "videoUrl": "",
-    "danceDiagram": "No diagram yet.",
-    "notes": ""
-  },
-  {
-    "id": "clopton-bridge",
-    "title": "Clopton Bridge",
-    "formationId": "4c-L",
-    "speed": null,
-    "musicType": "Hornpipes",
-    "bars": 32,
-    "difficulty": null,
-    "step": "",
-    "author": "",
-    "musicExamples": [],
-    "calls": [
-      "**A1** **First corners** Top [P1] and Bottom [P2] **RH swing** 8 hops then **LH swing** 8 hops",
-      "**A2** **Second corners** Bottom [P1] and Top [P2] **RH swing** 8 hops then **LH swing** 8 hops",
-      "**B1** **Middle two couples RH star** 8 hops then **LH star** 8 hops",
-      "**B2** **Top couple** **swing** down to the **bottom** 8 hops **All swing** 8 hops"
-    ],
-    "tunes": [],
-    "originalUrl": "",
-    "videoUrl": "",
-    "danceDiagram": "No diagram yet.",
-    "notes": ""
-  },
-  {
-    "id": "chaton-ring",
-    "title": "Chaton Ring",
-    "formationId": "Cc",
-    "speed": null,
-    "musicType": "Jigs",
-    "bars": 32,
-    "difficulty": null,
-    "step": "",
-    "author": "",
-    "musicExamples": [],
-    "calls": [
-      "**A1** **Circle** **left** **16** steps",
-      "**A2** **All in and out**. **Repeat**",
-      "**B1** **Balance left then right.** [P1s] **pass** **across** partner from **right to left. Repeat.**",
-      "**B2** **Gallop in** and **out All swing**"
-    ],
-    "tunes": [],
-    "originalUrl": "",
-    "videoUrl": "",
-    "danceDiagram": "No diagram yet.",
-    "notes": ""
-  },
-  {
-    "id": "bottoms-up",
-    "title": "Bottoms up",
-    "formationId": "5c-L",
-    "speed": null,
-    "musicType": "Jigs",
-    "bars": 32,
-    "difficulty": null,
-    "step": "",
-    "author": "",
-    "musicExamples": [],
-    "calls": [
-      "**A1** **[P2s] thread the needle**",
-      "**A2** **[P1s] thread the needle**",
-      "**B1** All **Circle Left** and **Circle Right**",
-      "**B2** **Bottom couple gallop up to the top. Top couple place hands on waists** of the bottom couple**. Both couples gallop down as a line, Top couple join bottom.**"
-    ],
-    "tunes": [],
-    "originalUrl": "",
-    "videoUrl": "",
-    "danceDiagram": "No diagram yet.",
-    "notes": ""
-  },
-  {
-    "id": "mccann-s-reel",
-    "title": "McCann’s Reel",
-    "formationId": "SC",
-    "speed": "Medium",
-    "musicType": "Jigs or reels",
-    "bars": 32,
-    "difficulty": "2",
-    "step": "",
-    "author": "Dave Ball",
-    "musicExamples": [],
-    "calls": [
-      "**A1** Do-si-do **opposite (8)** Do-si-do **partner (8)**",
-      "**A2** Face partners and take hands around the room in two big concentric circles. One facing in and one out. **Circle left (8) Circle right (8)**",
-      "**B1** When back with original couple **Take hands In fours Circle left (8) Circle right (8)**",
-      "**B2** Form **lines of four** - CW couple drop hands and go to end. CCW couple in middle **March** anticlockwise. Inner couple - **single arch** Other couple go through - progress on to meet a new couple"
-    ],
-    "tunes": [],
-    "originalUrl": "",
-    "videoUrl": "",
-    "danceDiagram": "No diagram yet.",
-    "notes": ""
-  },
-  {
-    "id": "borrowdale-exchange",
-    "title": "Borrowdale Exchange",
-    "formationId": "3c-C",
-    "speed": "Medium",
-    "musicType": "Polkas",
-    "bars": 32,
-    "difficulty": "1",
-    "step": "All in skip/slip step (step hop) - or just walk",
-    "author": "",
-    "musicExamples": [],
-    "calls": [
-      "**A1** **Skip circle left (8) Circle right (8)**",
-      "**A2** **In and out (4 + 4) Do-si-do (8)**",
-      "**B1** **Right-hand star (8) -** hold hands with person opposite and nobody else**. Unwind -** lowest [P2] goes under the star, then next couple. Keep hold of hands.",
-      "**B2** **Promenade** - **make new sets**"
-    ],
-    "tunes": [],
-    "originalUrl": "",
-    "videoUrl": "",
-    "danceDiagram": "No diagram yet.",
-    "notes": ""
-  },
-  {
-    "id": "canadian-barn-dance",
-    "title": "Canadian Barn Dance",
-    "formationId": "AMc",
-    "speed": null,
-    "musicType": "6/8 (jig/march)",
-    "bars": 32,
-    "difficulty": null,
-    "step": "",
-    "author": "B. Durrands. 19th Century",
-    "musicExamples": [],
-    "calls": [
-      "**A1** Starting with **outside foot** **walk forward for three** steps and **hop**, **walk backwards for three** steps and **hop**",
-      "**A2** **Two side steps away from partner, spin if you like** and **clap**, And **back the same way** Return to partner in relaxed **waltz** **hold**",
-      "**B1** **Chasse** sideways to the [P1]'s left for **two steps and back**",
-      "**B2** **Polka** (step hop on alternate feet) round the room along the line of dance."
-    ],
-    "tunes": [],
-    "originalUrl": "",
-    "videoUrl": "",
-    "danceDiagram": "No diagram yet.",
-    "notes": ""
-  },
-  {
-    "id": "military-two-step",
-    "title": "Military Two Step",
-    "formationId": "AMc",
-    "speed": null,
-    "musicType": "6/8 (jig/march)",
-    "bars": 32,
-    "difficulty": null,
-    "step": "",
-    "author": "",
-    "musicExamples": [],
-    "calls": [
-      "**A1** Starting with **outside foot** **Heel and toe twice, forward for three** steps **Turn around to face the other way**",
-      "**A2** **Repeat Face partner**",
-      "**B1** **Jump and kick twice [P1] turns partner under his raised right arm**",
-      "**B2** **Ballroom hold and waltz**"
-    ],
-    "tunes": [],
-    "originalUrl": "",
-    "videoUrl": "",
-    "danceDiagram": "No diagram yet.",
-    "notes": ""
-  },
-  {
-    "id": "dance-for-a-found-harmonium",
-    "title": "Dance for a Found Harmonium",
-    "formationId": "2c-DbC",
-    "speed": "Brisk but not crazy",
-    "musicType": "Reels",
-    "bars": 48,
-    "difficulty": "2",
-    "step": "Single/Skip",
-    "author": "Dan Leighton danleighton@gmail.com",
-    "musicExamples": [],
-    "calls": [
-      "**A A1** **Set** to your opposite\t**Right hand turn**. Repeat to your partner (& 1 & 2) (1,2,3,4)",
-      "**B A2** **Grand chain** along the circle giving **LEFT hand first** (1 & 2 & 3 & 4 & 5 & 6 & 7 & **Ballroom Hold**)",
-      "**C B2** **Ballroom hold** with **8th** person and **Spin** (1 & 2 & 3 & 4 & 5 & 6 & 7 & Basket)",
-      "**D B2** **Christmas** with new opposite couple (left arm up right arm down (1 & 2 & 3 & 4 & 5 & 6 & 7 & 8)",
-      "**A C1** **Inner** [P1] and **Outer** [P2], in American hold **Gallop** **clockwise** around circle between other couples - **clapping** (12345678). **And back**. (12345678)",
-      "**B C2** **Outer** [P1] and **Inner** [P2], in American hold **Gallop** **clockwise** around circle between other couples - **clapping** (12345678). **And back**. (12345678)"
-    ],
-    "tunes": [],
+    "formationId": "6-8c-L-B",
     "originalUrl": "",
     "videoUrl": "",
     "danceDiagram": "No diagram yet.",

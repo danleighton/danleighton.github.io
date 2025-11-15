@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.4;
+}
+
+header {
+  padding: 0.5rem 1rem;
+  background: #003b6f;
+  color: #fff;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+#controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f3f3f3;
+}
+
+#controls label {
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  min-height: calc(100vh - 100px);
+}
+
+#dance-list {
+  flex: 0 0 180px;
+  border-right: 1px solid #ddd;
+  padding: 0.5rem;
+  overflow-y: auto;
+  background: #fafafa;
+}
+
+.dance-list-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0.25rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.dance-list-item.active {
+  background: #003b6f;
+  color: #fff;
+}
+
+#dance-view {
+  flex: 1 1 auto;
+  padding: 0.75rem 1rem;
+  overflow-y: auto;
+}
+
+#dance-details h2 {
+  margin-top: 0;
+}
+
+.meta p {
+  margin: 0.15rem 0;
+  font-size: 0.9rem;
+}
+
+.calls-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.calls-table th,
+.calls-table td {
+  border: 1px solid #ccc;
+  padding: 0.3rem 0.4rem;
+  vertical-align: top;
+}
+
+#tune-section {
+  margin-top: 1rem;
+}
+
+#tune-controls {
+  margin-bottom: 0.5rem;
+}
+
+#tune-notation svg {
+  max-width: 100%;
+}
+
+/* Mobile tweaks */
+@media (max-width: 700px) {
+  main {
+    flex-direction: column;
+  }
+  #dance-list {
+    flex: 0 0 auto;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: visible;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+  .dance-list-item {
+    width: auto;
+    white-space: nowrap;
+  }
+}

@@ -155,4 +155,23 @@
   },
   {
     "id": "3f3-SC",
-    "name": "Three facing th
+    "name": "Three facing three (Sicilian circle)",
+    "type": "Progressive",
+    "description": "Lines of three dancers facing three, arranged as groups around the room in a Sicilian-circle style. Each group of six forms a mini-set and progresses to meet new groups.",
+    "diagramImage": "img/formation-3f3-SC.svg"
+  },
+  {
+    "id": "6-8c-L-B",
+    "name": "Becket longways set (6–8 couples)",
+    "type": "Progressive",
+    "description": "Becket-style longways set for six to eight couples. Couples stand side by side facing another couple across the set, forming two long lines along the hall; the progression moves couples up and down the set.",
+    "diagramImage": "img/formation-6-8c-L-B.svg"
+  },
+  {
+    "id": "4c-C+1",
+    "name": "Four couples in circle plus one",
+    "type": "Mixer",
+    "description": "Circle of four couples (eight dancers) with one extra person in the middle. The central dancer repeatedly changes partners through the figures, so the dance works as a mixer.",
+    "diagramImage": "img/formation-4c-C+1.svg"
+  }
+]
