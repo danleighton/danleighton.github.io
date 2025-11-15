@@ -33,6 +33,12 @@ h1 {
   flex-direction: column;
 }
 
+#toggle-calling-mode {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  margin-left: auto;
+}
+
 main {
   display: flex;
   min-height: calc(100vh - 100px);
@@ -125,7 +131,42 @@ main {
   display: none;
 }
 
+/* Calling mode:
+   - hide filters, role selector, title, meta, diagrams, tunes, view-toggles
+   - keep dance dropdown and calls visible
+   - slightly enlarge calls
+*/
+
+body.calling-mode #controls .filter-control,
+body.calling-mode #controls .role-control,
+body.calling-mode #view-toggles,
+body.calling-mode #dance-title,
+body.calling-mode #dance-meta,
+body.calling-mode #formation-diagram-wrapper,
+body.calling-mode #dance-diagram-wrapper,
+body.calling-mode #tune-section {
+  display: none;
+}
+
+body.calling-mode #controls {
+  justify-content: space-between;
+}
+
+body.calling-mode #toggle-calling-mode {
+  margin-left: 0;
+}
+
+body.calling-mode .calls-table {
+  font-size: 1.05rem;
+}
+
+body.calling-mode .calls-table th,
+body.calling-mode .calls-table td {
+  padding: 0.4rem 0.5rem;
+}
+
 /* Mobile tweaks */
+
 @media (max-width: 700px) {
   main {
     flex-direction: column;
