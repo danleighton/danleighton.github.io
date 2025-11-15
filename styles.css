@@ -422,20 +422,23 @@ body.calling-mode .filters {
   display: none;
 }
 
+/* bigger text + full-height calls in calling mode */
 body.calling-mode #calls-container {
   flex: 1;
   border-radius: 20px;
   padding: 0.9rem 0.85rem 1rem;
-  font-size: clamp(1.2rem, 2.4vh, 2.3rem);
-  line-height: 1.35;
+  font-size: clamp(1.6rem, 3.8vh, 3rem);
+  line-height: 1.4;
+  height: calc(100vh - 6rem);
+  max-height: calc(100vh - 6rem);
 }
 
 body.calling-mode .calls-table th {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 }
 
 body.calling-mode .calls-table td:first-child {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 body.calling-mode .calls-table td:last-child {
@@ -447,31 +450,46 @@ body.calling-mode .left-panel > *:not(#calls-container) {
   display: none !important;
 }
 
-/* Calling toggle appearance in calling mode */
+/* Calling toggle appearance in calling mode: X in a circle, repositioned */
 
 body.calling-mode .calling-toggle {
+  position: fixed;
+  z-index: 50;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 999px;
-  border-color: rgba(248, 250, 252, 0.9);
-  background: radial-gradient(circle at top, #f9fafb, #e5e7eb);
-  color: #111827;
+  border-color: var(--accent);
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: var(--shadow-soft);
 }
 
 body.calling-mode .calling-toggle::before {
   content: "✕";
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.4rem;
-  height: 1.4rem;
-  border-radius: 999px;
-  border: 1px solid rgba(15, 23, 42, 0.7);
-  background: white;
-  font-size: 0.9rem;
-  margin-right: 0.25rem;
+  font-size: 1.4rem;
 }
 
 body.calling-mode .calling-toggle span {
   display: none;
+}
+
+/* position of X button: desktop vs mobile */
+@media (min-width: 801px) {
+  body.calling-mode .calling-toggle {
+    top: 0.9rem;
+    right: 1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  body.calling-mode .calling-toggle {
+    bottom: 0.9rem;
+    left: 0.9rem;
+  }
 }
 
 /* Hidden utility */
@@ -512,5 +530,10 @@ body.calling-mode .calling-toggle span {
 
   .calls-container {
     max-height: calc(100vh - 10.5rem);
+  }
+
+  /* override mobile max-height in calling mode so we still fill screen */
+  body.calling-mode #calls-container {
+    max-height: calc(100vh - 6rem);
   }
 }
