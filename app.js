@@ -797,13 +797,13 @@ function updateCallingModeUI() {
     body.classList.add('calling-mode');
     if (btn) {
       btn.setAttribute('aria-pressed', 'true');
-      btn.textContent = 'Exit calling mode';
+      btn.textContent = '';
     }
   } else {
     body.classList.remove('calling-mode');
     if (btn) {
       btn.setAttribute('aria-pressed', 'false');
-      btn.textContent = 'Calling mode';
+      btn.textContent = 'Call';
     }
   }
 }
