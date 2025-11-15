@@ -1,1 +1,75 @@
-Hello World
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ceilidh Dances</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- ABCJS from CDN (for tune rendering) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/abcjs@6.4.0/dist/abcjs-basic-min.js"
+    defer>
+  </script>
+
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Ceilidh Dances</h1>
+  </header>
+
+  <section id="controls">
+    <label>
+      Formation
+      <select id="filter-formation">
+        <option value="">All</option>
+      </select>
+    </label>
+
+    <label>
+      Difficulty
+      <select id="filter-difficulty">
+        <option value="">All</option>
+      </select>
+    </label>
+
+    <label>
+      Tune type
+      <select id="filter-tunetype">
+        <option value="">All</option>
+      </select>
+    </label>
+
+    <label>
+      Bars per part
+      <select id="filter-bars">
+        <option value="">All</option>
+      </select>
+    </label>
+  </section>
+
+  <main>
+    <aside id="dance-list"></aside>
+
+    <section id="dance-view">
+      <div id="dance-details"></div>
+
+      <div id="tune-section">
+        <div id="tune-controls"></div>
+        <div id="tune-notation"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
