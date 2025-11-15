@@ -99,27 +99,39 @@ body {
   font-size: 0.95rem;
 }
 
-/* Calling mode toggle */
+/* Calling mode toggle – base (small circle, no pill) */
 
 .calling-toggle {
-  border-radius: 999px;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
   border: 1px solid var(--accent);
   background: radial-gradient(circle at top, #f97316, #ea580c);
   color: #111827;
-  padding: 0.4rem 0.9rem;
-  font-size: 0.9rem;
+  padding: 0;
+  font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.4rem;
+  justify-content: center;
   box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.4), 0 14px 30px rgba(249, 115, 22, 0.35);
 }
 
 .calling-toggle:active {
   transform: translateY(1px);
   box-shadow: 0 6px 18px rgba(249, 115, 22, 0.35);
+}
+
+/* Icon-only: hide text span, show ▶ in normal mode */
+
+.calling-toggle span {
+  display: none;
+}
+
+.calling-toggle::before {
+  content: "▶";
 }
 
 /* Layout */
@@ -450,52 +462,22 @@ body.calling-mode .left-panel > *:not(#calls-container) {
   display: none !important;
 }
 
-/* Calling toggle appearance in calling mode: X in a circle, repositioned */
+/* Calling toggle in calling mode: small X in circle, fixed bottom-left */
 
 body.calling-mode .calling-toggle {
   position: fixed !important;
   bottom: 1rem !important;
   left: 1rem !important;
-  z-index: 50;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 999px;
-  border-color: var(--accent);
-  background: radial-gradient(circle at bottom, #0f172a, #020617);
-  color: var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  box-shadow: var(--shadow-soft);
   top: auto !important;
   right: auto !important;
+  z-index: 50;
+  background: radial-gradient(circle at bottom, #0f172a, #020617);
+  color: var(--accent);
+  box-shadow: var(--shadow-soft);
 }
 
 body.calling-mode .calling-toggle::before {
   content: "✕";
-  font-size: 1rem;
-}
-
-body.calling-mode .calling-toggle span {
-  display: none;
-}
-
-/* position of X button: desktop vs mobile */
-@media (min-width: 801px) {
-  body.calling-mode .calling-toggle {
-    top: auto !important;
-    bottom: -40rem !important;
-    left: 1rem !important;
-    left: auto !important;
-  }
-}
-
-@media (max-width: 800px) {
-  body.calling-mode .calling-toggle {
-    bottom: -40rem;
-    left: 0.9rem;
-  }
 }
 
 /* Hidden utility */
