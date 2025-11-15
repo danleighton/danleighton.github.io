@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ceilidh-dances-cache-v2';
+const CACHE_NAME = 'ceilidh-dances-cache-v3';
 const ASSETS = [
   './',
   'index.html',
