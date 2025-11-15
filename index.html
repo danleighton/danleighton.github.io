@@ -23,6 +23,13 @@
 
   <section id="controls">
     <label>
+      Dance
+      <select id="dance-select">
+        <option value="">Select a dance…</option>
+      </select>
+    </label>
+
+    <label>
       Formation
       <select id="filter-formation">
         <option value="">All</option>
@@ -57,18 +64,24 @@
   </section>
 
   <main>
-    <aside id="dance-list"></aside>
-
     <section id="dance-view">
       <div id="view-toggles">
         <button id="toggle-info">Hide info</button>
-        <button id="toggle-diagrams">Show diagrams</button>
+        <button id="toggle-formation">Show formation</button>
+        <button id="toggle-dance-figure">Show dance figure</button>
       </div>
 
-      <div id="dance-details"></div>
+      <div id="dance-title"></div>
 
-      <div id="diagrams-wrapper" class="hidden">
+      <div id="dance-meta"></div>
+
+      <div id="calls-container"></div>
+
+      <div id="formation-diagram-wrapper" class="hidden">
         <div id="formation-diagram"></div>
+      </div>
+
+      <div id="dance-diagram-wrapper" class="hidden">
         <div id="dance-diagram"></div>
       </div>
 
