@@ -88,6 +88,36 @@ function rebuildDanceIndex() {
   });
 }
 
+/** Formation resolution helpers **/
+
+function normaliseFormationString(str) {
+  if (!str) return '';
+  return str
+    .toLowerCase()
+    .replace(/[\u2013\u2014]/g, '-')   // en/em dash → hyphen
+    .replace(/[^a-z0-9]+/g, ' ')      // strip punctuation
+    .replace(/\s+/g, ' ')             // collapse spaces
+    .trim();
+}
+
+function getFormationForDance(d) {
+  if (!d || !d.formationName) return null;
+  const target = normaliseFormationString(d.formationName);
+  if (!target) return null;
+
+  // 1) exact normalised name match
+  let match = formations.find(f => normaliseFormationString(f.name) === target);
+  if (match) return match;
+
+  // 2) loose substring match (helps with slightly different wording)
+  match = formations.find(f => {
+    const fName = normaliseFormationString(f.name);
+    return fName.includes(target) || target.includes(fName);
+  });
+
+  return match || null;
+}
+
 /** Roles / terminology **/
 
 function initialiseRoleSets() {
@@ -189,6 +219,24 @@ function setupSetlistStaticHandlers() {
   const resetBtn = document.getElementById('reset-setlist');
   if (resetBtn) {
     resetBtn.addEventListener('click', resetActiveSetlistToOriginal);
+  }
+
+  const editor = document.getElementById('setlist-editor');
+  if (editor) {
+    editor.addEventListener('click', (e) => {
+      const li = e.target.closest('li');
+      if (!li) return;
+      const index = parseInt(li.getAttribute('data-index'), 10);
+      if (Number.isNaN(index)) return;
+
+      if (e.target.classList.contains('remove-item')) {
+        removeSetlistItem(index);
+      } else if (e.target.classList.contains('move-up')) {
+        moveSetlistItem(index, -1);
+      } else if (e.target.classList.contains('move-down')) {
+        moveSetlistItem(index, +1);
+      }
+    });
   }
 }
 
@@ -611,26 +659,62 @@ function renderCurrentDance() {
     }
   }
 
+  // Formation panel (used to be "Info")
   if (infoContainer) {
     infoContainer.innerHTML = '';
-    if (d.infoHtml) {
-      const div = document.createElement('div');
-      div.innerHTML = applyRoleSetToHtml(d.infoHtml);
-      infoContainer.appendChild(div);
+
+    const heading = document.createElement('h3');
+    heading.textContent = 'Formation';
+    infoContainer.appendChild(heading);
+
+    const formation = getFormationForDance(d);
+
+    if (formation) {
+      if (formation.description) {
+        const descP = document.createElement('p');
+        descP.textContent = applyRoleSetToText(formation.description);
+        infoContainer.appendChild(descP);
+      }
+
+      if (formation.diagramImage) {
+        const img = document.createElement('img');
+        img.src = formation.diagramImage;
+        img.alt = formation.name || 'Formation diagram';
+        infoContainer.appendChild(img);
+      } else {
+        const p = document.createElement('p');
+        p.textContent = 'No formation image added yet';
+        infoContainer.appendChild(p);
+      }
+    } else {
+      const p = document.createElement('p');
+      p.textContent = 'No formation details added yet';
+      infoContainer.appendChild(p);
     }
   }
 
   if (figureContainer) {
     figureContainer.innerHTML = '';
+
+    let hasFigure = false;
+
     if (d.figureHtml) {
       const div = document.createElement('div');
       div.innerHTML = d.figureHtml;
       figureContainer.appendChild(div);
+      hasFigure = true;
     } else if (d.figureImage) {
       const img = document.createElement('img');
       img.src = d.figureImage;
       img.alt = `${d.title} figure`;
       figureContainer.appendChild(img);
+      hasFigure = true;
+    }
+
+    if (!hasFigure) {
+      const p = document.createElement('p');
+      p.textContent = 'No dance illustration added yet';
+      figureContainer.appendChild(p);
     }
   }
 }
