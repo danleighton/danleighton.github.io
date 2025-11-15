@@ -12,22 +12,22 @@ let rolesRaw = [];
 let setlists = [];
 let workingSetlists = [];
 let danceById = {};
-let formationById = {};
 
-let filteredDances = [];
-let currentDanceId = null;
+let filteredDances = []
 let currentSetlistId = '';
 
 let roleSets = {};
 let currentRoleSetId = null;
 
 let callingMode = false;
+let setlistEditorOpen = false;
 
 document.addEventListener('DOMContentLoaded', () => {
   setupFilterHandlers();
   setupCallingModeToggle();
   setupNextPrevButtons();
   setupSetlistStaticHandlers();
+  setupSetlistEditorToggle();
   loadData();
   registerServiceWorker();
 });
@@ -58,11 +58,6 @@ async function loadData() {
     }
 
     formations = Array.isArray(formationData) ? formationData : [];
-    formationById = {};
-    formations.forEach(f => {
-      if (!f || !f.id) return;
-      formationById[f.id] = f;
-    });
     rolesRaw = Array.isArray(rolesData) ? rolesData : [];
     setlists = Array.isArray(setlistsData) ? setlistsData : [];
 
@@ -91,29 +86,6 @@ function rebuildDanceIndex() {
       danceById[d.id] = d;
     }
   });
-}
-
-
-/** Formation helpers **/
-
-function getFormationForDance(d) {
-  if (!d) return null;
-  if (d.formationId && formationById[d.formationId]) {
-    return formationById[d.formationId];
-  }
-  return null;
-}
-
-function getFormationName(d) {
-  const f = getFormationForDance(d);
-  if (f && f.name) return f.name;
-  return d && d.formationName ? d.formationName : '';
-}
-
-function getBarsForDance(d) {
-  if (!d) return null;
-  if (typeof d.bars === 'number') return d.bars;
-  return null;
 }
 
 /** Roles / terminology **/
@@ -214,6 +186,11 @@ function setupSetlistStaticHandlers() {
     addBtn.addEventListener('click', addCurrentDanceToSetlist);
   }
 
+  const resetBtn = document.getElementById('reset-setlist');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', resetActiveSetlistToOriginal);
+  }
+
   const editor = document.getElementById('setlist-editor');
   if (editor) {
     editor.addEventListener('click', (e) => {
@@ -233,6 +210,21 @@ function setupSetlistStaticHandlers() {
   }
 }
 
+
+function resetActiveSetlistToOriginal() {
+  if (!currentSetlistId) return;
+  const original = setlists.find(s => s.id === currentSetlistId);
+  if (!original) return;
+
+  const index = workingSetlists.findIndex(s => s.id === currentSetlistId);
+  if (index === -1) return;
+
+  workingSetlists[index] = JSON.parse(JSON.stringify(original));
+  saveWorkingSetlists();
+  renderSetlistEditor();
+}
+
+
 function getActiveSetlist() {
   if (!currentSetlistId) return null;
   return workingSetlists.find(s => s.id === currentSetlistId) || null;
@@ -244,7 +236,7 @@ function renderSetlistEditor() {
   if (!wrapper || !ul) return;
 
   const active = getActiveSetlist();
-  if (!active) {
+  if (!active || !setlistEditorOpen) {
     wrapper.classList.add('hidden');
     ul.innerHTML = '';
     return;
@@ -270,16 +262,19 @@ function renderSetlistEditor() {
     upBtn.type = 'button';
     upBtn.className = 'move-up';
     upBtn.textContent = '↑';
+    upBtn.addEventListener('click', () => moveSetlistItem(index, -1));
 
     const downBtn = document.createElement('button');
     downBtn.type = 'button';
     downBtn.className = 'move-down';
     downBtn.textContent = '↓';
+    downBtn.addEventListener('click', () => moveSetlistItem(index, +1));
 
     const removeBtn = document.createElement('button');
     removeBtn.type = 'button';
     removeBtn.className = 'remove-item';
     removeBtn.textContent = '×';
+    removeBtn.addEventListener('click', () => removeSetlistItem(index));
 
     controlsSpan.appendChild(upBtn);
     controlsSpan.appendChild(downBtn);
@@ -291,6 +286,24 @@ function renderSetlistEditor() {
     ul.appendChild(li);
   });
 }
+
+
+
+function setupSetlistEditorToggle() {
+  const btn = document.getElementById('toggle-setlist-editor');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    const active = getActiveSetlist();
+    if (!active) {
+      alert('Select a setlist first.');
+      return;
+    }
+    setlistEditorOpen = !setlistEditorOpen;
+    renderSetlistEditor();
+  });
+}
+
 
 function saveWorkingSetlists() {
   try {
@@ -343,8 +356,10 @@ function addCurrentDanceToSetlist() {
     danceId: currentDanceId,
     name: d.title || currentDanceId,
     speed: d.speed || null,
-    form: getFormationName(d) || null,
-    bars: getBarsForDance(d),
+    form: d.formationName || null,
+    bars: d.structure && typeof d.structure.barsPerPart === 'number'
+      ? d.structure.barsPerPart
+      : null,
     musicType: d.musicType || null
   });
 
@@ -396,7 +411,7 @@ function populateFilterOptions() {
   if (formationSelect) {
     const seen = new Set();
     dances.forEach(d => {
-      const f = getFormationName(d) || '';
+      const f = d.formationName || '';
       if (!f) return;
       if (seen.has(f)) return;
       seen.add(f);
@@ -410,7 +425,9 @@ function populateFilterOptions() {
   if (barsSelect) {
     const seen = new Set();
     dances.forEach(d => {
-      const bars = getBarsForDance(d);
+      const bars = d.structure && typeof d.structure.barsPerPart === 'number'
+        ? d.structure.barsPerPart
+        : null;
       if (!bars) return;
       if (seen.has(bars)) return;
       seen.add(bars);
@@ -447,22 +464,15 @@ function applyFilters() {
   const musicTypeFilter = musicTypeSelect ? musicTypeSelect.value : '';
   const difficultyFilter = difficultySelect ? difficultySelect.value : '';
 
-  const activeSetlist = getActiveSetlist();
-
-  let baseDances;
-
-  if (activeSetlist) {
-    baseDances = activeSetlist.items
-      .map(item => danceById[item.danceId])
-      .filter(Boolean);
-  } else {
-    baseDances = dances.slice();
-  }
+  // Always filter from the full dance list; setlists control ordering and calling, not visibility
+  const baseDances = dances.slice();
 
   filteredDances = baseDances.filter(d => {
     if (formationFilter && d.formationName !== formationFilter) return false;
     if (barsFilter) {
-      const bars = getBarsForDance(d);
+      const bars = d.structure && typeof d.structure.barsPerPart === 'number'
+        ? d.structure.barsPerPart
+        : null;
       if (!bars || String(bars) !== barsFilter) return false;
     }
     if (musicTypeFilter && d.musicType !== musicTypeFilter) return false;
@@ -473,6 +483,8 @@ function applyFilters() {
     return true;
   });
 
+  // When not using a setlist, keep alphabetical order
+  const activeSetlist = getActiveSetlist();
   if (!activeSetlist) {
     filteredDances.sort((a, b) => {
       const ta = (a.title || '').toLowerCase();
@@ -549,13 +561,14 @@ function renderCurrentDance() {
 
   if (titleEl) titleEl.textContent = d.title || d.id;
   if (formationEl) {
-    const fName = getFormationName(d);
-    const label = fName ? `Formation: ${fName}` : '';
+    const label = d.formationName ? `Formation: ${d.formationName}` : '';
     formationEl.textContent = label;
   }
 
   if (structureEl) {
-    const bars = getBarsForDance(d);
+    const bars = d.structure && typeof d.structure.barsPerPart === 'number'
+      ? d.structure.barsPerPart
+      : null;
     structureEl.textContent = bars ? `Bars: ${bars}` : '';
   }
 
@@ -573,17 +586,48 @@ function renderCurrentDance() {
     difficultyEl.textContent = diffLabel;
   }
 
+  
   // Calls / info / figure
   if (callsContainer) {
     callsContainer.innerHTML = '';
-    if (Array.isArray(d.calls) && d.calls.length) {
-      const ul = document.createElement('ul');
-      d.calls.forEach(call => {
-        const li = document.createElement('li');
-        li.textContent = applyRoleSetToText(callText(call));
-        ul.appendChild(li);
+
+    if (Array.isArray(d.calls) && d.calls.length && d.structure && Array.isArray(d.structure.parts)) {
+      const table = document.createElement('table');
+      table.className = 'calls-table';
+
+      const thead = document.createElement('thead');
+      const headRow = document.createElement('tr');
+      const thBars = document.createElement('th');
+      thBars.textContent = 'BARS';
+      const thCalls = document.createElement('th');
+      thCalls.textContent = 'CALLS';
+      headRow.appendChild(thBars);
+      headRow.appendChild(thCalls);
+      thead.appendChild(headRow);
+      table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+
+      d.structure.parts.forEach(partId => {
+        const rowCalls = d.calls.filter(c => c.part === partId);
+        if (!rowCalls.length) return;
+
+        const tr = document.createElement('tr');
+
+        const tdBars = document.createElement('td');
+        tdBars.innerHTML = `<strong>${partId}</strong>`;
+        tr.appendChild(tdBars);
+
+        const tdCalls = document.createElement('td');
+        const combinedHtml = rowCalls.map(c => c.call || '').join('<br>');
+        tdCalls.innerHTML = applyRoleSetToHtml(combinedHtml);
+        tr.appendChild(tdCalls);
+
+        tbody.appendChild(tr);
       });
-      callsContainer.appendChild(ul);
+
+      table.appendChild(tbody);
+      callsContainer.appendChild(table);
     } else if (d.instructionsHtml) {
       const div = document.createElement('div');
       div.innerHTML = applyRoleSetToHtml(d.instructionsHtml);
@@ -591,7 +635,8 @@ function renderCurrentDance() {
     }
   }
 
-  if (infoContainer) {
+
+ if (infoContainer) {
     infoContainer.innerHTML = '';
     if (d.infoHtml) {
       const div = document.createElement('div');
@@ -620,23 +665,27 @@ function renderCurrentDance() {
 function callText(call) {
   if (typeof call === 'string') return call;
   if (!call) return '';
-  return call.text || '';
+  // Support both legacy {text: ''} and new {call: ''}
+  return call.call || call.text || '';
 }
 
 function applyRoleSetToText(text) {
   if (!text) return '';
-  // baseline: Person 1 / Person 2 and short forms
+  // Baseline: map neutral tokens and legacy role words to Person 1 / Person 2
   let result = text
-    .replace(/\bLarks\b/g, 'Person 1')
-    .replace(/\bRobins\b/g, 'Person 2')
+    .replace(/\[P1s\]/g, 'Person 1s')
+    .replace(/\[P1\]/g, 'Person 1')
+    .replace(/\[P2s\]/g, 'Person 2s')
+    .replace(/\[P2\]/g, 'Person 2')
+    .replace(/\bLarks\b/g, 'Person 1s')
     .replace(/\bLark\b/g, 'Person 1')
+    .replace(/\bRobins\b/g, 'Person 2s')
     .replace(/\bRobin\b/g, 'Person 2');
 
   const rs = currentRoleSetId ? roleSets[currentRoleSetId] : null;
   if (!rs) return result;
 
   const map = rs.mapping || rs;
-
   if (!map) return result;
 
   const p1 = map.P1 || 'Person 1';
@@ -710,14 +759,29 @@ function setupNextPrevButtons() {
 }
 
 function stepDance(delta) {
-  if (!filteredDances.length || !currentDanceId) return;
-  const index = filteredDances.findIndex(d => d.id === currentDanceId);
-  if (index === -1) return;
-  let newIndex = index + delta;
-  if (newIndex < 0) newIndex = filteredDances.length - 1;
-  if (newIndex >= filteredDances.length) newIndex = 0;
+  if (!currentDanceId) return;
 
-  const newDance = filteredDances[newIndex];
+  const activeSetlist = getActiveSetlist();
+  let sequence;
+
+  if (activeSetlist && Array.isArray(activeSetlist.items) && activeSetlist.items.length) {
+    sequence = activeSetlist.items
+      .map(item => danceById[item.danceId])
+      .filter(Boolean);
+  } else {
+    sequence = filteredDances.slice();
+  }
+
+  if (!sequence.length) return;
+
+  const index = sequence.findIndex(d => d.id === currentDanceId);
+  if (index === -1) return;
+
+  let newIndex = index + delta;
+  if (newIndex < 0) newIndex = sequence.length - 1;
+  if (newIndex >= sequence.length) newIndex = 0;
+
+  const newDance = sequence[newIndex];
   if (!newDance) return;
 
   currentDanceId = newDance.id;
