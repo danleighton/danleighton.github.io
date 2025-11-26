@@ -382,6 +382,7 @@ function setupFilterHandlers() {
   const clearBtn = document.getElementById('clear-filters');
   const danceSelect = document.getElementById('dance-select');
   const setlistSelect = document.getElementById('setlist-select');
+  const roleSetSelect = document.getElementById('role-set-select');
 
   [formationSelect, barsSelect, musicTypeSelect, difficultySelect].forEach(sel => {
     if (!sel) return;
@@ -396,6 +397,11 @@ function setupFilterHandlers() {
       if (barsSelect) barsSelect.value = '';
       if (musicTypeSelect) musicTypeSelect.value = '';
       if (difficultySelect) difficultySelect.value = '';
+      if (roleSetSelect) {
+        roleSetSelect.value = '';
+        currentRoleSetId = null;
+        renderCurrentDance();
+      }
       if (setlistSelect) {
         setlistSelect.value = '';
         currentSetlistId = '';
