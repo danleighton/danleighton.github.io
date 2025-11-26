@@ -377,6 +377,7 @@ function setupFilterHandlers() {
   const difficultySelect = document.getElementById('filter-difficulty');
   const clearBtn = document.getElementById('clear-filters');
   const danceSelect = document.getElementById('dance-select');
+  const setlistSelect = document.getElementById('setlist-select');
 
   [formationSelect, barsSelect, musicTypeSelect, difficultySelect].forEach(sel => {
     if (!sel) return;
@@ -391,6 +392,12 @@ function setupFilterHandlers() {
       if (barsSelect) barsSelect.value = '';
       if (musicTypeSelect) musicTypeSelect.value = '';
       if (difficultySelect) difficultySelect.value = '';
+      if (setlistSelect) {
+        setlistSelect.value = '';
+        currentSetlistId = '';
+        setlistEditorOpen = false;
+        renderSetlistEditor();
+      }
       applyFilters();
     });
   }
