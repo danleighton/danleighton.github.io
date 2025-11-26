@@ -1,15 +1,21 @@
-const BUILD_VERSION = 'v26.11.25.1202';
+importScripts('version.js');
+
+if (typeof BUILD_VERSION === 'undefined') {
+  throw new Error('version.js must be available to the service worker');
+}
+
 const CACHE_NAME = `ceilidh-dances-v8-${BUILD_VERSION}`;
 const ASSETS = [
   '/',
   '/index.html',
-  `/styles.css?v=${BUILD_VERSION}`,
-  `/app.js?v=${BUILD_VERSION}`,
-  `/dances.json?v=${BUILD_VERSION}`,
-  `/formations.json?v=${BUILD_VERSION}`,
-  `/roles.json?v=${BUILD_VERSION}`,
-  `/setlists.json?v=${BUILD_VERSION}`,
-  `/manifest.json?v=${BUILD_VERSION}`
+  '/version.js',
+  `/styles.css${VERSION_SUFFIX}`,
+  `/app.js${VERSION_SUFFIX}`,
+  `/dances.json${VERSION_SUFFIX}`,
+  `/formations.json${VERSION_SUFFIX}`,
+  `/roles.json${VERSION_SUFFIX}`,
+  `/setlists.json${VERSION_SUFFIX}`,
+  `/manifest.json${VERSION_SUFFIX}`
 ];
 
 self.addEventListener('install', event => {

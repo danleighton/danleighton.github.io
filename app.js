@@ -23,8 +23,9 @@ let showDanceFigure = true;
 let touchStartX = null;
 let touchStartY = null;
 
-const BUILD_VERSION = 'v26.11.25.1202';
-const VERSION_SUFFIX = `?v=${BUILD_VERSION}`;
+if (typeof BUILD_VERSION === 'undefined' || typeof VERSION_SUFFIX === 'undefined') {
+  throw new Error('version.js must be loaded before app.js');
+}
 
 const STORAGE_KEY_DANCES = 'ceilidh-dances-v1';
 const STORAGE_KEY_SETLISTS = 'ceilidh-setlists-v1';
@@ -33,7 +34,7 @@ const FORMATIONS_URL = `formations.json${VERSION_SUFFIX}`;
 const ROLES_URL = `roles.json${VERSION_SUFFIX}`;
 const SETLISTS_URL = `setlists.json${VERSION_SUFFIX}`;
 
-document.addEventListener('DOMContentLoaded', () => {
+function initializeApp() {
   setupFilterHandlers();
   setupCallingModeToggle();
   setupNextPrevButtons();
@@ -44,7 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
   loadData();
   registerServiceWorker();
   renderBuildVersion();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+  initializeApp();
+}
 
 // Data loading
 
