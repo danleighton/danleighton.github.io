@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ceilidh Caller</title>
-  <link rel="stylesheet" href="styles.css?v=26.11.25.1202" />
+  <script src="version.js"></script>
+  <link id="main-style" rel="stylesheet" href="" />
+  <script>
+    document.getElementById('main-style').href = `styles.css?v=${BUILD_VERSION}`;
+  </script>
 </head>
 <body>
   <div class="page">
@@ -124,11 +128,16 @@
         </section>
       </aside>
     </main>
-    <footer class="version-footer" aria-label="Build version">
+  <footer class="version-footer" aria-label="Build version">
       <span id="build-version"></span>
     </footer>
   </div>
 
-  <script src="app.js?v=26.11.25.1202" defer></script>
+  <script>
+    const script = document.createElement('script');
+    script.src = `app.js?v=${BUILD_VERSION}`;
+    script.defer = true;
+    document.body.appendChild(script);
+  </script>
 </body>
 </html>
