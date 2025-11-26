@@ -1,8 +1,14 @@
-const BUILD_VERSION = 'v26.11.25.1202';
+importScripts('version.js');
+
+if (typeof BUILD_VERSION === 'undefined') {
+  throw new Error('version.js must be available to the service worker');
+}
+
 const CACHE_NAME = `ceilidh-dances-v8-${BUILD_VERSION}`;
 const ASSETS = [
   '/',
   '/index.html',
+  `/version.js?v=${BUILD_VERSION}`,
   `/styles.css?v=${BUILD_VERSION}`,
   `/app.js?v=${BUILD_VERSION}`,
   `/dances.json?v=${BUILD_VERSION}`,
