@@ -117,7 +117,7 @@ function initialiseRoleSets() {
 
   const defaultOption = document.createElement('option');
   defaultOption.value = '';
-  defaultOption.textContent = 'Person 1 / Person 2';
+  defaultOption.textContent = 'Gent / Lady';
   select.appendChild(defaultOption);
 
   Object.values(roleSets).forEach(rs => {
