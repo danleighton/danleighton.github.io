@@ -1,8 +1,8 @@
-const CACHE_NAME = 'ceilidh-dances-v6';
+const CACHE_NAME = 'ceilidh-dances-v7';
 const ASSETS = [
   '/',
   '/index.html',
-  '/style.css',
+  '/styles.css',
   '/app.js',
   '/dances.json',
   '/formations.json',
