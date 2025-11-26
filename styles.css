@@ -486,6 +486,15 @@ body.calling-mode .calling-toggle::before {
   display: none !important;
 }
 
+
+.version-footer {
+  text-align: center;
+  font-size: 0.55rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  padding: 0.35rem 0;
+}
+
 /* Responsive */
 
 @media (max-width: 768px) {
