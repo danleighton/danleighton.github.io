@@ -7,7 +7,7 @@
   <script src="version.js"></script>
   <link id="main-style" rel="stylesheet" href="" />
   <script>
-    document.getElementById('main-style').href = `styles.css${VERSION_SUFFIX}`;
+    document.getElementById('main-style').href = `styles.css?v=${BUILD_VERSION}`;
   </script>
 </head>
 <body>
@@ -135,8 +135,8 @@
 
   <script>
     const script = document.createElement('script');
-    script.src = `app.js${VERSION_SUFFIX}`;
-    script.async = false;
+    script.src = `app.js?v=${BUILD_VERSION}`;
+    script.defer = true;
     document.body.appendChild(script);
   </script>
 </body>
