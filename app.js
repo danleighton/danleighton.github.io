@@ -34,7 +34,7 @@ const FORMATIONS_URL = `formations.json${VERSION_SUFFIX}`;
 const ROLES_URL = `roles.json${VERSION_SUFFIX}`;
 const SETLISTS_URL = `setlists.json${VERSION_SUFFIX}`;
 
-document.addEventListener('DOMContentLoaded', () => {
+function initializeApp() {
   setupFilterHandlers();
   setupCallingModeToggle();
   setupNextPrevButtons();
@@ -45,7 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
   loadData();
   registerServiceWorker();
   renderBuildVersion();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+  initializeApp();
+}
 
 // Data loading
 
