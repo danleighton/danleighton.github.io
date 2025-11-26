@@ -1,14 +1,15 @@
-const CACHE_NAME = 'ceilidh-dances-v7';
+const BUILD_VERSION = 'v26.11.25.1202';
+const CACHE_NAME = `ceilidh-dances-v8-${BUILD_VERSION}`;
 const ASSETS = [
   '/',
   '/index.html',
-  '/styles.css',
-  '/app.js',
-  '/dances.json',
-  '/formations.json',
-  '/roles.json',
-  '/setlists.json',
-  '/manifest.json'
+  `/styles.css?v=${BUILD_VERSION}`,
+  `/app.js?v=${BUILD_VERSION}`,
+  `/dances.json?v=${BUILD_VERSION}`,
+  `/formations.json?v=${BUILD_VERSION}`,
+  `/roles.json?v=${BUILD_VERSION}`,
+  `/setlists.json?v=${BUILD_VERSION}`,
+  `/manifest.json?v=${BUILD_VERSION}`
 ];
 
 self.addEventListener('install', event => {
