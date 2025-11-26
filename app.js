@@ -23,12 +23,15 @@ let showDanceFigure = true;
 let touchStartX = null;
 let touchStartY = null;
 
+const BUILD_VERSION = 'v26.11.25.1202';
+const VERSION_SUFFIX = `?v=${BUILD_VERSION}`;
+
 const STORAGE_KEY_DANCES = 'ceilidh-dances-v1';
 const STORAGE_KEY_SETLISTS = 'ceilidh-setlists-v1';
-const DATA_URL = 'dances.json';
-const FORMATIONS_URL = 'formations.json';
-const ROLES_URL = 'roles.json';
-const SETLISTS_URL = 'setlists.json';
+const DATA_URL = `dances.json${VERSION_SUFFIX}`;
+const FORMATIONS_URL = `formations.json${VERSION_SUFFIX}`;
+const ROLES_URL = `roles.json${VERSION_SUFFIX}`;
+const SETLISTS_URL = `setlists.json${VERSION_SUFFIX}`;
 
 document.addEventListener('DOMContentLoaded', () => {
   setupFilterHandlers();
@@ -40,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupSwipeNavigation();
   loadData();
   registerServiceWorker();
+  renderBuildVersion();
 });
 
 // Data loading
@@ -113,7 +117,7 @@ function initialiseRoleSets() {
 
   const defaultOption = document.createElement('option');
   defaultOption.value = '';
-  defaultOption.textContent = 'Person 1 / Person 2';
+  defaultOption.textContent = 'Gent / Lady';
   select.appendChild(defaultOption);
 
   Object.values(roleSets).forEach(rs => {
@@ -925,6 +929,13 @@ function setupSwipeNavigation() {
     touchStartX = null;
     touchStartY = null;
   }, { passive: true });
+}
+
+function renderBuildVersion() {
+  const el = document.getElementById('build-version');
+  if (el) {
+    el.textContent = BUILD_VERSION;
+  }
 }
 
 // Service worker
